@@ -1,0 +1,12 @@
+{{ with .Params.tags }}
+<footer>
+  <ul class="tags">
+    {{ range . }}
+    {{ $name := . }}
+    {{ with $.Site.GetPage (printf "/tags/%s" ($name | urlize))}}
+    <li><a class="tags-link" href="{{ .Permalink }}" rel="tag">{{ $name }}</a></li>
+    {{ end }}
+    {{ end }}
+  </ul>
+</footer>
+{{ end }}

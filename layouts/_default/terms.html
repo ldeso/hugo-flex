@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+
+{{ partial "top.html" . }}
+{{ .Content }}
+<ul class="tags">
+  {{ range .Pages }}
+  <li><a class="tags-link" href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+
+{{ partial "footer.html" . }}

@@ -1,0 +1,24 @@
+params:
+  color: teal
+  footer: Copyright © 2019 <a href="/about/" rel="author">Your Name Here</a>
+    – Except where otherwise noted, content on this site is licensed under a
+    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
+    Creative Commons Attribution 4.0 International License</a>.
+
+menu:
+  nav:
+  - name: About
+    url: /about/
+    weight: 1
+  - name: Posts
+    url: /post/
+    weight: 2
+  - name: Tags
+    url: /tags/
+    weight: 3
+  - name: Categories
+    url: /categories/
+    weight: 4
+  - name: RSS
+    url: /index.xml
+    weight: 5

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {{ if eq .Title .Site.Title }}
+    {{ .Site.Title }}
+    {{ else }}
+    {{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}
+    {{ end }}
+  </title>
+  {{ range .AlternativeOutputFormats }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end }}
+  <style>
+    {{ partialCached "critical.css" . | safeCSS }}
+    {{ range .Params.css }}{{ partial . | safeCSS }}{{ end }}
+  </style>
+  {{ .Hugo.Generator }}
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="wrapper">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a class="nav-link" href="/">{{ .Site.Title }}</a>
+        </li>
+        {{ range .Site.Menus.nav }}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ .URL | relURL }}">{{ .Name }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div class="wrapper">
+      <div class="padding">

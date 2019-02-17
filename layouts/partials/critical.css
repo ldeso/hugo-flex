@@ -1,0 +1,102 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 0.2rem;
+}
+
+.wrapper {
+  max-width: 50rem;
+  margin: auto;
+}
+
+.padding {
+  padding: 0 1rem;
+}
+
+.nav {
+  background: {{ .Site.Params.color }};
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-flow: row-reverse wrap-reverse;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item:first-child {
+  flex-grow: 1;
+}
+
+{{ $len := len .Site.Menus.nav }}
+{{ range seq $len }}
+
+.nav-item:nth-child({{ . }}) {
+  order: {{ . | sub $len | add 1 }};
+}
+
+{{ end }}
+
+.nav-link {
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.top-title {
+  margin: 1.5rem 0.5rem 0 0;
+}
+
+.top-permalink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 1.5rem 0;
+}
+
+.tags-link {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background: {{ .Site.Params.color }};
+  display: block;
+  border-radius: 0.2rem;
+  padding: 0 0.3rem;
+  margin: 0.2rem;
+}
+
+.footer {
+  text-align: center;
+}

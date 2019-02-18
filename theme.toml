@@ -4,7 +4,7 @@ licenselink = "https://github.com/de-souza/hugo-flex/blob/master/LICENSE"
 description = "A lightweight Hugo theme leveraging CSS Flexbox"
 homepage = "https://github.com/de-souza/hugo-flex"
 tags = ["responsive", "minimal", "flexbox", "no-javascript"]
-features = ["posts", "tags", "categories"]
+features = ["posts"]
 min_version = "0.48"
 
 [author]

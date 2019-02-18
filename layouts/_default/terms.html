@@ -4,8 +4,10 @@
 {{ .Content }}
 <ul class="tags">
   {{ range .Pages }}
-  <li><a class="tags-link" href="{{ .Permalink }}">{{ .Title }}</a></li>
-  {{ end }}
+  <li class="tags--item background">
+      <a class="tags--link clickable" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
 </ul>
 
 {{ partial "footer.html" . }}

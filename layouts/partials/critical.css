@@ -8,23 +8,94 @@ body {
   padding: 0;
 }
 
-main {
-  flex-grow: 1;
-}
-
 img {
   max-width: 100%;
   border-radius: 0.2rem;
 }
 
 pre {
+  overflow-x: auto;
   border: 0.1rem solid lightgray;
   padding: 1rem;
-  overflow-x: auto;
 }
 
 code {
   font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.banner {
+  list-style: none;
+  display: flex;
+  flex-flow: row-reverse wrap-reverse;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+{{ $len := len .Site.Menus.nav }}
+{{ range seq $len }}
+
+.banner--item:nth-child({{ . }}) {
+  order: {{ . | sub $len | add 1 }};
+}
+
+{{ end }}
+
+.banner--link {
+  font-size: 1.25rem;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.top--title {
+  margin: 1.5rem 0.5rem 0 0;
+}
+
+.top--link {
+  color: inherit;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.tags--item {
+  border-radius: 0.2rem;
+  margin: 0.2rem;
+  padding: 0 0.3rem;
+}
+
+.tags--link {
+  color: white;
+}
+
+.pagination {
+  font-size: 1.25rem;
+  color: inherit;
+}
+
+.pagination--right {
+  float: right;
+}
+
+.footer {
+  text-align: center;
+}
+
+.expand {
+  flex-grow: 1;
 }
 
 .wrapper {
@@ -36,77 +107,12 @@ code {
   padding: 0 1rem;
 }
 
-.nav {
+.background {
   background: {{ .Site.Params.color }};
 }
 
-.nav-menu {
-  list-style: none;
-  display: flex;
-  flex-flow: row-reverse wrap-reverse;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-item:first-child {
-  flex-grow: 1;
-}
-
-{{ $len := len .Site.Menus.nav }}
-{{ range seq $len }}
-
-.nav-item:nth-child({{ . }}) {
-  order: {{ . | sub $len | add 1 }};
-}
-
-{{ end }}
-
-.nav-link {
+.clickable {
   font-weight: bold;
-  font-size: 1.25rem;
   text-decoration: none;
-  color: white;
   display: inline-block;
-  padding: 0.5rem 1rem;
-}
-
-.top {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.top-title {
-  margin: 1.5rem 0.5rem 0 0;
-}
-
-.top-permalink {
-  text-decoration: none;
-  color: inherit;
-}
-
-.tags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0;
-  padding: 1.5rem 0;
-}
-
-.tags-link {
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  background: {{ .Site.Params.color }};
-  display: block;
-  border-radius: 0.2rem;
-  padding: 0 0.3rem;
-  margin: 0.2rem;
-}
-
-.footer {
-  text-align: center;
 }

@@ -22,20 +22,20 @@
 </head>
 
 <body>
-  <nav class="nav">
+  <nav class="background">
     <div class="wrapper">
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a class="nav-link" href="/">{{ .Site.Title }}</a>
+      <ul class="banner">
+        <li class="banner--item expand">
+          <a class="banner--link" href="/">{{ .Site.Title }}</a>
         </li>
         {{ range .Site.Menus.nav }}
-        <li class="nav-item">
-          <a class="nav-link" href="{{ .URL | relURL }}">{{ .Name }}</a>
+        <li class="banner--item">
+          <a class="banner--link" href="{{ .URL }}">{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>
     </div>
   </nav>
-  <main>
+  <main class="expand">
     <div class="wrapper">
       <div class="padding">

@@ -1,12 +1,9 @@
 {{ partial "header.html" . }}
 
-{{ $isarticle := .Page.Type | in site.Params.mainSections }}
-{{ if $isarticle }}<article>{{ end }}
-
-{{ partial "top.html" . }}
-{{ .Content }}
-{{ partial "tags.html" . }}
-
-{{ if $isarticle }}</article>{{ end }}
+<article>
+  {{ partial "top.html" . }}
+  {{ .Content }}
+  {{ partial "tags.html" . }}
+</article>
 
 {{ partial "footer.html" . }}

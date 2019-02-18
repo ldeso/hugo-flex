@@ -5,11 +5,12 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 ## Features
 
-- 100% native HTML and CSS
-- CSS less than 2 kB and [dynamically embedded](#additional-css-rules) in HTML files
-- Fully responsive layout with no hardcoded screen size
+- 100% native code: no framework used
+- Fully responsive layout with no hardcoded screen sizes
+- CSS [dynamically embedded](#additional-css-rules) in HTML files
+- Full posts shown in RSS feed
+- Semantic HTML
 - No javascript
-- Full posts in RSS feed
 
 
 ## Installation
@@ -20,7 +21,7 @@ From the webstie root:
 git submodule add https://github.com/de-souza/hugo-flex.git themes/hugo-flex
 ```
 
-The theme must be set to `hugo-flex` in the website config file:
+The theme must be set in the website config file:
 
 ```bash
 echo 'theme: hugo-flex' >> config.yaml
@@ -29,20 +30,21 @@ echo 'theme: hugo-flex' >> config.yaml
 
 ## Updating
 
+From the webstie root:
+
 ```bash
 git submodule update --remote --merge
 ```
 
 ## Configuration
 
-Configuration options may be copied from the theme's config file:
+Configuration options may be copied and modified from the theme defaults:
 
 ```yaml
 params:
   color: teal  # Any color in CSS syntax
-  footer: Copyright © 2019 <a href="/about/" rel="author">Your Name Here</a>
-    – Except where otherwise noted, content on this site is licensed under a
-    <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
+  footer: Except where otherwise noted, content on this site is licensed under
+    a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
     Creative Commons Attribution 4.0 International License</a>.
 
 menu:
@@ -67,7 +69,7 @@ menu:
 
 ## Additional CSS Rules
 
-Additional CSS rules may be embedded in specific pages. They must be saved in a partial, e.g. `/layout/partials/form.css`, and added to the front matter of the relevant pages:
+Additional CSS rules may be embedded in specific pages. They must be saved in a partial (e.g. `/layout/partials/form.css`), and added to the front matter of the relevant pages:
 
 ```yaml
 css:

@@ -1,0 +1,58 @@
+{{ $site := .Site.Title | default "Hugo Flex" }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {{ if eq .Title $site }}
+    {{ $site }}
+    {{ else }}
+    {{ with .Title }}{{ . }} | {{ end }}{{ $site }}
+    {{ end }}
+  </title>
+  {{ range .AlternativeOutputFormats }}
+  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink $site | safeHTML }}
+  {{ end }}
+  <style>
+    {{ partialCached "critical.css" . | safeCSS }}
+    {{ range .Params.css }}{{ partial . | safeCSS }}{{ end }}
+  </style>
+  {{ .Hugo.Generator }}
+</head>
+
+<body>
+  <nav class="background">
+    <div class="wrapper">
+      <ul class="banner">
+        <li class="banner--item expand">
+          <a class="banner--link clickable" href="/">{{ $site }}</a>
+        </li>
+        {{ range .Site.Menus.nav }}
+        <li class="banner--item">
+          <a class="banner--link clickable" href="{{ .URL }}">{{ .Name }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </nav>
+  <main class="expand">
+    <div class="wrapper">
+      <div class="padding">
+        {{ block "main" . }}{{ end }}
+      </div>
+    </div>
+  </main>
+  {{ with .Site.Params.footer }}
+  <footer class="footer">
+    <div class="wrapper">
+      <div class="padding">
+        <p>{{ . | safeHTML }}</p>
+      </div>
+    </div>
+  </footer>
+  {{ end }}
+</body>
+
+</html>

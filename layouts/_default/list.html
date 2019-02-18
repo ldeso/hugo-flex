@@ -1,6 +1,6 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
-{{ partial "top.html" . }}
+{{ partial "header.html" . }}
 {{ .Content }}
 {{ range .Pages.GroupByPublishDate "2006" }}
 <h3>{{ .Key }}</h3>
@@ -11,4 +11,4 @@
 </ul>
 {{ end }}
 
-{{ partial "footer.html" . }}
+{{ end }}

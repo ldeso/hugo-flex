@@ -1,41 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    {{ if eq .Title .Site.Title }}
-    {{ .Site.Title }}
-    {{ else }}
-    {{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}
-    {{ end }}
-  </title>
-  {{ range .AlternativeOutputFormats }}
-  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+<header class="top">
+  <h2 class="top--title">
+    <a class="top--link clickable" href="{{ .RelPermalink }}" rel="bookmark">{{ .Title }}</a>
+  </h2>
+  {{ with .PublishDate | default nil }}
+  <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+    {{ .Format "2 January, 2006" }}
+  </time>
   {{ end }}
-  <style>
-    {{ partialCached "critical.css" . | safeCSS }}
-    {{ range .Params.css }}{{ partial . | safeCSS }}{{ end }}
-  </style>
-  {{ .Hugo.Generator }}
-</head>
-
-<body>
-  <nav class="background">
-    <div class="wrapper">
-      <ul class="banner">
-        <li class="banner--item expand">
-          <a class="banner--link clickable" href="/">{{ .Site.Title }}</a>
-        </li>
-        {{ range .Site.Menus.nav }}
-        <li class="banner--item">
-          <a class="banner--link clickable" href="{{ .URL }}">{{ .Name }}</a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
-  </nav>
-  <main class="expand">
-    <div class="wrapper">
-      <div class="padding">
+</header>

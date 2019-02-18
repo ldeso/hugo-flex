@@ -1,9 +1,9 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
 <article>
-  {{ partial "top.html" . }}
+  {{ partial "header.html" . }}
   {{ .Content }}
   {{ partial "tags.html" . }}
 </article>
 
-{{ partial "footer.html" . }}
+{{ end }}

@@ -1,13 +1,13 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
 {{ $pag := .Paginate (where .Pages "Type" "in" site.Params.mainSections) }}
 {{ range $pag.Pages }}
 <article>
-  {{ partial "top.html" . }}
+  {{ partial "header.html" . }}
   {{ .Content }}
   {{ partial "tags.html" . }}
 </article>
 {{ end }}
 {{ partial "pagination.html" $pag }}
 
-{{ partial "footer.html" . }}
+{{ end }}

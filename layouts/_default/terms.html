@@ -1,6 +1,6 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
-{{ partial "top.html" . }}
+{{ partial "header.html" . }}
 {{ .Content }}
 <ul class="tags">
   {{ range .Pages }}
@@ -10,4 +10,4 @@
     {{ end }}
 </ul>
 
-{{ partial "footer.html" . }}
+{{ end }}

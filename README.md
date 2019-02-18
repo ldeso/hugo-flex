@@ -6,9 +6,10 @@ A lightweight Hugo theme leveraging CSS Flexbox
 ## Features
 
 - 100% native HTML and CSS
-- CSS less than 2 kB and [dynamically embedded](#additional-css-rules)
+- CSS less than 2 kB and [dynamically embedded](#additional-css-rules) in HTML files
 - Fully responsive layout with no hardcoded screen size
 - No javascript
+- Full posts in RSS feed
 
 
 ## Installation
@@ -66,7 +67,7 @@ menu:
 
 ## Additional CSS Rules
 
-Additional CSS rules can be embedded in specific pages. They must be saved in a partial, e.g. `/layout/partials/form.css`, and added to the relevant pages' front matter:
+Additional CSS rules may be embedded in specific pages. They must be saved in a partial, e.g. `/layout/partials/form.css`, and added to the front matter of the relevant pages:
 
 ```yaml
 css:

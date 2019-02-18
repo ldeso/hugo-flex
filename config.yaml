@@ -1,5 +1,5 @@
 params:
-  color: teal
+  color: teal  # Any color in CSS syntax
   footer: Copyright © 2019 <a href="/about/" rel="author">Your Name Here</a>
     – Except where otherwise noted, content on this site is licensed under a
     <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">

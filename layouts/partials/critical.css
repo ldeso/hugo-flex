@@ -17,6 +17,16 @@ img {
   border-radius: 0.2rem;
 }
 
+pre {
+  border: 0.1rem solid lightgray;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
 .wrapper {
   max-width: 42rem;
   margin: auto;

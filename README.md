@@ -5,7 +5,7 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 ## Features
 
-- 100% native code: no framework used
+- 100% native code, no framework used
 - Fully responsive layout with no hardcoded screen sizes
 - CSS [dynamically embedded](#additional-css-rules) in HTML files
 - Full posts shown in RSS feed

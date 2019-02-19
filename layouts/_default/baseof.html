@@ -27,7 +27,7 @@
   {{ end }}
   <style>
     {{ partialCached "critical.css" . | safeCSS }}
-    {{ range (.Scratch.Get "css") }}
+    {{ range (.Scratch.Get "css" | uniq) }}
     {{ partial . | safeCSS }}
     {{ end }}
   </style>
@@ -64,7 +64,7 @@
     </div>
   </footer>
   {{ end }}
-  {{ range (.Scratch.Get "js") }}
+  {{ range (.Scratch.Get "js" | uniq) }}
   <script>
     {{ partial . | safeJS }}
   </script>

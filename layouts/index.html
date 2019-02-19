@@ -3,7 +3,7 @@
 {{ $pag := .Paginate (where .Pages "Type" "in" site.Params.mainSections) }}
 {{ range $pag.Pages }}
 <article>
-  {{ partial "header.html" . }}
+  {{ partial "heading.html" . }}
   {{ .Content }}
   {{ partial "tags.html" . }}
 </article>

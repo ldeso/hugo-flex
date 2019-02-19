@@ -33,7 +33,7 @@ echo 'theme: hugo-flex' >> config.yaml
 From the webstie root:
 
 ```bash
-git submodule update --remote --merge
+git submodule update --remote --rebase
 ```
 
 ## Configuration

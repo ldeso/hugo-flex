@@ -7,8 +7,8 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 - 100% native code, no framework used
 - Fully responsive layout with no hardcoded screen sizes
-- CSS [dynamically embedded](#additional-css-rules) in HTML files
-- Full posts shown in RSS feed
+- Additional CSS and JS can be [dynamically embedded](#additional-css-rules) in HTML files
+- Full posts in RSS feed
 - Semantic HTML
 - No javascript
 
@@ -67,13 +67,15 @@ menu:
 ```
 
 
-## Additional CSS Rules
+## Dynamically embedded CSS and JS
 
-Additional CSS rules may be embedded in specific pages. They must be saved in a partial (e.g. `/layout/partials/form.css`), and added to the front matter of the relevant pages:
+Additional CSS and JS may be embedded in specific pages. They must be saved as partials (e.g. `/layout/partials/form.css`) and added to the front matter of the relevant pages:
 
 ```yaml
 css:
   - form.css
+js:
+  - soundcloud.js
 ```
 
 

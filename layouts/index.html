@@ -1,6 +1,21 @@
+{{ define "preload" }}
+
+{{ where .Pages "Type" "in" site.Params.mainSections | .Paginate | .Scratch.Set "pag" }}
+{{ $pag := .Scratch.Get "pag" }}
+{{ range $pag.Pages }}
+{{ range .Params.css }}
+{{ slice . | $.Scratch.Add "css" }}
+{{ end }}
+{{ range .Params.js }}
+{{ slice . | $.Scratch.Add "js" }}
+{{ end }}
+{{ end }}
+
+{{ end }}
+
 {{ define "main" }}
 
-{{ $pag := .Paginate (where .Pages "Type" "in" site.Params.mainSections) }}
+{{ $pag := .Scratch.Get "pag" }}
 {{ range $pag.Pages }}
 <article>
   {{ partial "heading.html" . }}

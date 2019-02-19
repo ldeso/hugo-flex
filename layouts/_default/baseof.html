@@ -1,7 +1,17 @@
+{{ block "preload" . }}
+
+{{ range .Params.css }}
+{{ slice . | $.Scratch.Add "css" }}
+{{ end }}
+{{ range .Params.js }}
+{{ slice . | $.Scratch.Add "js" }}
+{{ end }}
+
+{{ end }}
+
 {{ $site := .Site.Title | default "Hugo Flex" }}
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,11 +27,12 @@
   {{ end }}
   <style>
     {{ partialCached "critical.css" . | safeCSS }}
-    {{ range .Params.css }}{{ partial . | safeCSS }}{{ end }}
+    {{ range (.Scratch.Get "css") }}
+    {{ partial . | safeCSS }}
+    {{ end }}
   </style>
   {{ .Hugo.Generator }}
 </head>
-
 <body>
   <nav class="background">
     <div class="wrapper">
@@ -53,6 +64,10 @@
     </div>
   </footer>
   {{ end }}
+  {{ range (.Scratch.Get "js") }}
+  <script>
+    {{ partial . | safeJS }}
+  </script>
+  {{ end }}
 </body>
-
 </html>

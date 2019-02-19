@@ -1,6 +1,6 @@
-<header class="top">
-  <h2 class="top--title">
-    <a class="top--link clickable" href="{{ .RelPermalink }}" rel="bookmark">{{ .Title }}</a>
+<header class="heading">
+  <h2 class="heading--title">
+    <a class="heading--link clickable" href="{{ .RelPermalink }}" rel="bookmark">{{ .Title }}</a>
   </h2>
   {{ with .PublishDate | default nil }}
   <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">

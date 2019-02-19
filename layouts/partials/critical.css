@@ -47,18 +47,18 @@ code {
   padding: 0.5rem 1rem;
 }
 
-.top {
+.heading {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
 }
 
-.top--title {
+.heading--title {
   margin: 1.5rem 0.5rem 0 0;
 }
 
-.top--link {
+.heading--link {
   color: inherit;
 }
 

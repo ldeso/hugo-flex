@@ -5,15 +5,20 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 ## Features
 
+Main features:
+
+- Flexbox-based responsive layout with no hardcoded screen sizes
+- 100% speed score on PageSpeed Insight
 - 100% native code, no framework used
-- Fully responsive layout with no hardcoded screen sizes
-- Additional CSS and JS can be [dynamically embedded](#additional-css-rules) in HTML files
 - Full posts in RSS feed
-- Semantic HTML
 - No javascript
-- Included [shortcodes](#shortcodes):
-  - Netlify Identify contact form
+
+Optional features:
+
+- Additional CSS and JS may be [dynamically embedded](#additional-css-rules)
+- Built-in shortcodes:
   - On-click Soundcloud player
+  - Netlify Identify contact form
 
 
 ## Installation
@@ -24,7 +29,7 @@ From the webstie root:
 git submodule add https://github.com/de-souza/hugo-flex.git themes/hugo-flex
 ```
 
-The theme must be set in the website config file:
+The theme must be set in the website config:
 
 ```bash
 echo 'theme: hugo-flex' >> config.yaml
@@ -72,7 +77,7 @@ menu:
 
 ## Dynamically embedded CSS and JS
 
-Additional CSS and JS may be embedded in specific pages. They must be saved as partials (e.g. `/layout/partials/myscript.js`) and added to the front matter of the relevant pages:
+Additional CSS and JS may be embedded in specific pages. Code must be saved in a partial (e.g. `/layout/partials/myscript.js`) and added to the front matter of relevant pages:
 
 ```yaml
 css:
@@ -82,23 +87,23 @@ js:
 ```
 
 
-## Shortcodes
+## Built-In Shortcodes
 
 ### Netlify Identify Contact Form
 
-A contact form recognised by the Netlify Identify service is inserted with the shortcode:
+A contact form for use with the Netlify Identify service is inserted with the shortcode:
 
 ```
 {{< contact >}}
 ```
 
-The URL to a success page may be given as a parameter:
+A custom success page may be given as a parameter:
 
 ```
-{{< contact "\success-page-url\" >}}
+{{< contact "/success/" >}}
 ```
 
-This shortcode requires `contact.css` in the front matter:
+This shortcode requires `contact.css` in the front matter of the contact page:
 
 ```yaml
 css:
@@ -113,8 +118,9 @@ An on-click Soundcloud Player is inserted with the shortcode:
 {{< soundcloud 123456789 >}}
 ```
 
-The parameter is a track ID and can be extrated from the sharing options on the track webpage. This shortcode requires `soundcloud.js` in the front matter:
+The parameter is a track ID and can be extracted from the "embed" sharing menu on the track webpage.
 
+This shortcode requires `soundcloud.js` in the front matter:
 ```yaml
 js:
   - soundcloud.js

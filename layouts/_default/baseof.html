@@ -56,10 +56,10 @@
     </div>
   </main>
   {{ with .Site.Params.footer }}
-  <footer class="footer">
+  <footer>
     <div class="wrapper">
-      <div class="padding">
-        <p>{{ . | safeHTML }}</p>
+      <div class="padding display">
+        {{ . | safeHTML }}
       </div>
     </div>
   </footer>

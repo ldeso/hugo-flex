@@ -11,6 +11,9 @@ A lightweight Hugo theme leveraging CSS Flexbox
 - Full posts in RSS feed
 - Semantic HTML
 - No javascript
+- Included [shortcodes](#shortcodes):
+  - Netlify Identify contact form
+  - On-click Soundcloud player
 
 
 ## Installation
@@ -69,11 +72,50 @@ menu:
 
 ## Dynamically embedded CSS and JS
 
-Additional CSS and JS may be embedded in specific pages. They must be saved as partials (e.g. `/layout/partials/form.css`) and added to the front matter of the relevant pages:
+Additional CSS and JS may be embedded in specific pages. They must be saved as partials (e.g. `/layout/partials/myscript.js`) and added to the front matter of the relevant pages:
 
 ```yaml
 css:
-  - form.css
+  - mystyle.css
+js:
+  - myscript.js
+```
+
+
+## Shortcodes
+
+### Netlify Identify Contact Form
+
+A contact form recognised by the Netlify Identify service is inserted with the shortcode:
+
+```
+{{< contact >}}
+```
+
+The URL to a success page may be given as a parameter:
+
+```
+{{< contact "\success-page-url\" >}}
+```
+
+This shortcode requires `contact.css` in the front matter:
+
+```yaml
+css:
+  - contact.css
+```
+
+### On-Click Soundcloud Player
+
+An on-click Soundcloud Player is inserted with the shortcode:
+
+```
+{{< soundcloud 123456789 >}}
+```
+
+The parameter is a track ID and can be extrated from the sharing options on the track webpage. This shortcode requires `soundcloud.js` in the front matter:
+
+```yaml
 js:
   - soundcloud.js
 ```

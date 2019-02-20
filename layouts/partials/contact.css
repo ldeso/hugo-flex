@@ -1,0 +1,35 @@
+.contact {
+  max-width: 30rem;
+  margin: 1.5rem auto;
+}
+
+  .contact--group {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact--item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+  }
+
+  .contact--label {
+    flex-basis: 5rem;
+  }
+
+  .contact--input {
+    flex-grow: 1;
+    flex-basis: 15rem;
+  }
+
+  .contact--textbox {
+    resize: vertical;
+    height: 5rem;
+  }
+
+  .contact--button {
+    margin-left: auto;
+  }

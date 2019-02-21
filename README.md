@@ -5,8 +5,6 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 ## Features
 
-Main features:
-
 - Flexbox-based responsive layout with no hardcoded screen sizes
 - 100% speed score on PageSpeed Insight
 - 100% native code, no framework used

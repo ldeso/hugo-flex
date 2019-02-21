@@ -95,7 +95,7 @@ A contact form for use with the Netlify Identify service is inserted with the sh
 {{< contact >}}
 ```
 
-A custom success page may be given as a parameter:
+A custom success page URL may be given as a parameter:
 
 ```
 {{< contact "/success/" >}}

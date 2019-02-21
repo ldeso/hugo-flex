@@ -119,6 +119,7 @@ An on-click Soundcloud Player is inserted with the shortcode:
 The parameter is a track ID and can be extracted from the "embed" sharing menu on the track webpage.
 
 This shortcode requires `soundcloud.js` in the front matter:
+
 ```yaml
 js:
   - soundcloud.js

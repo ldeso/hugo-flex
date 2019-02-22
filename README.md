@@ -5,11 +5,11 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 ## Features
 
-- Flexbox-based responsive layout with no hardcoded screen sizes
-- 100% speed score on PageSpeed Insight
-- 100% native code, no framework used
+- Flexbox-based responsive layout
 - Full posts in RSS feed
+- No framework
 - No javascript
+- 100% speed score on PageSpeed Insight
 
 Optional features:
 
@@ -102,13 +102,13 @@ The parameter is a track ID and can be extracted from the "embed" sharing menu o
 
 ## Dynamically embedded CSS and JS
 
-Additional CSS and JS may be embedded with shortcodes. Relevant code must be saved as a partial (e.g. `website/layout/partials/myscript.js`) and its its filename must be added to the page-wide `.Scratch` variable. From within the shortcode template:
+Additional CSS and JS may be embedded with shortcodes. Relevant code must be saved as a partial (e.g. `website/layout/partials/myscript.js`) and its its filename must be added to the page-wide `.Scratch` variable, i.e. from within the shortcode template:
 
 ```html
 {{ slice "myscript.js" | .Page.Scratch.Add "js" }}
 ```
 
-As an example here is the template for the on-click Soundcloud player shortcode:
+As an example here is the shortcode template for the on-click Soundcloud player:
 
 ```html
 {{ slice "soundcloud.css" | .Page.Scratch.Add "css" }}

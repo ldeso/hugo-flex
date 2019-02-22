@@ -1,3 +1,4 @@
+{{ slice "contact.css" | .Page.Scratch.Add "css" }}
 <form class="contact" name="contact" method="POST" netlify{{ with .Get 0 }} action="{{ . }}"{{ end }}>
   <ul class="contact--group">
     <li class="contact--item">

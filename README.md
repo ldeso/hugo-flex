@@ -13,7 +13,7 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 Optional features:
 
-- Additional CSS and JS may be [dynamically embedded](#additional-css-rules)
+- CSS and JS can be [dynamically embedded](#dynamically-embedded-css-and-js) with shortcodes
 - Built-in shortcodes:
   - On-click Soundcloud player
   - Netlify Identify contact form
@@ -73,18 +73,6 @@ menu:
 ```
 
 
-## Dynamically embedded CSS and JS
-
-Additional CSS and JS may be embedded in specific pages. Code must be saved in a partial (e.g. `/layout/partials/myscript.js`) and added to the front matter of relevant pages:
-
-```yaml
-css:
-  - mystyle.css
-js:
-  - myscript.js
-```
-
-
 ## Built-In Shortcodes
 
 ### Netlify Identify Contact Form
@@ -101,13 +89,6 @@ A custom success page URL may be given as a parameter:
 {{< contact "/success/" >}}
 ```
 
-This shortcode requires `contact.css` in the front matter of the contact page:
-
-```yaml
-css:
-  - contact.css
-```
-
 ### On-Click Soundcloud Player
 
 An on-click Soundcloud Player is inserted with the shortcode:
@@ -118,15 +99,22 @@ An on-click Soundcloud Player is inserted with the shortcode:
 
 The parameter is a track ID and can be extracted from the "embed" sharing menu on the track webpage.
 
-This shortcode requires `soundcloud.css` and `soundcloud.js` in the front matter:
 
-```yaml
-css:
-  - soundcloud.css
-js:
-  - soundcloud.js
+## Dynamically embedded CSS and JS
+
+Additional CSS and JS may be embedded with shortcodes. Relevant code must be saved as a partial (e.g. `website/layout/partials/myscript.js`) and its its filename must be added to the page-wide `.Scratch` variable. From within the shortcode template:
+
+```html
+{{ slice "myscript.js" | .Page.Scratch.Add "js" }}
 ```
 
+As an example here is the template for the on-click Soundcloud player shortcode:
+
+```html
+{{ slice "soundcloud.css" | .Page.Scratch.Add "css" }}
+{{ slice "soundcloud.js" | .Page.Scratch.Add "js" }}
+<div class="soundcloud" data-id="{{ .Get 0 }}"></div>
+```
 
 ## License
 

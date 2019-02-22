@@ -1,11 +1,7 @@
 {{ block "preload" . }}
 
-{{ range .Params.css }}
-{{ slice . | $.Scratch.Add "css" }}
-{{ end }}
-{{ range .Params.js }}
-{{ slice . | $.Scratch.Add "js" }}
-{{ end }}
+<!-- Preload shortcodes -->
+{{ with .Content }}{{ end }}
 
 {{ end }}
 

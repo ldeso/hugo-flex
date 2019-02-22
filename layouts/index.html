@@ -1,28 +1,24 @@
 {{ define "preload" }}
 
-{{ where .Pages "Type" "in" site.Params.mainSections | .Paginate | .Scratch.Set "pag" }}
-{{ $pag := .Scratch.Get "pag" }}
-{{ range $pag.Pages }}
-{{ range .Params.css }}
-{{ slice . | $.Scratch.Add "css" }}
-{{ end }}
-{{ range .Params.js }}
-{{ slice . | $.Scratch.Add "js" }}
-{{ end }}
+<!-- Preload shortcodes -->
+{{ where .Pages "Type" "in" site.Params.mainSections | .Paginate | .Scratch.Set "paginator" }}
+{{ range (.Scratch.Get "paginator").Pages }}
+{{ with .Content }}{{ end }}
+{{ .Scratch.Get "css" | $.Scratch.Set "css" }}
+{{ .Scratch.Get "js" | $.Scratch.Set "js" }}
 {{ end }}
 
 {{ end }}
 
 {{ define "main" }}
 
-{{ $pag := .Scratch.Get "pag" }}
-{{ range $pag.Pages }}
+{{ range (.Scratch.Get "paginator").Pages }}
 <article>
   {{ partial "heading.html" . }}
   {{ .Content }}
   {{ partial "tags.html" . }}
 </article>
 {{ end }}
-{{ partial "pagination.html" $pag }}
+{{ .Scratch.Get "paginator" | partial "pagination.html" }}
 
 {{ end }}

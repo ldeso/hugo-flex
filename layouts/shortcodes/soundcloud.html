@@ -1,1 +1,3 @@
+{{ slice "soundcloud.css" | .Page.Scratch.Add "css" }}
+{{ slice "soundcloud.js" | .Page.Scratch.Add "js" }}
 <div class="soundcloud" data-id="{{ .Get 0 }}"></div>

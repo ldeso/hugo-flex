@@ -2,8 +2,15 @@
   height: 166px;
 }
 
+.soundcloud--iframe {
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
+
 .soundcloud--player {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;

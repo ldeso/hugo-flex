@@ -1,8 +1,22 @@
 for (const wrapper of document.querySelectorAll(".soundcloud")) {
-  const id = wrapper.getAttribute('data-id');
+  const iframe = document.createElement("iframe");
+  iframe.className = "soundcloud--iframe";
+  iframe.setAttribute("src", `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${wrapper.getAttribute('data-id')}&show_comments=false`);
+
+  const link = document.createElement("a");
+  link.setAttribute("href", "https://soundcloud.com/pages/cookies");
+  link.textContent = "cookie policy";
+  link.onclick = e => e.stopPropagation();
+  link.onkeydown = e => e.stopPropagation();
+
+  const player = document.createElement("div");
+  player.className = "soundcloud--player";
+  player.setAttribute("tabindex", "0");
+  player.textContent = 'Load player';
+  player.appendChild(link);
+  player.onclick = () => { wrapper.replaceChild(iframe, player) }
+  player.onkeydown = e => { if (e.keyCode == 13) wrapper.replaceChild(iframe, player) }
+
   wrapper.className = "soundcloud--wrapper";
-  wrapper.innerHTML = '<div class="soundcloud--player">Soundcloud player (<a href="https://soundcloud.com/pages/cookies">cookie policy</a>)</div>';
-  wrapper.onclick = function () {
-    wrapper.innerHTML = `<iframe style="border:none;width:100%;" height="166" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${id}&show_comments=false"></iframe>`
-  }
+  wrapper.appendChild(player)
 }

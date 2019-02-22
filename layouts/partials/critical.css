@@ -90,6 +90,11 @@ code {
   float: right;
 }
 
+.footer {
+  text-align: center;
+  margin: 1rem 0;
+}
+
 .expand {
   flex-grow: 1;
 }
@@ -100,8 +105,7 @@ code {
 }
 
 .padding {
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding: 0 1rem;
 }
 
 .background {
@@ -112,10 +116,4 @@ code {
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
-}
-
-.display {
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }

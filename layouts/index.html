@@ -1,6 +1,5 @@
 {{ define "preload" }}
 
-<!-- Preload shortcodes -->
 {{ where .Pages "Type" "in" site.Params.mainSections | .Paginate | .Scratch.Set "paginator" }}
 {{ range (.Scratch.Get "paginator").Pages }}
 {{ with .Content }}{{ end }}

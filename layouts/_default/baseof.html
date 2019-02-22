@@ -1,8 +1,5 @@
 {{ block "preload" . }}
-
-<!-- Preload shortcodes -->
 {{ with .Content }}{{ end }}
-
 {{ end }}
 
 {{ $site := .Site.Title | default "Hugo Flex" }}
@@ -19,7 +16,7 @@
     {{ end }}
   </title>
   {{ range .AlternativeOutputFormats }}
-  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink $site | safeHTML }}
+  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .RelPermalink $site | safeHTML }}
   {{ end }}
   <style>
     {{ partialCached "critical.css" . | safeCSS }}
@@ -52,9 +49,9 @@
     </div>
   </main>
   {{ with .Site.Params.footer }}
-  <footer>
+  <footer class="footer">
     <div class="wrapper">
-      <div class="padding display">
+      <div class="padding">
         {{ . | safeHTML }}
       </div>
     </div>

@@ -23,6 +23,10 @@
                     {{ if ne .Title $site }}{{ .Title }} {{ end }}RSS
                   </a>
                 </h2>
+                <p>
+                  To subscribe to this RSS feed, copy its address and paste it
+                  into your favorite feed reader.
+                </p>
               </div>
             </div>
           </main>

@@ -23,7 +23,7 @@ code {
   font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
-.banner {
+.Banner {
   list-style: none;
   display: flex;
   flex-flow: row-reverse wrap-reverse;
@@ -35,34 +35,34 @@ code {
 {{ $len := len .Site.Menus.nav }}
 {{ range seq $len }}
 
-.banner--item:nth-child({{ . }}) {
+.Banner-item:nth-child({{ . }}) {
   order: {{ . | sub $len | add 1 }};
 }
 
 {{ end }}
 
-.banner--link {
+.Banner-link {
   font-size: 1.25rem;
   color: white;
   padding: 0.5rem 1rem;
 }
 
-.heading {
+.Heading {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
 }
 
-.heading--title {
+.Heading-title {
   margin: 1.5rem 0.5rem 0 0;
 }
 
-.heading--link {
+.Heading-link {
   color: inherit;
 }
 
-.tags {
+.Tags {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -71,48 +71,48 @@ code {
   padding: 0;
 }
 
-.tags--item {
+.Tags-item {
   border-radius: 0.2rem;
   margin: 0.2rem;
   padding: 0 0.3rem;
 }
 
-.tags--link {
+.Tags-link {
   color: white;
 }
 
-.pagination {
+.Pagination {
   font-size: 1.25rem;
   color: inherit;
 }
 
-.pagination--right {
+.Pagination--right {
   float: right;
 }
 
-.footer {
+.Footer {
   text-align: center;
   margin: 1rem 0;
 }
 
-.expand {
+.u-expand {
   flex-grow: 1;
 }
 
-.wrapper {
+.u-wrapper {
   max-width: 42rem;
   margin: auto;
 }
 
-.padding {
+.u-padding {
   padding: 0 1rem;
 }
 
-.background {
+.u-background {
   background: {{ .Site.Params.color }};
 }
 
-.clickable {
+.u-clickable {
   font-weight: bold;
   text-decoration: none;
   display: inline-block;

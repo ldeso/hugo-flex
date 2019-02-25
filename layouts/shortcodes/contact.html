@@ -1,24 +1,24 @@
 {{ slice "contact.css" | .Page.Scratch.Add "css" }}
-<form class="contact" name="contact" method="POST" netlify{{ with .Get 0 }} action="{{ . }}"{{ end }}>
-  <ul class="contact--group">
-    <li class="contact--item">
-      <label class="contact--label" for="contact-name">Name:</label>
-      <input class="contact--input" id="contact-name" type="text" name="name" autofocus>
+<form class="Contact" name="contact" method="POST" netlify{{ with .Get 0 }} action="{{ . }}"{{ end }}>
+  <ul class="Contact-group">
+    <li class="Contact-item">
+      <label for="Contact-name" class="Contact-label">Name:</label>
+      <input id="Contact-name" class="Contact-input" type="text" name="name" autofocus>
     </li>
-    <li class="contact--item">
-      <label class="contact--label" for="contact-email">Email:</label>
-      <input class="contact--input" id="contact-email" type="email" name="email">
+    <li class="Contact-item">
+      <label for="Contact-email" class="Contact-label">Email:</label>
+      <input id="Contact-email" class="Contact-input" type="email" name="email">
     </li>
-    <li class="contact--item">
-      <label class="contact--label" for="contact-subject">Subject:</label>
-      <input class="contact--input" id="contact-subject" type="text" name="subject">
+    <li class="Contact-item">
+      <label for="Contact-subject" class="Contact-label">Subject:</label>
+      <input id="Contact-subject" class="Contact-input" type="text" name="subject">
     </li>
-    <li class="contact--item">
-      <label class="contact--label" for="contact-message">Message:</label>
-      <textarea class="contact--input contact--textbox" id="contact-message" name="message" required></textarea>
+    <li class="Contact-item">
+      <label for="Contact-message" class="Contact-label">Message:</label>
+      <textarea id="Contact-message" class="Contact-input Contact-input--textbox" name="message" required></textarea>
     </li>
-    <li class="contact--item">
-      <button class="contact--button" type="submit">Send</button>
+    <li class="Contact-item">
+      <button class="Contact-button" type="submit">Send</button>
     </li>
   </ul>
 </form>

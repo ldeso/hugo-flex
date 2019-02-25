@@ -1,11 +1,11 @@
 {{ with .Params.tags }}
 <footer>
-  <ul class="tags">
+  <ul class="Tags">
     {{ range . }}
     {{ $name := . }}
     {{ with $.Site.GetPage (printf "/tags/%s" ($name | urlize))}}
-    <li class="tags--item background">
-      <a class="tags--link clickable" href="{{ .RelPermalink }}" rel="tag">{{ $name }}</a>
+    <li class="Tags-item u-background">
+      <a class="Tags-link u-clickable" href="{{ .RelPermalink }}" rel="tag">{{ $name }}</a>
     </li>
     {{ end }}
     {{ end }}

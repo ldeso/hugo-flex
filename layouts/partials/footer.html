@@ -1,0 +1,9 @@
+{{ with .Site.Params.footer }}
+<footer class="Footer">
+  <div class="u-wrapper">
+    <div class="u-padding">
+      {{ . | safeHTML }}
+    </div>
+  </div>
+</footer>
+{{ end }}

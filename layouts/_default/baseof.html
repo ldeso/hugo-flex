@@ -27,20 +27,7 @@
   {{ .Hugo.Generator }}
 </head>
 <body>
-  <nav class="u-background">
-    <div class="u-wrapper">
-      <ul class="Banner">
-        <li class="Banner-item u-expand">
-          <a class="Banner-link u-clickable" href="/">{{ $site }}</a>
-        </li>
-        {{ range .Site.Menus.nav }}
-        <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="{{ .URL }}">{{ .Name }}</a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
-  </nav>
+  {{ partial "banner.html" .}}
   <main class="u-expand">
     <div class="u-wrapper">
       <div class="u-padding">
@@ -48,15 +35,7 @@
       </div>
     </div>
   </main>
-  {{ with .Site.Params.footer }}
-  <footer class="Footer">
-    <div class="u-wrapper">
-      <div class="u-padding">
-        {{ . | safeHTML }}
-      </div>
-    </div>
-  </footer>
-  {{ end }}
+  {{ partial "footer.html" . }}
   {{ range (.Scratch.Get "js" | uniq) }}
   <script>
     {{ partial . | safeJS }}

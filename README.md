@@ -7,6 +7,7 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 - Flexbox-based responsive layout
 - Full posts in RSS feed
+- Themed RSS feed
 - No framework
 - No javascript
 - 100% speed score on PageSpeed Insight

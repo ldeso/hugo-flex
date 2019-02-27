@@ -22,7 +22,7 @@ Optional features:
 
 ## Installation
 
-From the webstie root:
+From the website root:
 
 ```bash
 git submodule add https://github.com/de-souza/hugo-flex.git themes/hugo-flex
@@ -37,7 +37,7 @@ echo 'theme: hugo-flex' >> config.yaml
 
 ## Updating
 
-From the webstie root:
+From the website root:
 
 ```bash
 git submodule update --remote --rebase

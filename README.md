@@ -17,7 +17,7 @@ Optional features:
 - CSS and JS can be [dynamically embedded](#dynamically-embedded-css-and-js) with shortcodes
 - Built-in shortcodes:
   - On-click Soundcloud player
-  - Netlify Identify contact form
+  - Netlify contact form
 
 
 ## Installation
@@ -76,9 +76,9 @@ menu:
 
 ## Built-In Shortcodes
 
-### Netlify Identify Contact Form
+### Netlify Contact Form
 
-A contact form for use with the Netlify Identify service is inserted with the shortcode:
+A contact form working with the built-in Netlify form handling service is inserted with the shortcode:
 
 ```
 {{< contact >}}
@@ -103,7 +103,7 @@ The parameter is a track ID and can be extracted from the "embed" sharing menu o
 
 ## Dynamically embedded CSS and JS
 
-Additional CSS and JS may be embedded with shortcodes. Relevant code must be saved as a partial (e.g. `website/layout/partials/myscript.js`) and its its filename must be added to the page-wide `.Scratch` variable, i.e. from within the shortcode template:
+Additional CSS and JS may be embedded with shortcodes. The code must be saved as a partial (e.g. `website/layout/partials/myscript.js`) and its filename must be added to the page-wide `.Scratch` variable. From within the shortcode template:
 
 ```html
 {{ slice "myscript.js" | .Page.Scratch.Add "js" }}

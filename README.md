@@ -53,6 +53,8 @@ params:
   footer: Except where otherwise noted, content on this site is licensed under
     a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
     Creative Commons Attribution 4.0 International License</a>.
+  rss: To subscribe to this RSS feed, copy its address and paste it into your
+    favorite feed reader.
 
 menu:
   nav:

@@ -22,10 +22,11 @@
                     {{ if ne .Title .Site.Title }}{{ .Title }} {{ end }}RSS
                   </a>
                 </h2>
+                {{ with .Site.Params.rss }}
                 <p>
-                  To subscribe to this RSS feed, copy its address and paste it
-                  into your favorite feed reader.
+                  {{ . | safeHTML }}
                 </p>
+                {{ end }}
               </div>
             </div>
           </main>

@@ -59,19 +59,19 @@ params:
 menu:
   nav:
   - name: About
-    url: /about/
+    url: about/
     weight: 1
   - name: Posts
-    url: /post/
+    url: post/
     weight: 2
   - name: Tags
-    url: /tags/
+    url: tags/
     weight: 3
   - name: Categories
-    url: /categories/
+    url: categories/
     weight: 4
   - name: RSS
-    url: /index.xml
+    url: index.xml
     weight: 5
 ```
 

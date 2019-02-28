@@ -1,10 +1,10 @@
 {{ if gt .TotalPages 1 }}
 <nav>
   {{ with .Next }}
-  <a href="{{ .URL }}" class="Pagination u-clickable">« Previous</a>
+  <a href="{{ .URL | relURL }}" class="Pagination u-clickable">« Previous</a>
   {{ end }}
   {{ with .Prev }}
-  <a href="{{ .URL }}" class="Pagination Pagination--right u-clickable">Next »</a>
+  <a href="{{ .URL | relURL }}" class="Pagination Pagination--right u-clickable">Next »</a>
   {{ end }}
 </nav>
 {{ end }}

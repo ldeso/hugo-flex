@@ -2,11 +2,11 @@
   <div class="u-wrapper">
     <ul class="Banner">
       <li class="Banner-item u-expand">
-        <a class="Banner-link u-clickable" href="/">{{ .Site.Title }}</a>
+        <a class="Banner-link u-clickable" href="{{ "" | relURL }}">{{ .Site.Title }}</a>
       </li>
       {{ range .Site.Menus.nav }}
       <li class="Banner-item">
-        <a class="Banner-link u-clickable" href="{{ .URL }}">{{ .Name }}</a>
+        <a class="Banner-link u-clickable" href="{{ .URL | relURL }}">{{ .Name }}</a>
       </li>
       {{ end }}
     </ul>

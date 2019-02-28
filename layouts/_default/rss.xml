@@ -1,4 +1,3 @@
-{{ $site := .Site.Title | default "Hugo Flex" }}
 {{ `<?xml-stylesheet type="text/xsl" href="#stylesheet" ?>` | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <xsl:stylesheet id="stylesheet" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
@@ -7,7 +6,7 @@
       <html lang="{{ .Site.LanguageCode }}">
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>{{ if ne .Title $site }}{{ .Title }} {{ end }}RSS | {{ $site }}</title>
+          <title>{{ if ne .Title .Site.Title }}{{ .Title }} {{ end }}RSS | {{ .Site.Title }}</title>
           <style>{{ partialCached "critical.css" . | safeCSS }}</style>
         </head>
         <body>
@@ -20,7 +19,7 @@
                     <xsl:attribute name="class">Heading-link u-clickable</xsl:attribute>
                     <xsl:attribute name="href"><xsl:value-of select="channel/atom:link[@rel='self']/@href" /></xsl:attribute>
                     <xsl:attribute name="rel">bookmark</xsl:attribute>
-                    {{ if ne .Title $site }}{{ .Title }} {{ end }}RSS
+                    {{ if ne .Title .Site.Title }}{{ .Title }} {{ end }}RSS
                   </a>
                 </h2>
                 <p>
@@ -36,7 +35,7 @@
     </xsl:template>
   </xsl:stylesheet>
   <channel>
-    <title>{{ if eq .Title $site }}{{ $site }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ $site }}{{ end }}</title>
+    <title>{{ if eq .Title .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ .Site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
     <description>Recent content {{ if ne .Title .Site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ .Site.Title }}</description>
     <generator>Hugo -- gohugo.io</generator>{{ with .Site.LanguageCode }}

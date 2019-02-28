@@ -14,7 +14,7 @@
     {{ end }}
   </title>
   {{ range .AlternativeOutputFormats }}
-  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .RelPermalink .Site.Title | safeHTML }}
+  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
   {{ end }}
   <style>
     {{ partialCached "critical.css" . | safeCSS }}

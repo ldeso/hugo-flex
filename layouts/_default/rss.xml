@@ -1,3 +1,8 @@
+{{ if ne .Title .Site.Title }}
+{{ printf "%s " .Title | .Scratch.Set "title" }}
+{{ else }}
+{{ .Scratch.Set "title" nil }}
+{{ end }}
 {{ `<?xml-stylesheet type="text/xsl" href="#stylesheet" ?>` | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <xsl:stylesheet id="stylesheet" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
@@ -6,7 +11,7 @@
       <html lang="{{ .Site.LanguageCode }}">
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>{{ if ne .Title .Site.Title }}{{ .Title }} {{ end }}RSS | {{ .Site.Title }}</title>
+          <title>{{ .Scratch.Get "title" }}RSS | {{ .Site.Title }}</title>
           <style>{{ partialCached "critical.css" . | safeCSS }}</style>
         </head>
         <body>
@@ -15,12 +20,11 @@
             <div class="u-wrapper">
               <div class="u-padding">
                 <h2 class="Heading-title">
-                  <a>
-                    <xsl:attribute name="class">Heading-link u-clickable</xsl:attribute>
-                    <xsl:attribute name="href"><xsl:value-of select="channel/atom:link[@rel='self']/@href" /></xsl:attribute>
-                    <xsl:attribute name="rel">bookmark</xsl:attribute>
-                    {{ if ne .Title .Site.Title }}{{ .Title }} {{ end }}RSS
-                  </a>
+                  {{ with .OutputFormats.Get "RSS" }}
+                  <a class="Heading-link u-clickable" href="{{ .RelPermalink }}" rel="bookmark">{{ $.Scratch.Get "title" }}RSS</a>
+                  {{ else }}
+                  <span class="Heading-link u-clickable">{{ $.Scratch.Get "title" }}RSS</span>
+                  {{ end }}
                 </h2>
                 {{ with .Site.Params.rss }}
                 <p>

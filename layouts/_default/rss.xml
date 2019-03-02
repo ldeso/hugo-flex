@@ -16,7 +16,7 @@
         </head>
         <body>
           {{ partial "banner.html" . }}
-          <main class="u-expand">
+          <main>
             <div class="u-wrapper">
               <div class="u-padding">
                 <h2 class="Heading-title">

@@ -8,6 +8,10 @@ body {
   padding: 0;
 }
 
+main {
+  flex-grow: 1;
+}
+
 img {
   max-width: 100%;
   border-radius: 0.2rem;
@@ -40,6 +44,10 @@ code {
 }
 
 {{ end }}
+
+.Banner-item--title {
+  flex-grow: 1;
+}
 
 .Banner-link {
   font-size: 1.25rem;
@@ -93,10 +101,6 @@ code {
 .Footer {
   text-align: center;
   margin: 1rem 0;
-}
-
-.u-expand {
-  flex-grow: 1;
 }
 
 .u-wrapper {

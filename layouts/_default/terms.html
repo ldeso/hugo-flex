@@ -2,10 +2,10 @@
 
 {{ partial "heading.html" . }}
 {{ .Content }}
-<ul class="tags">
+<ul class="Tags">
   {{ range .Pages }}
-  <li class="tags--item background">
-      <a class="tags--link clickable" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  <li class="Tags-item u-background">
+      <a class="Tags-link u-clickable" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </li>
     {{ end }}
 </ul>

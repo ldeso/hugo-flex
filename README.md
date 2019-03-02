@@ -16,8 +16,8 @@ Optional features:
 
 - CSS and JS can be [dynamically embedded](#dynamically-embedded-css-and-js) with shortcodes
 - Built-in shortcodes:
-  - On-click Soundcloud player
   - Netlify contact form
+  - On-click Soundcloud player
 
 
 ## Installation
@@ -89,7 +89,7 @@ A contact form working with the built-in Netlify form handling service is insert
 A custom success page URL may be given as a parameter:
 
 ```
-{{< contact "/success/" >}}
+{{< contact "success/" >}}
 ```
 
 ### On-Click Soundcloud Player
@@ -105,7 +105,9 @@ The parameter is a track ID and can be extracted from the "embed" sharing menu o
 
 ## Dynamically embedded CSS and JS
 
-Additional CSS and JS may be embedded with shortcodes. The code must be saved as a partial (e.g. `website/layout/partials/myscript.js`) and its filename must be added to the page-wide `.Scratch` variable. From within the shortcode template:
+Additional CSS and JS may be embedded with shortcodes. The code must be saved as a partial (e.g. `website/layout/partials/myscript.js`) and its filename must be added to the page-wide `.Scratch` variable.
+
+From within the shortcode template:
 
 ```html
 {{ slice "myscript.js" | .Page.Scratch.Add "js" }}

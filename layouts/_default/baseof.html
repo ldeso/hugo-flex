@@ -16,12 +16,12 @@
   {{ range .AlternativeOutputFormats }}
   {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
   {{ end }}
-  <style>
-    {{ partialCached "critical.css" . | safeCSS }}
-    {{ range (.Scratch.Get "css" | uniq) }}
-    {{ partial . | safeCSS }}
-    {{ end }}
-  </style>
+  {{ $criticalCSS := resources.Get "css/critical.css" | resources.ExecuteAsTemplate "css/critical.css" . | minify | fingerprint | slice }}
+  {{ $extraCSS := .Scratch.Get "css" | uniq }}
+  {{ $allCSS := $criticalCSS | append $extraCSS }}
+  {{ range $allCSS }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+  {{ end }}
   {{ .Hugo.Generator }}
 </head>
 <body>
@@ -34,10 +34,9 @@
     </div>
   </main>
   {{ partial "footer.html" . }}
-  {{ range (.Scratch.Get "js" | uniq) }}
-  <script>
-    {{ partial . | safeJS }}
-  </script>
+  {{ $extraJS := .Scratch.Get "js" | uniq }}
+  {{ range $extraJS }}
+  <script type="text/javascript" src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}"></script>
   {{ end }}
 </body>
 </html>

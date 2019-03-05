@@ -12,7 +12,8 @@
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>{{ .Scratch.Get "title" }}RSS | {{ .Site.Title }}</title>
-          <style>{{ partialCached "critical.css" . | safeCSS }}</style>
+          {{ $criticalCSS := resources.Get "css/critical.css" | resources.ExecuteAsTemplate "css/critical.css" . | minify | fingerprint }}
+          <link rel="stylesheet" href="{{ $criticalCSS.RelPermalink }}" integrity="{{ $criticalCSS.Data.Integrity }}"/>
         </head>
         <body>
           {{ partial "banner.html" . }}

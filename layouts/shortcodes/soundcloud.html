@@ -1,3 +1,3 @@
-{{ slice "soundcloud.css" | .Page.Scratch.Add "css" }}
-{{ slice "soundcloud.js" | .Page.Scratch.Add "js" }}
+{{ resources.Get "css/soundcloud.css" | minify | fingerprint | slice | .Page.Scratch.Add "css" }}
+{{ resources.Get "js/soundcloud.js" | minify | fingerprint | slice | .Page.Scratch.Add "js" }}
 <div class="Soundcloud" data-id="{{ .Get 0 }}"></div>

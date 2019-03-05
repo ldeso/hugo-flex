@@ -105,20 +105,20 @@ The parameter is a track ID and can be extracted from the "embed" sharing menu o
 
 ## Dynamically embedded CSS and JS
 
-Additional CSS and JS may be embedded with shortcodes. The code must be saved as a partial (e.g. `website/layout/partials/myscript.js`) and its filename must be added to the page-wide `.Scratch` variable.
+To embed additional CSS and JS with custom shortcodes, they must be loaded as resources by Hugo and added to the page-wide `.Scratch` variable. As a result, they will be loaded in pages where the shortcodes are used.
 
-From within the shortcode template:
+For instance, from within a shortcode template:
 
 ```html
-{{ slice "myscript.js" | .Page.Scratch.Add "js" }}
+{{ resources.Get "myscript.js" | fingerprint | slice | .Page.Scratch.Add "js" }}
 ```
 
 As an example here is the shortcode template for the on-click Soundcloud player:
 
 ```html
-{{ slice "soundcloud.css" | .Page.Scratch.Add "css" }}
-{{ slice "soundcloud.js" | .Page.Scratch.Add "js" }}
-<div class="soundcloud" data-id="{{ .Get 0 }}"></div>
+{{ resources.Get "css/soundcloud.css" | minify | fingerprint | slice | .Page.Scratch.Add "css" }}
+{{ resources.Get "js/soundcloud.js" | minify | fingerprint | slice | .Page.Scratch.Add "js" }}
+<div class="Soundcloud" data-id="{{ .Get 0 }}"></div>
 ```
 
 ## License

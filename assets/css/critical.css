@@ -36,7 +36,7 @@ code {
   padding: 0;
 }
 
-{{ $len := len .Site.Menus.nav }}
+{{ $len := len site.Menus.nav }}
 {{ range seq $len }}
 
 .Banner-item:nth-child({{ . }}) {
@@ -113,7 +113,7 @@ code {
 }
 
 .u-background {
-  background: {{ .Site.Params.color }};
+  background: {{ site.Params.color }};
 }
 
 .u-clickable {

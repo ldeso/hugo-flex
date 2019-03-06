@@ -2,19 +2,19 @@
 {{ with .Content }}{{ end }}
 {{ end }}
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ site.LanguageCode }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
-    {{ if eq .Title .Site.Title }}
-    {{ .Site.Title }}
+    {{ if eq .Title site.Title }}
+    {{ site.Title }}
     {{ else }}
-    {{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}
+    {{ with .Title }}{{ . }} | {{ end }}{{ site.Title }}
     {{ end }}
   </title>
   {{ range .AlternativeOutputFormats }}
-  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .RelPermalink site.Title | safeHTML }}
   {{ end }}
   {{ $criticalCSS := resources.Get "css/critical.css" | resources.ExecuteAsTemplate "css/critical.css" . | minify | fingerprint | slice }}
   {{ $extraCSS := .Scratch.Get "css" | uniq }}
@@ -22,7 +22,7 @@
   {{ range $allCSS }}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
   {{ end }}
-  {{ .Hugo.Generator }}
+  {{ hugo.Generator }}
 </head>
 <body>
   {{ partial "banner.html" .}}

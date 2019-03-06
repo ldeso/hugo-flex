@@ -3,7 +3,7 @@
   <ul class="Tags">
     {{ range . }}
     {{ $name := . }}
-    {{ with $.Site.GetPage (printf "/tags/%s" ($name | urlize))}}
+    {{ with site.GetPage (printf "/tags/%s" ($name | urlize))}}
     <li class="Tags-item u-background">
       <a class="Tags-link u-clickable" href="{{ .RelPermalink }}" rel="tag">{{ $name }}</a>
     </li>

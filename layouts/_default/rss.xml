@@ -1,4 +1,4 @@
-{{ if ne .Title .Site.Title }}
+{{ if ne .Title site.Title }}
 {{ printf "%s " .Title | .Scratch.Set "title" }}
 {{ else }}
 {{ .Scratch.Set "title" nil }}
@@ -8,12 +8,12 @@
   <xsl:stylesheet id="stylesheet" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
     <xsl:output method="html" doctype-system="about:legacy-compat" />
     <xsl:template match="/rss">
-      <html lang="{{ .Site.LanguageCode }}">
+      <html lang="{{ site.LanguageCode }}">
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>{{ .Scratch.Get "title" }}RSS | {{ .Site.Title }}</title>
+          <title>{{ .Scratch.Get "title" }}RSS | {{ site.Title }}</title>
           {{ $criticalCSS := resources.Get "css/critical.css" | resources.ExecuteAsTemplate "css/critical.css" . | minify | fingerprint }}
-          <link rel="stylesheet" href="{{ $criticalCSS.RelPermalink }}" integrity="{{ $criticalCSS.Data.Integrity }}"/>
+          <link rel="stylesheet" href="{{ $criticalCSS.RelPermalink }}" integrity="{{ $criticalCSS.Data.Integrity }}" />
         </head>
         <body>
           {{ partial "banner.html" . }}
@@ -27,7 +27,7 @@
                   <span class="Heading-link u-clickable">{{ $.Scratch.Get "title" }}RSS</span>
                   {{ end }}
                 </h2>
-                {{ with .Site.Params.rss }}
+                {{ with site.Params.rss }}
                 <p>
                   {{ . | safeHTML }}
                 </p>
@@ -41,21 +41,21 @@
     </xsl:template>
   </xsl:stylesheet>
   <channel>
-    <title>{{ if eq .Title .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <title>{{ if eq .Title site.Title }}{{ site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
-    <description>Recent content {{ if ne .Title .Site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ .Site.Title }}</description>
-    <generator>Hugo -- gohugo.io</generator>{{ with .Site.LanguageCode }}
-    <language>{{ . }}</language>{{ end }}{{ with .Site.Author.email }}
-    <managingEditor>{{ . }}{{ with $.Site.Author.name }} ({{ . }}){{ end }}</managingEditor>{{ end }}{{ with .Site.Author.email }}
-    <webMaster>{{ . }}{{ with $.Site.Author.name }} ({{ . }}){{ end }}</webMaster>{{ end }}{{ with .Site.Copyright }}
+    <description>Recent content {{ if ne .Title site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ site.Title }}</description>
+    <generator>Hugo -- gohugo.io</generator>{{ with site.LanguageCode }}
+    <language>{{ . }}</language>{{ end }}{{ with site.Author.email }}
+    <managingEditor>{{ . }}{{ with site.Author.name }} ({{ . }}){{ end }}</managingEditor>{{ end }}{{ with site.Author.email }}
+    <webMaster>{{ . }}{{ with site.Author.name }} ({{ . }}){{ end }}</webMaster>{{ end }}{{ with site.Copyright }}
     <copyright>{{ . }}</copyright>{{ end }}{{ with .Date | default nil }}
     <lastBuildDate>{{ .Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}{{ with .OutputFormats.Get "RSS" }}
     {{ printf `<atom:link href=%q rel="self" type=%q />` .Permalink .MediaType | safeHTML }}{{ end }}{{ range where .Pages "Type" "in" site.Params.mainSections }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
-      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>{{ with .Site.Author.email }}
-      <author>{{ . }}{{ with $.Site.Author.name }} ({{ . }}){{ end }}</author>{{ end }}
+      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>{{ with site.Author.email }}
+      <author>{{ . }}{{ with site.Author.name }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Content | html }}</description>
     </item>{{ end }}

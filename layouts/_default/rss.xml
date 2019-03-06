@@ -3,6 +3,7 @@
 {{ else }}
 {{ .Scratch.Set "title" nil }}
 {{ end }}
+{{ $baseCSS := resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint }}
 {{ `<?xml-stylesheet type="text/xsl" href="#stylesheet" ?>` | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <xsl:stylesheet id="stylesheet" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
@@ -12,7 +13,6 @@
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>{{ .Scratch.Get "title" }}RSS | {{ site.Title }}</title>
-          {{ $baseCSS := resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint }}
           <link rel="stylesheet" href="{{ $baseCSS.RelPermalink }}" integrity="{{ $baseCSS.Data.Integrity }}" />
         </head>
         <body>

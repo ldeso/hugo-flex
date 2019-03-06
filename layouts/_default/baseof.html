@@ -1,6 +1,10 @@
 {{ block "preload" . }}
 {{ with .Content }}{{ end }}
 {{ end }}
+{{ $baseCSS := resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint }}
+{{ $extraCSS := .Scratch.Get "css" | uniq }}
+{{ $allCSS := $baseCSS | slice | append $extraCSS }}
+{{ $allJS := .Scratch.Get "js" | uniq }}
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode }}">
 <head>
@@ -16,9 +20,7 @@
   {{ range .AlternativeOutputFormats }}
   {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .RelPermalink site.Title | safeHTML }}
   {{ end }}
-  {{ $baseCSS := resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint }}
-  {{ $extraCSS := .Scratch.Get "css" | uniq }}
-  {{ range ($baseCSS | slice | append $extraCSS) }}
+  {{ range $allCSS }}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
   {{ end }}
   {{ hugo.Generator }}
@@ -33,7 +35,7 @@
     </div>
   </main>
   {{ partial "footer.html" . }}
-  {{ range (.Scratch.Get "js" | uniq) }}
+  {{ range $allJS }}
   <script type="text/javascript" src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}"></script>
   {{ end }}
 </body>

@@ -1,5 +1,9 @@
-.Soundcloud-wrapper {
+.Soundcloud {
   height: 166px;
+}
+
+.Soundcloud:empty {
+  display: none;
 }
 
 .Soundcloud-iframe {

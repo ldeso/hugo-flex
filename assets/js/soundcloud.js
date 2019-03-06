@@ -14,9 +14,9 @@ for (const wrapper of document.querySelectorAll(".Soundcloud")) {
   player.setAttribute("tabindex", "0");
   player.textContent = 'Load player';
   player.appendChild(link);
-  player.onclick = () => { wrapper.replaceChild(iframe, player) }
-  player.onkeydown = e => { if (e.keyCode == 13) wrapper.replaceChild(iframe, player) }
+  player.onclick = () => { wrapper.replaceChild(iframe, player) };
+  player.onkeydown = e => { if (e.keyCode == 13) wrapper.replaceChild(iframe, player) };
 
   wrapper.className = "Soundcloud-wrapper";
   wrapper.appendChild(player)
-}
+};

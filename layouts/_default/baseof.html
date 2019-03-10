@@ -18,10 +18,10 @@
     {{ end }}
   </title>
   {{ range .AlternativeOutputFormats }}
-  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .RelPermalink site.Title | safeHTML }}
+  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
   {{ end }}
   {{ range $allCSS }}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+  <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}">
   {{ end }}
   {{ hugo.Generator }}
 </head>

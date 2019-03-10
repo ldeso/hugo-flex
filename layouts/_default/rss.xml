@@ -13,7 +13,7 @@
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>{{ .Scratch.Get "title" }}RSS | {{ site.Title }}</title>
-          <link rel="stylesheet" href="{{ $baseCSS.RelPermalink }}" integrity="{{ $baseCSS.Data.Integrity }}" />
+          <link rel="stylesheet" href="{{ $baseCSS.Permalink }}" integrity="{{ $baseCSS.Data.Integrity }}" />
         </head>
         <body>
           {{ partial "banner.html" . }}
@@ -22,7 +22,7 @@
               <div class="u-padding">
                 <h2 class="Heading-title">
                   {{ with .OutputFormats.Get "RSS" }}
-                  <a class="Heading-link u-clickable" href="{{ .RelPermalink }}" rel="bookmark">{{ $.Scratch.Get "title" }}RSS</a>
+                  <a class="Heading-link u-clickable" href="{{ .Permalink }}" rel="bookmark">{{ $.Scratch.Get "title" }}RSS</a>
                   {{ else }}
                   <span class="Heading-link u-clickable">{{ $.Scratch.Get "title" }}RSS</span>
                   {{ end }}

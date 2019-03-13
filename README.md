@@ -43,6 +43,12 @@ From the website root:
 git submodule update --remote --rebase
 ```
 
+
+## Example Site
+
+The official [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample) repository may be used as an example site.
+
+
 ## Configuration
 
 Configuration options may be copied and modified from the theme defaults:

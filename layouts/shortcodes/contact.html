@@ -2,20 +2,20 @@
 <form class="Contact" name="contact" method="POST" netlify{{ with .Get 0 }} action="{{ . }}"{{ end }}>
   <ul class="Contact-group">
     <li class="Contact-item">
-      <label class="Contact-label" for="cont-name">Name:</label>
-      <input class="Contact-input" id="cont-name" type="text" name="name" autofocus>
+      <label class="Contact-label" for="Contact-name">Name:</label>
+      <input class="Contact-input" id="Contact-name" type="text" name="name" autofocus>
     </li>
     <li class="Contact-item">
-      <label class="Contact-label" for="cont-email">Email:</label>
-      <input class="Contact-input" id="cont-email" type="email" name="email">
+      <label class="Contact-label" for="Contact-email">Email:</label>
+      <input class="Contact-input" id="Contact-email" type="email" name="email">
     </li>
     <li class="Contact-item">
-      <label class="Contact-label" for="cont-subject">Subject:</label>
-      <input class="Contact-input" id="cont-subject" type="text" name="subject">
+      <label class="Contact-label" for="Contact-subject">Subject:</label>
+      <input class="Contact-input" id="Contact-subject" type="text" name="subject">
     </li>
     <li class="Contact-item">
-      <label class="Contact-label" for="cont-message">Message:</label>
-      <textarea class="Contact-input Contact-input--textbox" id="cont-message" name="message" required></textarea>
+      <label class="Contact-label" for="Contact-message">Message:</label>
+      <textarea class="Contact-input Contact-input--textbox" id="Contact-message" name="message"></textarea>
     </li>
     <li class="Contact-item">
       <button class="Contact-button" type="submit">Send</button>

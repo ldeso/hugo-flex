@@ -95,7 +95,7 @@ A contact form working with the built-in Netlify form handling service is insert
 A custom success page URL may be given as a parameter:
 
 ```
-{{< contact "success/" >}}
+{{< contact "/success" >}}
 ```
 
 ### On-Click Soundcloud Player

@@ -104,7 +104,7 @@ code {
 }
 
 .u-wrapper {
-  max-width: 42rem;
+  {{ with site.Params.width }}max-width: {{ . }};{{ end }}
   margin: auto;
 }
 

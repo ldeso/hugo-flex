@@ -23,6 +23,9 @@
   {{ range $allCSS }}
   <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}">
   {{ end }}
+  {{ range $allJS }}
+  <script defer src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}"></script>
+  {{ end }}
   {{ hugo.Generator }}
 </head>
 <body>
@@ -35,8 +38,5 @@
     </div>
   </main>
   {{ partial "footer.html" . }}
-  {{ range $allJS }}
-  <script src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}"></script>
-  {{ end }}
 </body>
 </html>

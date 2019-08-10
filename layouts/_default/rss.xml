@@ -1,7 +1,6 @@
+{{ $title := "" -}}
 {{ if ne .Title site.Title -}}
-{{ printf "%s " .Title | .Scratch.Set "title" -}}
-{{ else -}}
-{{ .Scratch.Set "title" nil -}}
+{{ $title := printf "%s " .Title -}}
 {{ end -}}
 {{ $baseCSS := resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint -}}
 {{ `<?xml version="1.0" encoding="utf-8" standalone="yes" ?>` | safeHTML }}
@@ -13,7 +12,7 @@
       <html lang="{{ site.LanguageCode }}">
         <head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>{{ .Scratch.Get "title" }}RSS | {{ site.Title }}</title>
+          <title>{{ $title }}RSS | {{ site.Title }}</title>
           <link rel="stylesheet" href="{{ $baseCSS.Permalink }}" integrity="{{ $baseCSS.Data.Integrity }}" />
         </head>
         <body>
@@ -23,9 +22,9 @@
               <div class="u-padding">
                 <h2 class="Heading-title">
                   {{ with .OutputFormats.Get "RSS" }}
-                  <a class="Heading-link u-clickable" href="{{ .Permalink }}" rel="bookmark">{{ $.Scratch.Get "title" }}RSS</a>
+                  <a class="Heading-link u-clickable" href="{{ .Permalink }}" rel="bookmark">{{ $title }}RSS</a>
                   {{ else }}
-                  <span class="Heading-link u-clickable">{{ $.Scratch.Get "title" }}RSS</span>
+                  <span class="Heading-link u-clickable">{{ $title }}RSS</span>
                   {{ end }}
                 </h2>
                 {{ with site.Params.rss }}

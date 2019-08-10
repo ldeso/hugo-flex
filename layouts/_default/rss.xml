@@ -1,9 +1,9 @@
-{{ if ne .Title site.Title }}
-{{ printf "%s " .Title | .Scratch.Set "title" }}
-{{ else }}
-{{ .Scratch.Set "title" nil }}
-{{ end }}
-{{ $baseCSS := resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint }}
+{{ if ne .Title site.Title -}}
+{{ printf "%s " .Title | .Scratch.Set "title" -}}
+{{ else -}}
+{{ .Scratch.Set "title" nil -}}
+{{ end -}}
+{{ $baseCSS := resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint -}}
 {{ `<?xml version="1.0" encoding="utf-8" standalone="yes" ?>` | safeHTML }}
 {{ `<?xml-stylesheet type="text/xsl" href="#stylesheet" ?>` | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

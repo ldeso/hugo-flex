@@ -3,9 +3,12 @@
 {{ $paginator := where .Pages "Type" "in" site.Params.mainSections | .Paginate }}
 {{ range $paginator.Pages }}
 {{ with .Content }}{{ end }}
-{{ .Scratch.Get "css" | $.Scratch.Set "css" }}
-{{ .Scratch.Get "js" | $.Scratch.Set "js" }}
+{{ with .Scratch.Get "css" }}
+{{ merge ($.Scratch.Get "css") . | $.Scratch.Set "css" }}
 {{ end }}
+{{ with .Scratch.Get "js" }}
+{{ merge ($.Scratch.Get "js") . | $.Scratch.Set "js" }}
+{{ end }}{{ end }}
 {{ .Scratch.Set "paginator" $paginator }}
 
 {{ end }}

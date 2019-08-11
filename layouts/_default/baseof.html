@@ -1,10 +1,6 @@
 {{ block "preload" . }}
 {{ with .Content }}{{ end }}
 {{ end }}
-{{ $baseCSS := resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint }}
-{{ $extraCSS := .Scratch.Get "css" | uniq }}
-{{ $allCSS := $baseCSS | slice | append $extraCSS }}
-{{ $allJS := .Scratch.Get "js" | uniq }}
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode }}">
 <head>
@@ -20,10 +16,11 @@
   {{ range .AlternativeOutputFormats }}
   {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
   {{ end }}
-  {{ range $allCSS }}
+  {{ resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base"}}
+  {{ range .Scratch.GetSortedMapValues "css" }}
   <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}">
   {{ end }}
-  {{ range $allJS }}
+  {{ range .Scratch.GetSortedMapValues "js" }}
   <script defer src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}"></script>
   {{ end }}
   {{ hugo.Generator }}

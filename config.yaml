@@ -7,7 +7,7 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   utterances:
-    enable: false
+    enabled: false
     repo:
     issueterm: pathname
     theme: github-light

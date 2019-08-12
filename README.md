@@ -129,8 +129,8 @@ For instance, from within a shortcode template:
 As an example here is the shortcode template for the on-click Soundcloud player:
 
 ```html
-{{ resources.Get "css/soundcloud.css" | minify | fingerprint | slice | .Page.Scratch.Add "css" }}
-{{ resources.Get "js/soundcloud.js" | minify | fingerprint | slice | .Page.Scratch.Add "js" }}
+{{ resources.Get "css/soundcloud.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "soundcloud" }}
+{{ resources.Get "js/soundcloud.js" | minify | fingerprint  | .Page.Scratch.SetInMap "js" "soundcloud" }}
 <div class="Soundcloud" data-id="{{ .Get 0 }}"></div>
 ```
 

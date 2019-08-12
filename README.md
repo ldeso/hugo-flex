@@ -14,6 +14,7 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 Optional features:
 
+- Utterances comments widget
 - CSS and JS can be [dynamically embedded](#dynamically-embedded-css-and-js) with shortcodes
 - Built-in shortcodes:
   - Netlify contact form
@@ -62,6 +63,11 @@ params:
     Creative Commons Attribution 4.0 International License</a>.
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
+  utterances:
+    enable: false
+    repo:
+    issueterm: pathname
+    theme: github-light
 
 menu:
   nav:

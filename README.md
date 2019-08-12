@@ -118,7 +118,7 @@ The parameter is a track ID and can be extracted from the "embed" sharing menu o
 
 ## Dynamically embedded CSS and JS
 
-To embed additional CSS and JS with custom shortcodes, they must be loaded as resources by Hugo and added to the `.Scratch` variable. As a result, they will be loaded in pages where the shortcodes are used.
+To embed additional CSS and JS in custom shortcodes, they must be loaded as resources by Hugo and added to the `.Scratch` variable. As a result, they will be loaded in pages where the shortcodes are used.
 
 For instance, from within a shortcode template:
 

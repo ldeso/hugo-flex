@@ -118,12 +118,12 @@ The parameter is a track ID and can be extracted from the "embed" sharing menu o
 
 ## Dynamically embedded CSS and JS
 
-To embed additional CSS and JS with custom shortcodes, they must be loaded as resources by Hugo and added to the page-wide `.Scratch` variable. As a result, they will be loaded in pages where the shortcodes are used.
+To embed additional CSS and JS with custom shortcodes, they must be loaded as resources by Hugo and added to the `.Scratch` variable. As a result, they will be loaded in pages where the shortcodes are used.
 
 For instance, from within a shortcode template:
 
 ```html
-{{ resources.Get "myscript.js" | fingerprint | slice | .Page.Scratch.Add "js" }}
+{{ resources.Get "myscript.js" | fingerprint | .Page.Scratch.SetInMap "js" "myscript" }}
 ```
 
 As an example here is the shortcode template for the on-click Soundcloud player:

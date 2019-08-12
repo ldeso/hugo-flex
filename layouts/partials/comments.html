@@ -1,0 +1,11 @@
+{{if eq .Type "posts" }}
+{{ with .Site.Params.utterances }}
+<script src="https://utteranc.es/client.js"
+        repo="{{ .repo }}"
+        issue-term="{{ .issueterm }}"
+        theme="{{ .theme }}"
+        crossorigin="{{ .crossorigin }}"
+        async>
+</script>
+{{end}}
+{{end}}

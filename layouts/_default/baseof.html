@@ -18,10 +18,10 @@
   {{ end }}
   {{ resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base"}}
   {{ range .Scratch.GetSortedMapValues "css" }}
-  <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}">
+  <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
   {{ end }}
   {{ range .Scratch.GetSortedMapValues "js" }}
-  <script defer src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}"></script>
+  <script defer src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
   {{ end }}
   {{ hugo.Generator }}
 </head>

@@ -1,11 +1,5 @@
-{{if eq .Type "posts" }}
 {{ with .Site.Params.utterances }}
-<script src="https://utteranc.es/client.js"
-        repo="{{ .repo }}"
-        issue-term="{{ .issueterm }}"
-        theme="{{ .theme }}"
-        crossorigin="{{ .crossorigin }}"
-        async>
-</script>
+{{ if in site.Params.mainSections $.Type | and .enable }}
+<script src="https://utteranc.es/client.js" repo="{{ .repo }}" issue-term="{{ .issueterm }}" theme="{{ .theme }}" crossorigin="anonymous" async></script>
 {{end}}
 {{end}}

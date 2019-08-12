@@ -7,10 +7,10 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   utterances:
-    repo: ""
-    issueTerm: "pathname"
-    theme: "github-light"
-    crossorigin: "anonymous"
+    enable: false
+    repo:
+    issueterm: pathname
+    theme: github-light
 
 menu:
   nav:

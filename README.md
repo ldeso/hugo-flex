@@ -47,7 +47,7 @@ git submodule update --remote --rebase
 
 ## Example Site
 
-The official [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample) repository may be used as an example site.
+The official [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample) repository may be used as an example site. For a complete starter template for using this theme with in-depth explanations, see [hugo-flex-example](https://github.com/scivision/hugo-flex-example).
 
 
 ## Configuration

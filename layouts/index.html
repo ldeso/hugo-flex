@@ -1,6 +1,6 @@
 {{ define "preload" }}
 
-{{ $paginator := where .Pages "Type" "in" site.Params.mainSections | .Paginate }}
+{{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
 {{ range $paginator.Pages }}
 {{ with .Content }}{{ end }}
 {{ with .Scratch.Get "css" }}

@@ -63,6 +63,7 @@ params:
     Creative Commons Attribution 4.0 International License</a>.
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
+  mainSections: posts  # Main content folder
   utterances:
     enable: false
     repo:

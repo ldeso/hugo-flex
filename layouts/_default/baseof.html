@@ -6,7 +6,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="{{ .Permalink }}">
+  {{ template "_internal/schema.html" . }}
+  {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/twitter_cards.html" . }}
   <title>
     {{ if eq .Title site.Title }}
     {{ site.Title }}
@@ -14,6 +16,7 @@
     {{ with .Title }}{{ . }} | {{ end }}{{ site.Title }}
     {{ end }}
   </title>
+  <link rel="canonical" href="{{ .Permalink }}">
   {{ range .AlternativeOutputFormats }}
   {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
   {{ end }}

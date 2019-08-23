@@ -7,6 +7,9 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   summaries: false
+  schema: false
+  opengraph: false
+  twittercards: false
   utterances:
     enabled: false
     repo:

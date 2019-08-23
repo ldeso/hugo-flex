@@ -15,6 +15,7 @@ A lightweight Hugo theme leveraging CSS Flexbox
 Optional features:
 
 - Show summaries on homepage
+- Schema.org, Open Graph and Twitter Cards metadata
 - Utterances comments widget
 - CSS and JS can be [dynamically embedded](#dynamically-embedded-css-and-js) with shortcodes
 - Built-in shortcodes:
@@ -65,6 +66,9 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   summaries: false
+  schema: false
+  opengraph: false
+  twittercards: false
   utterances:
     enable: false
     repo:

@@ -19,15 +19,15 @@
 {{ range $paginator.Pages }}
 <article>
   {{ partial "heading.html" . }}
-  {{ if site.Params.summary }}
-    {{ .Summary }}
-    {{ if .Truncated }}
-      <div>
-        <a href="{{ .RelPermalink }}">Read More…</a>
-      </div>
-    {{ end }}
+  {{ if site.Params.summaries }}
+  {{ .Summary }}
+  {{ if .Truncated }}
+  <div>
+    <a href="{{ .RelPermalink }}">Read More…</a>
+  </div>
+  {{ end }}
   {{ else }}
-    {{ .Content }}
+  {{ .Content }}
   {{ end }}
   {{ partial "tags.html" . }}
 </article>

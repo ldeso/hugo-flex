@@ -56,7 +56,6 @@ Configuration options may be copied and modified from the theme defaults:
 
 ```yaml
 params:
-  mainSections: posts  # Main content folder
   summary: false # Display main content as summary
   color: teal  # Any color in CSS syntax
   width: 42rem  # Any length in CSS syntax

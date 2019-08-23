@@ -14,6 +14,7 @@ A lightweight Hugo theme leveraging CSS Flexbox
 
 Optional features:
 
+- Show summaries on homepage
 - Utterances comments widget
 - CSS and JS can be [dynamically embedded](#dynamically-embedded-css-and-js) with shortcodes
 - Built-in shortcodes:

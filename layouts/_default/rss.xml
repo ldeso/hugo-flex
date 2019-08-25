@@ -7,7 +7,7 @@
 {{ `<?xml-stylesheet type="text/xsl" href="#stylesheet" ?>` | safeHTML }}
 {{ `<!DOCTYPE rss [<!ATTLIST xsl:stylesheet id ID #REQUIRED>]>` | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <xsl:stylesheet id="stylesheet" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsl">
+  <xsl:stylesheet id="stylesheet" version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" doctype-system="about:legacy-compat" />
     <xsl:template match="/rss">
       <html lang="{{ site.LanguageCode }}">

@@ -27,9 +27,9 @@
   {{ if site.Params.summaries }}
   {{ .Summary }}
   {{ if .Truncated }}
-  <div>
+  <p>
     <a class="u-clickable" href="{{ .Permalink }}">Read More…</a>
-  </div>
+  </p>
   {{ end }}
   {{ else }}
   {{ .Content }}

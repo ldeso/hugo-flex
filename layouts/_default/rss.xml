@@ -1,6 +1,6 @@
 {{ $baseXML := resources.Get "xml/base.temp.xml" | resources.ExecuteAsTemplate "xml/base.xml" . | minify -}}
 {{ `<?xml version="1.0" encoding="utf-8" standalone="yes" ?>` | safeHTML }}
-{{ printf `<?xml-stylesheet type="text/xsl" href="%s" ?>` $baseXML.Permalink | safeHTML }}
+{{ printf `<?xml-stylesheet type="text/xsl" href=%q ?>` $baseXML.Permalink | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ if eq .Title site.Title }}{{ site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ site.Title }}{{ end }}</title>

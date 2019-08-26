@@ -1,4 +1,4 @@
-{{ `<?xml version="1.0" encoding="utf-8" standalone="yes" ?>` | safeHTML }}
+{{ `<?xml version="1.0" encoding="utf-8" ?>` | safeHTML }}
 {{ with resources.Get "xml/base.temp.xml" | resources.ExecuteAsTemplate "xml/base.xml" . | minify -}}
 {{ printf `<?xml-stylesheet type="text/xsl" href=%q ?>` .Permalink | safeHTML }}
 {{ end -}}

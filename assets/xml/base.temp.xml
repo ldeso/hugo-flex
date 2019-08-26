@@ -2,7 +2,7 @@
 {{ if ne .Title site.Title -}}
 {{ $title := printf "%s " .Title -}}
 {{ end -}}
-{{ $baseCSS := resources.Get "css/base.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint -}}
+{{ $baseCSS := resources.Get "css/base.temp.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint -}}
 {{ `<?xml version="1.0" encoding="utf-8" ?>` | safeHTML }}
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" doctype-system="about:legacy-compat" />

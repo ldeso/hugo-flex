@@ -1,6 +1,3 @@
-{{ block "preload" . -}}
-{{ with .Content }}{{ end -}}
-{{ end -}}
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode }}">
 <head>
@@ -20,7 +17,8 @@
   {{ range .AlternativeOutputFormats }}
   {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
   {{ end }}
-  {{ resources.Get "css/base.temp.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base"}}
+  {{ block "loadresources" . }}{{ with .Content }}{{ end }}{{ end }}
+  {{ resources.Get "css/base.temp.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
   {{ range .Scratch.GetSortedMapValues "css" }}
   <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
   {{ end }}

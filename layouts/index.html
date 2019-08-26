@@ -1,4 +1,4 @@
-{{ define "preload" }}
+{{ define "loadresources" }}
 
 {{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
 {{ range $paginator.Pages }}

@@ -70,7 +70,7 @@ params:
   opengraph: false
   twittercards: false
   utterances:
-    enable: false
+    enabled: false
     repo:
     issueterm: pathname
     theme: github-light

@@ -19,10 +19,12 @@
   {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
   {{ end }}
   {{ resources.Get "css/base.temp.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
-  {{/* In the following block, Hugo is forced to stop and pre-render the
+  {{/*
+    In the following block, Hugo is forced to stop and pre-render the
     content of the current page with all its shortcodes. Thanks to this
     pre-render, shortcodes can be used to load additional resources
-    through the .Scratch variable. */}}
+    through the .Scratch variable.
+  */}}
   {{ block "loadshortcodes" . }}{{ with .Content }}{{ end }}{{ end }}
   {{ range .Scratch.GetSortedMapValues "css" }}
   <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">

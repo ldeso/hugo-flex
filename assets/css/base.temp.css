@@ -40,7 +40,7 @@ code {
 {{ range seq $len }}
 
 .Banner-item:nth-child({{ . }}) {
-  order: {{ . | sub $len | add 1 }};
+  order: {{ sub $len . | add 1 }};
 }
 
 {{ end }}

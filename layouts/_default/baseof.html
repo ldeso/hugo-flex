@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ hugo.Generator }}
   {{ if site.Params.schema }}{{ template "_internal/schema.html" . }}{{ end }}
   {{ if site.Params.opengraph }}{{ template "_internal/opengraph.html" . }}{{ end }}
   {{ if site.Params.twittercards }}{{ template "_internal/twitter_cards.html" . }}{{ end }}
-  {{ hugo.Generator }}
   <title>
     {{ if eq .Title site.Title }}
     {{ site.Title }}
@@ -18,8 +18,12 @@
   {{ range .AlternativeOutputFormats }}
   {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
   {{ end }}
-  {{ block "loadresources" . }}{{ with .Content }}{{ end }}{{ end }}
   {{ resources.Get "css/base.temp.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
+  {{/* In the following block, Hugo is forced to stop and pre-render the
+    content of the current page with all its shortcodes. Thanks to this
+    pre-render, shortcodes can be used to load additional resources
+    through the .Scratch variable. */}}
+  {{ block "loadshortcodes" . }}{{ with .Content }}{{ end }}{{ end }}
   {{ range .Scratch.GetSortedMapValues "css" }}
   <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
   {{ end }}

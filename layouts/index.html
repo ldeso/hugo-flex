@@ -1,5 +1,10 @@
-{{ define "loadresources" }}
+{{ define "loadshortcodes" }}
 
+{{/* Here Hugo is forced to cycle through all the items that will appear
+  on the page, and pre-render their contents with all their shortcodes.
+  If these shortcodes are used to load additional resources, these
+  resources are then transferred from the local .Scratch variables to
+  the globally available .Scratch variable. */}}
 {{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
 {{ range $paginator.Pages }}
 {{ with .Content }}{{ end }}

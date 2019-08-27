@@ -11,10 +11,10 @@
 {{ range $paginator.Pages }}
 {{ with .Content }}{{ end }}
 {{ with .Scratch.Get "css" }}
-{{ merge ($.Scratch.Get "css") . | $.Scratch.Set "css" }}
+{{ . | merge ($.Scratch.Get "css") | $.Scratch.Set "css" }}
 {{ end }}
 {{ with .Scratch.Get "js" }}
-{{ merge ($.Scratch.Get "js") . | $.Scratch.Set "js" }}
+{{ . | merge ($.Scratch.Get "js") | $.Scratch.Set "js" }}
 {{ end }}{{ end }}
 {{ .Scratch.Set "paginator" $paginator }}
 

@@ -1,4 +1,4 @@
-{{ with .Site.Params.utterances }}
+{{ with site.Params.utterances }}
 {{ if in site.Params.mainSections $.Type | and .enable }}
 <script src="https://utteranc.es/client.js" repo="{{ .repo }}" issue-term="{{ .issueterm }}" theme="{{ .theme }}" crossorigin="anonymous" async></script>
 {{end}}

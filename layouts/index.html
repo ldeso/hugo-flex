@@ -4,8 +4,8 @@
   Here Hugo is forced to cycle through all the items that will appear on
   the page, and pre-render their contents with all their shortcodes. If
   these shortcodes are used to load additional CSS and JS resources,
-  these resources are transferred from their local .Scratch variales
-  to the globally available .Scratch variable.
+  these resources are then transferred from their local .Scratch
+  variables to the globally available .Scratch variable.
 */}}
 {{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
 {{ range $paginator.Pages }}

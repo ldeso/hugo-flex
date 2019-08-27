@@ -34,7 +34,7 @@
   {{ end }}
 </head>
 <body>
-  {{ partial "banner.html" }}
+  {{ partialCached "banner.html" . }}
   <main>
     <div class="u-wrapper">
       <div class="u-padding">
@@ -42,6 +42,6 @@
       </div>
     </div>
   </main>
-  {{ partial "footer.html" }}
+  {{ partialCached "footer.html" . }}
 </body>
 </html>

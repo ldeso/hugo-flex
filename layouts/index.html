@@ -15,7 +15,8 @@
 {{ end }}
 {{ with .Scratch.Get "js" }}
 {{ . | merge ($.Scratch.Get "js") | $.Scratch.Set "js" }}
-{{ end }}{{ end }}
+{{ end }}
+{{ end }}
 {{ .Scratch.Set "paginator" $paginator }}
 
 {{ end }}

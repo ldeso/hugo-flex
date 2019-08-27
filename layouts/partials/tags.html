@@ -1,14 +1,13 @@
-{{ with .Params.tags }}
 <footer>
+  {{ range $taxonomy, $pages := site.Taxonomies }}
   <ul class="Tags">
-    {{ range . }}
-    {{ $name := . }}
-    {{ with $name | urlize | printf "/tags/%s" | site.GetPage }}
+    {{ range $term := index $.Params $taxonomy }}
+    {{ with $term | urlize | printf "/%s/%s" $taxonomy | site.GetPage }}
     <li class="Tags-item u-background">
-      <a class="Tags-link u-clickable" href="{{ .Permalink }}" rel="tag">{{ $name }}</a>
+      <a class="Tags-link u-clickable" href="{{ .Permalink }}" rel="tag">{{ $term }}</a>
     </li>
     {{ end }}
     {{ end }}
   </ul>
+  {{ end }}
 </footer>
-{{ end }}

@@ -1,5 +1,6 @@
 <footer>
   {{ range $taxonomy, $pages := site.Taxonomies }}
+  {{ if isset $.Params $taxonomy }}
   <ul class="Tags">
     {{ range $term := index $.Params $taxonomy }}
     {{ with $term | urlize | printf "/%s/%s" $taxonomy | site.GetPage }}
@@ -9,5 +10,6 @@
     {{ end }}
     {{ end }}
   </ul>
+  {{ end }}
   {{ end }}
 </footer>

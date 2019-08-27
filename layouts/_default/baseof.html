@@ -16,7 +16,7 @@
   </title>
   <link rel="canonical" href="{{ .Permalink }}">
   {{ range .AlternativeOutputFormats }}
-  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType .Permalink site.Title | safeHTML }}
   {{ end }}
   {{ resources.Get "css/base.temp.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
   {{/*

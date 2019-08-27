@@ -22,8 +22,8 @@
   {{/*
     In the following block, Hugo is forced to stop and pre-render the
     content of the current page with all its shortcodes. Thanks to this
-    pre-render, shortcodes can be used to load additional resources
-    through the .Scratch variable.
+    pre-render, shortcodes can be used to load additional CSS and JS
+    resources through the .Scratch variable.
   */}}
   {{ block "loadshortcodes" . }}{{ with .Content }}{{ end }}{{ end }}
   {{ range .Scratch.GetSortedMapValues "css" }}

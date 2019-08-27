@@ -1,5 +1,10 @@
+{{ $taxonomies := slice }}
+{{ range $taxonomy, $pages := site.Taxonomies }}
+{{ $taxonomies = $taxonomies | append $taxonomy }}
+{{ end }}
+{{ if true | in (apply $taxonomies "isset" .Params ".") }}
 <footer>
-  {{ range $taxonomy, $pages := site.Taxonomies }}
+  {{ range $taxonomy := $taxonomies }}
   {{ if isset $.Params $taxonomy }}
   <ul class="Tags">
     {{ range $term := index $.Params $taxonomy }}
@@ -13,3 +18,4 @@
   {{ end }}
   {{ end }}
 </footer>
+{{ end }}

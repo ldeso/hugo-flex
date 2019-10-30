@@ -23,9 +23,9 @@
       <label class="Contact-label" for="Contact-message">Message:</label>
       <textarea class="Contact-input Contact-input--textbox" id="Contact-message" name="message"></textarea>
     </li>
-    {{ if site.Params.netlify.recaptcha }}<div data-netlify-recaptcha="true"></div>{{ end }}
     <li class="Contact-item">
       <button class="Contact-button" type="submit">Send</button>
     </li>
   </ul>
+  {{ if site.Params.netlify.recaptcha }}<div data-netlify-recaptcha="true"></div>{{ end }}
 </form>

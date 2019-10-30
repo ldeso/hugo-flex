@@ -7,18 +7,17 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   summaries: false      # Set to true to show summaries of posts on homepage
+  divider: '\2015\2015' # Set to false to remove divider below posts on homepage
   schema: false         # Set to true to add Schema.org metadata
   opengraph: false      # Set to true to add Open Graph metadata
   twittercards: false   # Set to true to add Twitter Cards metadata
   utterances:
-    enabled: false      # Set to true to add Utterances comments to single posts
-    repo:
+    repo:               # Set to Utterances repo URL to add Utterances comments
     issueterm: pathname
     theme: github-light
   netlify:
     honeypot: false     # Set to true to add honeypot field in contact form
     recaptcha: false    # Set to true to add recaptcha challenge in contact form
-  divider: '\2015\2015' # Set to false to remove divider below posts on homepage
 
 menu:
   nav:

@@ -1,5 +1,5 @@
 {{ with site.Params.utterances }}
-{{ if in site.Params.mainSections $.Type | and .enabled }}
+{{ if in site.Params.mainSections $.Type | and .repo }}
 <script src="https://utteranc.es/client.js" repo="{{ .repo }}" issue-term="{{ .issueterm }}" theme="{{ .theme }}" crossorigin="anonymous" async></script>
 {{end}}
 {{end}}

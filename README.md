@@ -58,19 +58,19 @@ Configuration options may be copied and modified from the theme defaults:
 
 ```yaml
 params:
-  color: teal  # Any color in CSS syntax
-  width: 42rem  # Any length in CSS syntax
-  footer: Except where otherwise noted, content on this site is licensed under
+  color: teal           # Any color in CSS syntax
+  width: 42rem          # Any length in CSS syntax
+  footer: Except where otherwise noted, content on this site is licensed under a
     a <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">
     Creative Commons Attribution 4.0 International License</a>.
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
-  summaries: false
-  schema: false
-  opengraph: false
-  twittercards: false
+  summaries: false      # Set to true to show summaries of posts on homepage
+  schema: false         # Set to true to add Schema.org metadata
+  opengraph: false      # Set to true to add Open Graph metadata
+  twittercards: false   # Set to true to add Twitter Cards metadata
   utterances:
-    enabled: false
+    enabled: false      # Set to true to add Utterances comments to single posts
     repo:
     issueterm: pathname
     theme: github-light

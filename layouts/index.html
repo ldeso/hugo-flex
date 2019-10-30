@@ -2,10 +2,12 @@
 
 {{/*
   Here Hugo is forced to cycle through all the items that will appear on
-  the page, and pre-render their contents with all their shortcodes. If
-  these shortcodes are used to load additional CSS and JS resources,
-  these resources are then transferred from their local .Scratch
-  variables to the globally available .Scratch variable.
+  the page, effectively pre-rendering all their shortcodes. Afterwards,
+  when a shortcode contains a "css" or a "js" entry in their local
+  .Scratch variable, the content of this entry is merged to the content
+  of the corresponding entry in the global .Scratch variable. These
+  resources are then loaded in the head of the page from the global
+  .Scratch variable (see layout baseof.html).
 */}}
 {{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
 {{ range $paginator.Pages }}

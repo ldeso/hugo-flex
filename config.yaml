@@ -18,6 +18,7 @@ params:
   netlify:
     honeypot: false     # Set to true to add honeypot field in contact form
     recaptcha: false    # Set to true to add recaptcha challenge in contact form
+  divider: '\2015\2015' # Set to false to remove divider below posts on homepage
 
 menu:
   nav:

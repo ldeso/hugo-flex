@@ -89,6 +89,19 @@ code {
   color: white;
 }
 
+{{ with site.Params.divider }}
+
+.Divider {
+  display: flex;
+  justify-content: center;
+}
+
+.Divider::after {
+  content: "{{ . }}";
+}
+
+{{ end }}
+
 .Pagination {
   font-size: 1.25rem;
   color: inherit;

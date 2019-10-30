@@ -41,6 +41,7 @@
   {{ end }}
   {{ partial "tags.html" . }}
 </article>
+{{ with site.Params.divider }}<div class="Divider"></div>{{ end }}
 {{ end }}
 {{ partial "pagination.html" $paginator }}
 

@@ -9,6 +9,10 @@
     padding: 0;
   }
 
+  .Contact-hidden {
+    display: none;
+  }
+
   .Contact-item {
     display: flex;
     flex-wrap: wrap;

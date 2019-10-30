@@ -74,6 +74,9 @@ params:
     repo:
     issueterm: pathname
     theme: github-light
+  netlify:
+    honeypot: false     # Set to true to add honeypot field in contact form
+    recaptcha: false    # Set to true to add recaptcha challenge in contact form
 
 menu:
   nav:

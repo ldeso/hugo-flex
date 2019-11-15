@@ -17,7 +17,7 @@ Optional features:
 - Show summaries on homepage
 - Schema.org, Open Graph and Twitter Cards metadata
 - Utterances comments widget
-- CSS and JS can be [dynamically embedded](#dynamically-embedded-css-and-js) with shortcodes
+- Custom CSS and JS can be added [site-wide](#custom-css-and-js), or [dynamically](#dynamically-embedded) with shortcodes
 - Built-in shortcodes:
   - Netlify contact form
   - On-click Soundcloud player
@@ -77,6 +77,12 @@ params:
   netlify:
     honeypot: false     # Set to true to add honeypot field in contact form
     recaptcha: false    # Set to true to add recaptcha challenge in contact form
+  # css:                # Uncomment to add custom CSS from a list of files
+  #   - css/foo.css
+  #   - bar.css
+  # js:                 # Uncomment to add custom JS from a list of files
+  #   - js/foo.js
+  #   - bar.js
 
 menu:
   nav:
@@ -125,21 +131,38 @@ An on-click Soundcloud Player is inserted with the shortcode:
 The parameter is a track ID and can be extracted from the "embed" sharing menu on the track webpage.
 
 
-## Dynamically embedded CSS and JS
+## Custom CSS and JS
 
-To embed additional CSS and JS in custom shortcodes, they must be loaded as resources by Hugo and added to the `.Scratch` variable. As a result, they will be loaded in pages where the shortcodes are used.
+### Site-Wide
 
-For instance, from within a shortcode template:
+Custom CSS and JS can be added to all the pages on the website. To do so, the relevant filenames must be added to the website config file:
+
+```yaml
+params:
+  css:
+    - css/foo.css
+    - bar.css
+  js:
+    - js/foo.js
+    - bar.js
+```
+
+The paths are relative to the project working directory.
+
+
+### Dynamically Embedded
+
+To embed CSS and JS resources on specific pages of the website, they must be added to the `.Scratch` variable from a shortcode template. As a result, they will be loaded in pages where the shortcode is used. For instance, a shortcode template could contain:
 
 ```html
 {{ resources.Get "myscript.js" | fingerprint | .Page.Scratch.SetInMap "js" "myscript" }}
 ```
 
-As an example here is the shortcode template for the on-click Soundcloud player:
+As an example, here is the complete template for the Soundcloud shortcode:
 
 ```html
 {{ resources.Get "css/soundcloud.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "soundcloud" }}
-{{ resources.Get "js/soundcloud.js" | minify | fingerprint | .Page.Scratch.SetInMap "js" "soundcloud" }}
+{{ resources.Get "js/soundcloud.js" | minify | fingerprint  | .Page.Scratch.SetInMap "js" "soundcloud" }}
 <div class="Soundcloud" data-id="{{ .Get 0 }}"></div>
 ```
 

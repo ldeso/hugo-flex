@@ -18,7 +18,18 @@
   {{ range .AlternativeOutputFormats }}
   {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType .Permalink site.Title | safeHTML }}
   {{ end }}
-  {{ resources.Get "css/base.tpl.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
+  {{ $basecss := resources.Get "css/base.tpl.css" | resources.ExecuteAsTemplate "css/base.css" . }}
+  {{ with site.Params.css }}
+  {{ $customcss := slice $basecss }}
+  {{ range . }}{{ $customcss = $customcss | append (readFile . | resources.FromString (printf "custom/%s" .)) }}{{ end }}
+  {{ $basecss = $customcss | resources.Concat "css/base.css" }}
+  {{ end }}
+  {{ $basecss | minify | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
+  {{ with site.Params.js }}
+  {{ $customjs := slice }}
+  {{ range . }}{{ $customjs = $customjs | append (readFile . | resources.FromString (printf "custom/%s" .)) }}{{ end }}
+  {{ $customjs | resources.Concat "js/base.js" | minify | fingerprint | $.Page.Scratch.SetInMap "js" "base" }}
+  {{ end }}
   {{/*
     In the following block, Hugo is forced to stop and pre-render the
     content of the current page with all its shortcodes. Thanks to this

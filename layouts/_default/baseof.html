@@ -20,10 +20,10 @@
   {{ end }}
   {{ resources.Get "css/base.tpl.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
   {{/*
-    In this block Hugo is forced to load the page's content, effectively
-    pre-rendering all its shortcodes. Thanks to this pre-render,
-    shortcodes can load additional CSS and JS resources by adding them
-    to the "css" and "js" entries of the global .Scratch variable.
+    In the following block, Hugo is forced to stop and pre-render the
+    content of the current page with all its shortcodes. Thanks to this
+    pre-render, shortcodes can be used to load additional CSS and JS
+    resources to specific pages of the website.
   */}}
   {{ block "loadshortcodes" . }}{{ with .Content }}{{ end }}{{ end }}
   {{ range .Scratch.GetSortedMapValues "css" }}

@@ -5,9 +5,7 @@
   the page, effectively pre-rendering all their shortcodes. Afterwards,
   when a shortcode contains a "css" or a "js" entry in their local
   .Scratch variable, the content of this entry is merged to the content
-  of the corresponding entry in the global .Scratch variable. These
-  resources are then loaded in the head of the page from the global
-  .Scratch variable (see layout baseof.html).
+  of the corresponding entry in the global .Scratch variable.
 */}}
 {{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
 {{ range $paginator.Pages }}

@@ -18,7 +18,7 @@
   {{ range .AlternativeOutputFormats }}
   {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType .Permalink site.Title | safeHTML }}
   {{ end }}
-  {{ resources.Get "css/base.temp.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
+  {{ resources.Get "css/base.tpl.css" | resources.ExecuteAsTemplate "css/base.css" . | minify | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
   {{/*
     In this block Hugo is forced to load the page's content, effectively
     pre-rendering all its shortcodes. Thanks to this pre-render,

@@ -3,6 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ if .Summary }}
+  <meta name="description" content="{{ .Summary }}">
+  {{ else }}
+  {{ with site.Params.description }}
+  <meta name="description" content="{{ . }}">
+  {{ end }}
+  {{ end }}
   {{ hugo.Generator }}
   {{ if site.Params.schema }}{{ template "_internal/schema.html" . }}{{ end }}
   {{ if site.Params.opengraph }}{{ template "_internal/opengraph.html" . }}{{ end }}

@@ -1,0 +1,14 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{ hugo.Generator }}
+{{ if site.Params.schema }}{{ template "_internal/schema.html" . }}{{ end }}
+{{ if site.Params.opengraph }}{{ template "_internal/opengraph.html" . }}{{ end }}
+{{ if site.Params.twittercards }}{{ template "_internal/twitter_cards.html" . }}{{ end }}
+<title>
+  {{ if eq .Title site.Title }}
+  {{ site.Title }}
+  {{ else }}
+  {{ with .Title }}{{ . }} | {{ end }}{{ site.Title }}
+  {{ end }}
+</title>
+<link rel="canonical" href="{{ .Permalink }}">

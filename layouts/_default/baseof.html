@@ -3,11 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{ if .Summary }}
+  {{ with .Description }}
+  <meta name="description" content="{{ . }}">
+  {{ else }}
+  {{ if .IsPage }}
   <meta name="description" content="{{ .Summary }}">
   {{ else }}
-  {{ with site.Params.description }}
+  {{ with .Site.Params.description }}
   <meta name="description" content="{{ . }}">
+  {{ end }}
   {{ end }}
   {{ end }}
   {{ hugo.Generator }}

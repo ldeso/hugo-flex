@@ -3,37 +3,37 @@
   margin: 1.5rem auto;
 }
 
-  .Contact-group {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+.Contact-group {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
-  .Contact-hidden {
-    display: none;
-  }
+.Contact-hidden {
+  display: none;
+}
 
-  .Contact-item {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0.5rem 0;
-  }
+.Contact-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
 
-  .Contact-label {
-    flex-basis: 5rem;
-  }
+.Contact-label {
+  flex-basis: 5rem;
+}
 
-  .Contact-input {
-    flex-grow: 1;
-    flex-basis: 15rem;
-  }
+.Contact-input {
+  flex-grow: 1;
+  flex-basis: 15rem;
+}
 
-  .Contact-input--textbox {
-    resize: vertical;
-    height: 5rem;
-  }
+.Contact-input--textbox {
+  resize: vertical;
+  height: 5rem;
+}
 
-  .Contact-button {
-    margin-left: auto;
-  }
+.Contact-button {
+  margin-left: auto;
+}

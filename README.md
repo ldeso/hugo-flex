@@ -158,7 +158,9 @@ To embed CSS and JS resources on specific pages of the website, they must be add
 {{ resources.Get "myscript.js" | fingerprint | .Page.Scratch.SetInMap "js" "myscript" }}
 ```
 
-As an example, here is the complete template for the Soundcloud shortcode:
+This would load script myscript.js on every page where the shortcode is used.
+
+As an example, this is the template for the built-in Soundcloud shortcode:
 
 ```html
 {{ resources.Get "css/soundcloud.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "soundcloud" }}

@@ -7,7 +7,7 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   summaries: false      # Set to true to show summaries of posts on homepage
-  divider: '\2015\2015' # Set to false to remove divider below posts on homepage
+  divider: '\2015'      # Set to false to remove divider below posts on homepage
   schema: false         # Set to true to add Schema.org metadata
   opengraph: false      # Set to true to add Open Graph metadata
   twittercards: false   # Set to true to add Twitter Cards metadata

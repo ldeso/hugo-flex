@@ -7,12 +7,10 @@
   {{ range $taxonomy := $taxonomies }}
   {{ if isset $.Params $taxonomy }}
   <ul class="Tags">
-    {{ range $term := index $.Params $taxonomy }}
-    {{ with $term | urlize | printf "/%s/%s" $taxonomy | site.GetPage }}
+    {{ range $.GetTerms $taxonomy }}
     <li class="Tags-item u-background">
-      <a class="Tags-link u-clickable" href="{{ .Permalink }}" rel="tag">{{ $term }}</a>
+      <a class="Tags-link u-clickable" href="{{ .Permalink }}" rel="tag">{{ .LinkTitle }}</a>
     </li>
-    {{ end }}
     {{ end }}
   </ul>
   {{ end }}

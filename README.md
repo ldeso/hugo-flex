@@ -60,7 +60,8 @@ Configuration options may be copied and modified from the theme defaults:
 params:
   color: teal           # Any color in CSS syntax
   width: 42rem          # Any length in CSS syntax
-  footer: Except where otherwise noted, content on this site is licensed under a
+  footer: >             # A hardcoded space is needed before each html element
+    Except where otherwise noted, content on this site is licensed under a &#32;
     <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative
     Commons Attribution 4.0 International License</a>.
   rss: To subscribe to this RSS feed, copy its address and paste it into your

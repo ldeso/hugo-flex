@@ -1,10 +1,11 @@
-{{ if gt .TotalPages 1 }}
+{{ $pag := .Scratch.Get "paginator" }}
+{{ if gt $pag.TotalPages 1 }}
 <nav>
-  {{ with .Next }}
-  <a class="Pagination u-clickable" href="{{ .URL | absURL }}" rel="prev">« Previous</a>
+  {{ if $pag.HasNext }}
+  <a class="Pagination u-clickable" href="{{ $pag.Next.URL | absURL }}" rel="prev">« Previous</a>
   {{ end }}
-  {{ with .Prev }}
-  <a class="Pagination Pagination--right u-clickable" href="{{ .URL | absURL }}" rel="next">Next »</a>
+  {{ if $pag.HasPrev }}
+  <a class="Pagination Pagination--right u-clickable" href="{{ $pag.Prev.URL | absURL }}" rel="next">Next »</a>
   {{ end }}
 </nav>
 {{ end }}

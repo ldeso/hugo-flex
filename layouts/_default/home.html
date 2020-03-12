@@ -7,8 +7,8 @@
   .Scratch variable, the content of this entry is merged to the content
   of the corresponding entry in the global .Scratch variable.
 */}}
-{{ $paginator := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
-{{ range $paginator.Pages }}
+{{ $pag := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
+{{ range $pag.Pages }}
 {{ with .Content }}{{ end }}
 {{ with .Scratch.Get "css" }}
 {{ . | merge ($.Scratch.Get "css") | $.Scratch.Set "css" }}
@@ -17,14 +17,14 @@
 {{ . | merge ($.Scratch.Get "js") | $.Scratch.Set "js" }}
 {{ end }}
 {{ end }}
-{{ .Scratch.Set "paginator" $paginator }}
+{{ .Scratch.Set "paginator" $pag }}
 
 {{ end }}
 
 {{ define "main" }}
 
-{{ $paginator := .Scratch.Get "paginator" }}
-{{ range $paginator.Pages }}
+{{ $pag := .Scratch.Get "paginator" }}
+{{ range $pag.Pages }}
 <article>
   {{ partial "heading.html" . }}
   {{ if site.Params.summaries }}
@@ -41,6 +41,6 @@
 </article>
 {{ with site.Params.divider }}<div class="Divider"></div>{{ end }}
 {{ end }}
-{{ partial "pagination.html" $paginator }}
+{{ partial "pagination.html" . }}
 
 {{ end }}

@@ -9,7 +9,7 @@
   <ul class="Tags">
     {{ range $.GetTerms $taxonomy }}
     <li class="Tags-item u-background">
-      <a class="Tags-link u-clickable" href="{{ .Permalink }}" rel="tag">{{ .LinkTitle }}</a>
+      <a class="Tags-link u-clickable" href="{{ .RelPermalink }}" rel="tag">{{ .LinkTitle }}</a>
     </li>
     {{ end }}
   </ul>

@@ -9,9 +9,9 @@
     {{ with .Title }}{{ . }} | {{ end }}{{ site.Title }}
     {{ end }}
   </title>
-  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="canonical" href="{{ .RelPermalink }}">
   {{ range .AlternativeOutputFormats }}
-  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType .Permalink site.Title | safeHTML }}
+  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType .RelPermalink site.Title | safeHTML }}
   {{ end }}
   {{ $basecss := resources.Get "css/base.tpl.css" | resources.ExecuteAsTemplate "css/base.css" . }}
   {{ with site.Params.css }}
@@ -33,10 +33,10 @@
   */}}
   {{ block "loadshortcodes" . }}{{ with .Content }}{{ end }}{{ end }}
   {{ range .Scratch.GetSortedMapValues "css" }}
-  <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
   {{ end }}
   {{ range .Scratch.GetSortedMapValues "js" }}
-  <script defer src="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  <script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
   {{ end }}
 </head>
 <body>

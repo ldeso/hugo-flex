@@ -2,10 +2,10 @@
 {{ if gt $pag.TotalPages 1 }}
 <nav>
   {{ if $pag.HasNext }}
-  <a class="Pagination u-clickable" href="{{ $pag.Next.URL | absURL }}" rel="prev">« Previous</a>
+  <a class="Pagination u-clickable" href="{{ $pag.Next.URL }}" rel="prev">« Previous</a>
   {{ end }}
   {{ if $pag.HasPrev }}
-  <a class="Pagination Pagination--right u-clickable" href="{{ $pag.Prev.URL | absURL }}" rel="next">Next »</a>
+  <a class="Pagination Pagination--right u-clickable" href="{{ $pag.Prev.URL }}" rel="next">Next »</a>
   {{ end }}
 </nav>
 {{ end }}

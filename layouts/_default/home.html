@@ -1,12 +1,5 @@
 {{ define "loadshortcodes" }}
 
-{{/*
-  Here Hugo is forced to cycle through all the items that will appear on
-  the page, effectively pre-rendering all their shortcodes. Afterwards,
-  when a shortcode contains a "css" or a "js" entry in their local
-  .Scratch variable, the content of this entry is merged to the content
-  of the corresponding entry in the global .Scratch variable.
-*/}}
 {{ $pag := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
 {{ range $pag.Pages }}
 {{ with .Content }}{{ end }}
@@ -31,7 +24,7 @@
   {{ .Summary }}
   {{ if .Truncated }}
   <p>
-    <a class="u-clickable" href="{{ .Permalink }}">Read More…</a>
+    <a class="u-clickable" href="{{ .RelPermalink }}">Read More…</a>
   </p>
   {{ end }}
   {{ else }}

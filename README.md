@@ -148,7 +148,7 @@ params:
     - bar.js
 ```
 
-The paths are relative to the project working directory.
+The paths are relative to the assets directory.
 
 
 ### Dynamically Embedded

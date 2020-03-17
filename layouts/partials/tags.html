@@ -1,7 +1,7 @@
 {{ $taxonomy_list := slice }}
 
 {{ range $taxonomy, $pages := site.Taxonomies }}
-  {{ $taxonomy_list = $taxonomy_list | append $taxonomy_list }}
+  {{ $taxonomy_list = $taxonomy_list | append $taxonomy }}
 {{ end }}
 
 {{ $taxonomy_is_used_list := apply $taxonomy_list "isset" .Params "." }}

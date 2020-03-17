@@ -7,9 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {{ hugo.Generator }}
         <title><xsl:value-of select="title" /></title>
-        {{ with .Scratch.Get "css" }}
-        <link rel="stylesheet" href="{{ .base.Permalink }}" integrity="{{ .base.Data.Integrity }}" />
-        {{ end }}
+        {{ $site_css := (.Scratch.Get "css").base }}
+        <link rel="stylesheet" href="{{ $site_css.Permalink }}" integrity="{{ $site_css.Data.Integrity }}" />
       </head>
       <body>
         {{ partialCached "banner.html" . }}

@@ -1,6 +1,6 @@
 {{ $taxonomy_list := slice }}
 
-{{ range $taxonomy, $pages := site.Taxonomies }}
+{{ range $taxonomy, $_ := site.Taxonomies }}
   {{ $taxonomy_list = $taxonomy_list | append $taxonomy }}
 {{ end }}
 

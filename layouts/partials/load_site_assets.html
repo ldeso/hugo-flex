@@ -1,6 +1,6 @@
-{{ $base_css := resources.Get "css/base.tpl.css" }}
+{{ $base_css := resources.Get "css/base.tpl.css" | resources.ExecuteAsTemplate "css/base.css" . }}
 
-{{ $site_css := $base_css | resources.ExecuteAsTemplate "css/base.css" . }}
+{{ $site_css := $base_css }}
 
 {{ with site.Params.css }}
   {{ $css_list := slice $site_css }}

@@ -1,19 +1,23 @@
-{{ $taxonomies := slice }}
+{{ $taxonomy_list := slice }}
+
 {{ range $taxonomy, $pages := site.Taxonomies }}
-{{ $taxonomies = $taxonomies | append $taxonomy }}
+  {{ $taxonomy_list = $taxonomy_list | append $taxonomy_list }}
 {{ end }}
-{{ if true | in (apply $taxonomies "isset" .Params ".") }}
-<footer>
-  {{ range $taxonomy := $taxonomies }}
-  {{ if isset $.Params $taxonomy }}
-  <ul class="Tags">
-    {{ range $.GetTerms $taxonomy }}
-    <li class="Tags-item u-background">
-      <a class="Tags-link u-clickable" href="{{ .RelPermalink }}" rel="tag">{{ .LinkTitle }}</a>
-    </li>
+
+{{ $taxonomy_is_used_list := apply $taxonomy_list "isset" .Params "." }}
+
+{{ if true | in $taxonomy_is_used_list }}
+  <footer>
+    {{ range $taxonomy := $taxonomy_list }}
+      {{ if isset $.Params $taxonomy }}
+        <ul class="Tags">
+          {{ range $.GetTerms $taxonomy }}
+            <li class="Tags-item u-background">
+              <a class="Tags-link u-clickable" href="{{ .RelPermalink }}" rel="tag">{{ .LinkTitle }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
     {{ end }}
-  </ul>
-  {{ end }}
-  {{ end }}
-</footer>
+  </footer>
 {{ end }}

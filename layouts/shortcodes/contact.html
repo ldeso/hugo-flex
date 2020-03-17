@@ -1,11 +1,12 @@
 {{ resources.Get "css/contact.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "contact" }}
+
 <form class="Contact" name="contact" method="POST" data-netlify="true"{{ if site.Params.netlify.honeypot }} data-netlify-honeypot="bot"{{ end }}{{ if site.Params.netlify.recaptcha }} data-netlify-recaptcha="true"{{ end }}{{ with .Get 0 }} action="{{ . }}"{{ end }}>
   <ul class="Contact-group">
     {{ if site.Params.netlify.honeypot }}
-    <li class="Contact-hidden">
-      <label>Don’t fill this out if you're human:</label>
-      <input name="bot">
-    </li>
+      <li class="Contact-hidden">
+        <label>Don’t fill this out if you're human:</label>
+        <input name="bot">
+      </li>
     {{ end }}
     <li class="Contact-item">
       <label class="Contact-label" for="Contact-name">Name:</label>

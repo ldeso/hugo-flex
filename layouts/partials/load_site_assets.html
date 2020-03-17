@@ -1,0 +1,24 @@
+{{ $base_css := resources.Get "css/base.tpl.css" }}
+
+{{ $site_css := $base_css | resources.ExecuteAsTemplate "css/base.css" . }}
+
+{{ with site.Params.css }}
+  {{ $css_list := slice $site_css }}
+  {{ range . }}
+    {{ $custom_css := resources.Get . }}
+    {{ $css_list = $css_list | append $custom_css }}
+  {{ end }}
+  {{ $site_css = $css_list | resources.Concat "css/base.css" }}
+{{ end }}
+
+{{ minify $site_css | fingerprint | .Page.Scratch.SetInMap "css" "base" }}
+
+{{ with site.Params.js }}
+  {{ $js_list := slice }}
+  {{ range . }}
+    {{ $custom_js := resources.Get . }}
+    {{ $js_list = $js_list | append $custom_js }}
+  {{ end }}
+  {{ $site_js := $js_list | resources.Concat "js/base.js" }}
+  {{ minify $site_js | fingerprint | $.Page.Scratch.SetInMap "js" "base" }}
+{{ end }}

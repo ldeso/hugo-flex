@@ -1,39 +1,51 @@
-{{ define "loadshortcodes" }}
+{{ define "load_page_assets" }}
 
-{{ $pag := where site.RegularPages "Type" "in" site.Params.mainSections | .Paginate }}
-{{ range $pag.Pages }}
-{{ with .Content }}{{ end }}
-{{ with .Scratch.Get "css" }}
-{{ . | merge ($.Scratch.Get "css") | $.Scratch.Set "css" }}
-{{ end }}
-{{ with .Scratch.Get "js" }}
-{{ . | merge ($.Scratch.Get "js") | $.Scratch.Set "js" }}
-{{ end }}
-{{ end }}
-{{ .Scratch.Set "paginator" $pag }}
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+
+  {{ $paginator := .Paginate $pages }}
+
+  {{ range $paginator.Pages }}
+    {{ with .Content }}{{ end }}
+    {{ $page_css := .Scratch.Get "css" }}
+    {{ with $page_css }}
+      {{ $css_list := $.Scratch.Get "css" }}
+      {{ . | merge $css_list | $.Scratch.Set "css" }}
+    {{ end }}
+    {{ $page_js := .Scratch.Get "js" }}
+    {{ with $page_js }}
+      {{ $js_list := $.Scratch.Get "js" }}
+      {{ . | merge $js_list | $.Scratch.Set "js" }}
+    {{ end }}
+  {{ end }}
+
+  {{ $paginator | .Scratch.Set "paginator" }}
 
 {{ end }}
 
 {{ define "main" }}
 
-{{ $pag := .Scratch.Get "paginator" }}
-{{ range $pag.Pages }}
-<article>
-  {{ partial "heading.html" . }}
-  {{ if site.Params.summaries }}
-  {{ .Summary }}
-  {{ if .Truncated }}
-  <p>
-    <a class="u-clickable" href="{{ .RelPermalink }}">Read More…</a>
-  </p>
+  {{ $paginator := .Scratch.Get "paginator" }}
+
+  {{ range $paginator.Pages }}
+    <article>
+      {{ partial "heading.html" . }}
+      {{ if site.Params.summaries }}
+        {{ .Summary }}
+        {{ if .Truncated }}
+          <p>
+            <a class="u-clickable" href="{{ .RelPermalink }}">Read More…</a>
+          </p>
+        {{ end }}
+      {{ else }}
+        {{ .Content }}
+      {{ end }}
+      {{ partial "tags.html" . }}
+    </article>
+    {{ with site.Params.divider }}
+      <div class="Divider"></div>
+    {{ end }}
   {{ end }}
-  {{ else }}
-  {{ .Content }}
-  {{ end }}
-  {{ partial "tags.html" . }}
-</article>
-{{ with site.Params.divider }}<div class="Divider"></div>{{ end }}
-{{ end }}
-{{ partial "pagination.html" . }}
+
+  {{ partial "pagination.html" . }}
 
 {{ end }}

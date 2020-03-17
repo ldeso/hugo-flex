@@ -1,9 +1,9 @@
 {{ with site.Params.footer }}
-<footer class="Footer">
-  <div class="u-wrapper">
-    <div class="u-padding">
-      {{ . | safeHTML }}
+  <footer class="Footer">
+    <div class="u-wrapper">
+      <div class="u-padding">
+        {{ safeHTML . }}
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 {{ end }}

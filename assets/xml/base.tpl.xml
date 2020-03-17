@@ -20,9 +20,9 @@
                 <a class="Heading-link u-clickable" href="{link}" rel="bookmark"><xsl:value-of select="title" /></a>
               </h2>
               {{ with site.Params.rss }}
-              <p>
-                {{ . | safeHTML }}
-              </p>
+                <p>
+                  {{ safeHTML . }}
+                </p>
               {{ end }}
             </div>
           </div>

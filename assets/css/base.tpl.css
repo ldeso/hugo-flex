@@ -39,9 +39,9 @@ code {
 {{ $len := len site.Menus.nav }}
 {{ range seq $len }}
 
-.Banner-item:nth-child({{ . }}) {
-  order: {{ sub $len . | add 1 }};
-}
+  .Banner-item:nth-child({{ . }}) {
+    order: {{ sub $len . | add 1 }};
+  }
 
 {{ end }}
 
@@ -91,14 +91,14 @@ code {
 
 {{ with site.Params.divider }}
 
-.Divider {
-  display: flex;
-  justify-content: center;
-}
+  .Divider {
+    display: flex;
+    justify-content: center;
+  }
 
-.Divider::after {
-  content: "{{ . }}";
-}
+  .Divider::after {
+    content: "{{ . }}";
+  }
 
 {{ end }}
 

@@ -1,18 +1,18 @@
 {{ define "main" }}
 
-{{ partial "heading.html" . }}
+  {{ partial "heading.html" . }}
 
-{{ .Content }}
+  {{ .Content }}
 
-{{ range .Pages.GroupByPublishDate "2006" }}
-  <h3>{{ .Key }}</h3>
-  <ul>
-    {{ range .Pages }}
-      <li>
-        {{ .PublishDate.Format "2006-01-02" }} – <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </li>
-    {{ end }}
-  </ul>
-{{ end }}
+  {{ range .Pages.GroupByPublishDate "2006" }}
+    <h3>{{ .Key }}</h3>
+    <ul>
+      {{ range .Pages }}
+        <li>
+          {{ .PublishDate.Format "2006-01-02" }} – <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
 
 {{ end }}

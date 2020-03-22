@@ -8,7 +8,7 @@
 {{ printf `<?xml-stylesheet type="text/xsl" href=%q ?>` $base_xml.Permalink | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    {{ partial "title.html" . }}
+    <title>{{ if eq .Title site.Title }}{{ site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
     <description>Recent content {{ if ne .Title site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ site.Title }}</description>
     <generator>Hugo -- gohugo.io</generator>{{ with site.LanguageCode }}

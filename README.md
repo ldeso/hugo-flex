@@ -18,6 +18,7 @@ Optional features:
 - Schema.org, Open Graph and Twitter Cards metadata
 - Utterances comments widget
 - Custom CSS and JS can be added [site-wide](#custom-css-and-js), or [dynamically](#dynamically-embedded) with shortcodes
+- Math display with Katex
 - Built-in shortcodes:
   - Netlify contact form
   - On-click Soundcloud player
@@ -168,6 +169,23 @@ As an example, this is the template for the built-in Soundcloud shortcode:
 {{ resources.Get "js/soundcloud.js" | minify | fingerprint  | .Page.Scratch.SetInMap "js" "soundcloud" }}
 <div class="Soundcloud" data-id="{{ .Get 0 }}"></div>
 ```
+
+### Math Display
+
+To enable math display in a certian post, add 
+
+```yaml
+---
+katex: true
+markup: "mmark"
+---
+```
+
+to your markdown file front matter lines.
+
+It will enable both inline math and math block display only in one post, using `$$...$$` as math delimiter.
+
+**Note:** Although mmark is described as depricated in the Hugo docs, it is the only markdown library that has fully math support, other library like Goldmark only supports math block typesetting.
 
 ## License
 

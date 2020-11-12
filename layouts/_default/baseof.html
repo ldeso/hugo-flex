@@ -10,6 +10,7 @@
     {{ with .Content }}{{ end }}
   {{ end }}
   {{ partial "assets.html" . }}
+  {{ if .Params.katex}}{{ partial "katex.html" . }}{{ end }}
 </head>
 
 <body>

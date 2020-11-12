@@ -172,7 +172,7 @@ As an example, this is the template for the built-in Soundcloud shortcode:
 
 ### Math Display
 
-To enable math display in a certian post, add 
+To enable math display in a certain post, add 
 
 ```yaml
 ---

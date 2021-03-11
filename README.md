@@ -78,10 +78,10 @@ params:
   netlify:
     honeypot: false     # Set to true to add honeypot field in contact form
     recaptcha: false    # Set to true to add recaptcha challenge in contact form
-  # css:                # Uncomment to add custom CSS from a list of files
+  # css:                # Uncomment to add custom CSS from the assets directory
   #   - css/foo.css
   #   - bar.css
-  # js:                 # Uncomment to add custom JS from a list of files
+  # js:                 # Uncomment to add custom JS from the assets directory
   #   - js/foo.js
   #   - bar.js
 
@@ -148,7 +148,7 @@ params:
     - bar.js
 ```
 
-The paths are relative to the assets directory.
+The paths are relative to the project working directory. In this example, the file paths would be `assets/css/foo.css`,  `assets/bar.css`,  `assets/js/foo.js`,  `assets/bar.js`.
 
 
 ### Dynamically Embedded

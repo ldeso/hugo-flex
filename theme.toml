@@ -3,6 +3,7 @@ license = "Apache-2.0"
 licenselink = "https://github.com/de-souza/hugo-flex/blob/master/LICENSE"
 description = "A lightweight Hugo theme leveraging CSS Flexbox"
 homepage = "https://github.com/de-souza/hugo-flex/"
+demosite = "https://de-souza.github.io/hugo-flex/"
 tags = ["responsive", "minimal", "flexbox", "no-javascript"]
 features = ["posts"]
 min_version = "0.65"

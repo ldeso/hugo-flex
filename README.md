@@ -1,13 +1,15 @@
 # Hugo Flex
 
-A lightweight Hugo theme leveraging CSS Flexbox
+A lightweight Hugo theme leveraging CSS Flexbox.
+
+Verified to work with Hugo versions v0.65–v0.104.
 
 
 ## Features
 
 - Flexbox-based responsive layout
 - Full posts in RSS feed
-- Themed RSS feed
+- Themed RSS feed page
 - No framework
 - No javascript
 - 100% speed score on PageSpeed Insight
@@ -17,21 +19,31 @@ Optional features:
 - Show summaries on homepage
 - Schema.org, Open Graph and Twitter Cards metadata
 - Utterances comments widget
-- Custom CSS and JS can be added [site-wide](#custom-css-and-js), or [dynamically](#dynamically-embedded) with shortcodes
+- Custom CSS and JS may be added [site-wide](#custom-css-and-js), or [dynamically](#dynamically-embedded) with shortcodes
 - Built-in shortcodes:
   - Netlify contact form
   - On-click Soundcloud player
 
 
+## Example
+
+The [example site](https://de-souza.github.io/hugo-flex/) is based on the [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample) repository. A complete starter template with in-depth explanations is available at [scivision/hugo-flex-example](https://github.com/scivision/hugo-flex-example).
+
+
 ## Installation
 
-From the website root:
+1. [Install Hugo](https://gohugo.io/getting-started/installing/).
+
+2. [Create a Hugo site](https://gohugo.io/getting-started/quick-start/).
+
+3. Open a command prompt at the root of the site and download the theme:
 
 ```bash
+git init
 git submodule add https://github.com/de-souza/hugo-flex.git themes/hugo-flex
 ```
 
-The theme must be set in the website config:
+4. Add the theme to the site configuration:
 
 ```bash
 echo 'theme: hugo-flex' >> config.yaml
@@ -40,27 +52,22 @@ echo 'theme: hugo-flex' >> config.yaml
 
 ## Updating
 
-From the website root:
+Open a command prompt at the root of the site and update the theme:
 
 ```bash
 git submodule update --remote --rebase
 ```
 
 
-## Example Site
-
-The official [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample) repository may be used as an example site. For a complete starter template for using this theme with in-depth explanations, see [hugo-flex-example](https://github.com/scivision/hugo-flex-example).
-
-
 ## Configuration
 
-Configuration options may be copied and modified from the theme defaults:
+The default theme configuration may be modified and copied to the site configuration:
 
 ```yaml
 params:
   color: teal           # Any color in CSS syntax
   width: 42rem          # Any length in CSS syntax
-  footer: >-            # A hardcoded space is needed before each html element
+  footer: >-            # HTML spaces (&#32;) are needed before HTML elements
     Except where otherwise noted, content on this site is licensed under a &#32;
     <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative
     Commons Attribution 4.0 International License</a>.
@@ -109,7 +116,7 @@ menu:
 
 ### Netlify Contact Form
 
-A contact form working with the built-in Netlify form handling service is inserted with the shortcode:
+A contact form working with the Netlify form handling service may be inserted with the shortcode:
 
 ```
 {{< contact >}}
@@ -121,22 +128,22 @@ A custom success page URL may be given as a parameter:
 {{< contact "/success" >}}
 ```
 
-### On-Click Soundcloud Player
+### Soundcloud Player
 
-An on-click Soundcloud Player is inserted with the shortcode:
+A Soundcloud Player may be inserted with the shortcode:
 
 ```
 {{< soundcloud 123456789 >}}
 ```
 
-The parameter is a track ID and can be extracted from the "embed" sharing menu on the track webpage.
+The parameter is a track ID that can be extracted from the "embed" sharing menu on the track page.
 
 
 ## Custom CSS and JS
 
 ### Site-Wide
 
-Custom CSS and JS can be added to all the pages on the website. To do so, the relevant filenames must be added to the website config file:
+Custom CSS and JS can be added to all the site pages at once. To do so, their filenames can be added to the site configuration:
 
 ```yaml
 params:
@@ -153,7 +160,7 @@ The paths are relative to the project working directory. In this example, the fi
 
 ### Dynamically Embedded
 
-To embed CSS and JS resources on specific pages of the website, they must be added to the `.Scratch` variable from a shortcode template. As a result, they will be loaded in pages where the shortcode is used. For instance, a shortcode template could contain:
+To embed CSS and JS resources on specific pages of the site, they must be added to the `.Scratch` variable from a shortcode template. As a result, they will be loaded in pages where the shortcode is used. For instance, a shortcode template could contain:
 
 ```html
 {{ resources.Get "myscript.js" | fingerprint | .Page.Scratch.SetInMap "js" "myscript" }}

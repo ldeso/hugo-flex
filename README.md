@@ -2,17 +2,17 @@
 
 A lightweight Hugo theme leveraging CSS Flexbox.
 
-Verified to work with Hugo versions v0.65–v0.104.
+This theme is verified to work with Hugo versions v0.65–v0.104.
 
 
 ## Features
 
 - Flexbox-based responsive layout
-- Full posts in RSS feed
-- Themed RSS feed page
+- 100% speed score on PageSpeed Insight
 - No framework
 - No javascript
-- 100% speed score on PageSpeed Insight
+- Full posts in RSS feed
+- RSS page looks like a normal page
 
 Optional features:
 
@@ -27,7 +27,9 @@ Optional features:
 
 ## Example
 
-The [example site](https://de-souza.github.io/hugo-flex/) is based on the [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample) repository. A complete starter template with in-depth explanations is available at [scivision/hugo-flex-example](https://github.com/scivision/hugo-flex-example).
+The [demo site](https://de-souza.github.io/hugo-flex/) is built from the [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample) repository.
+
+A complete starter template specifically made for this theme is also available at [scivision/hugo-flex-example](https://github.com/scivision/hugo-flex-example).
 
 
 ## Installation
@@ -61,7 +63,7 @@ git submodule update --remote --rebase
 
 ## Configuration
 
-The default theme configuration may be modified and copied to the site configuration:
+Any part of the default theme configuration can be overwritten in the site configuration:
 
 ```yaml
 params:
@@ -155,18 +157,21 @@ params:
     - bar.js
 ```
 
-The paths are relative to the project working directory. In this example, the file paths would be `assets/css/foo.css`,  `assets/bar.css`,  `assets/js/foo.js`,  `assets/bar.js`.
+The paths are relative to the project working directory.
+In this example, the file paths relative to the site root would be `assets/css/foo.css`,  `assets/bar.css`,  `assets/js/foo.js`,  `assets/bar.js`.
 
 
 ### Dynamically Embedded
 
-To embed CSS and JS resources on specific pages of the site, they must be added to the `.Scratch` variable from a shortcode template. As a result, they will be loaded in pages where the shortcode is used. For instance, a shortcode template could contain:
+CSS and JS resources may be embedded on specific pages of the site using [shortcodes](https://gohugo.io/content-management/shortcodes).
+
+To load a resource on each page where a shortcode is used, the template for this shortcode must add the resource to the `css` or `js` key of the `.Scratch` variable. For instance, a shortcode template `myshortcode.html` containing the line
 
 ```html
 {{ resources.Get "myscript.js" | fingerprint | .Page.Scratch.SetInMap "js" "myscript" }}
 ```
 
-This would load script myscript.js on every page where the shortcode is used.
+will load `myscript.js` on every page where `myshortcode` is used.
 
 As an example, this is the template for the built-in Soundcloud shortcode:
 

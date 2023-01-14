@@ -14,6 +14,10 @@
   {{ end }}
 {{ end }}
 
+{{- if (ne hugo.Environment "development") }}
+  {{- partialCached "analytics" . }}
+{{- end }}
+
 {{ if site.Params.schema }}
   {{ template "_internal/schema.html" . }}
 {{ end }}

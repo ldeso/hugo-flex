@@ -1,0 +1,21 @@
+[[nav]]
+  name = "About"
+  url = "about/"
+  weight = 1
+[[nav]]
+  name = "Posts"
+  url = "post/"
+  weight = 2
+[[nav]]
+  name = "Tags"
+  url = "tags/"
+  weight = 3
+[[nav]]
+  name = "Categories"
+  url = "categories/"
+  weight = 4
+[[nav]]
+  name = "RSS"
+  url = "index.xml"
+  weight = 5
+

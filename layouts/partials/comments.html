@@ -1,5 +1,25 @@
+{{ with site.Params.giscup }}
+  <div class="post bg-white">
+    <script src="https://giscus.app/client.js"
+            data-repo="{{ .repo }}"
+            data-repo-id="{{ .repoid }}"
+            data-category="{{ .category }}"
+            data-category-id="{{ .categoryid }}"
+            data-mapping="url"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </div>
+{{end}}
 {{ with site.Params.utterances }}
   {{ if $.Type | in site.Params.mainSections | and .repo }}
     <script src="https://utteranc.es/client.js" repo="{{ .repo }}" issue-term="{{ .issueterm }}" theme="{{ .theme }}" crossorigin="anonymous" async></script>
   {{end}}
 {{end}}
+

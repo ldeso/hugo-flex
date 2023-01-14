@@ -1,0 +1,51 @@
+{{- with .Site.Params.ga_analytics }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ . }}');
+</script>
+{{- end -}}
+{{- with .Site.Params.baidu_analytics }}
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?{{ . }}";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+{{- end }}
+
+{{- if (site.Params.plausible_analytics.enable) }}
+<script async defer data-domain="{{ site.Params.plausible_analytics.websiteDomain }}" 
+src='https://{{ default "plausible.io" site.Params.plausible_analytics.plausibleDomain }}/js/{{ default "plausible" site.Params.plausible_analytics.scritpName }}.js'>
+</script>
+{{- end }}
+
+
+{{- if (site.Params.matomo_analytics.enable) }}
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "*.{{ site.Params.matomo_analytics.websiteDomain }}"]);
+  _paq.push(["setDomains", ["*.{{ site.Params.matomo_analytics.websiteDomain }}"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//{{ site.Params.matomo_analytics.matomoDomain }}/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '{{ default 1 site.Params.matomo_analytics.matomoSiteID }}']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//{{ site.Params.matomo_analytics.matomoDomain }}/matomo.php?idsite={{ default 1 site.Params.matomo_analytics.matomoSiteID }}&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+{{- end }}
+

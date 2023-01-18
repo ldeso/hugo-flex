@@ -5,7 +5,7 @@
     <html lang="{{ site.LanguageCode }}">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {{ hugo.Generator }}
+        {{ hugo.Generator }}</meta>
         <title><xsl:value-of select="title" /></title>
         {{ $site_css := (.Scratch.Get "css").base }}
         <link rel="stylesheet" href="{{ $site_css.Permalink }}" integrity="{{ $site_css.Data.Integrity }}" />

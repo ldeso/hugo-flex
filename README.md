@@ -2,7 +2,7 @@
 
 A lightweight Hugo theme leveraging CSS Flexbox.
 
-This theme is verified to work with Hugo versions v0.65–v0.104.
+This theme is verified to work with Hugo versions v0.105–v0.110.
 
 
 ## Features

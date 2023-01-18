@@ -21,8 +21,8 @@ Optional features:
 - Utterances comments widget
 - Custom CSS and JS may be added [site-wide](#custom-css-and-js), or [dynamically](#dynamically-embedded) with shortcodes
 - Built-in shortcodes:
-  - Netlify contact form
-  - On-click Soundcloud player
+  - [Netlify contact form](#netlify-contact-form)
+  - Privacy-friendly [Soundcloud player](#soundcloud-player)
 
 
 ## Example
@@ -34,9 +34,9 @@ A complete starter template specifically made for this theme is also available a
 
 ## Installation
 
-1. [Install Hugo](https://gohugo.io/getting-started/installing/).
+1. [Install Hugo](https://gohugo.io/installation/).
 
-2. [Create a Hugo site](https://gohugo.io/getting-started/quick-start/).
+2. [Create a Hugo site](https://gohugo.io/getting-started/directory-structure/).
 
 3. Open a command prompt at the root of the site and download the theme:
 
@@ -45,10 +45,10 @@ git init
 git submodule add https://github.com/de-souza/hugo-flex.git themes/hugo-flex
 ```
 
-4. Add the theme to the site configuration:
+4. Add the theme to the [site configuration](https://gohugo.io/getting-started/configuration/). If the configuration file is called `hugo.yaml`:
 
 ```bash
-echo 'theme: hugo-flex' >> config.yaml
+echo 'theme: hugo-flex' >> hugo.yaml
 ```
 
 
@@ -63,12 +63,14 @@ git submodule update --remote --rebase
 
 ## Configuration
 
-Any part of the default theme configuration can be overwritten in the site configuration:
+Any part of the default theme configuration can be overwritten in the [site configuration](https://gohugo.io/getting-started/configuration/):
 
 ```yaml
 params:
   color: teal           # Any color in CSS syntax
-  width: 42rem          # Any length in CSS syntax
+  width: 42rem          # Any length in CSS syntax / leave empty to span page
+  divider: \a0          # Any string in CSS syntax / leave empty for no divider
+  footer: >-            # HTML spaces (&#32;) are needed before HTML elements
   footer: >-            # HTML spaces (&#32;) are needed before HTML elements
     Except where otherwise noted, content on this site is licensed under a &#32;
     <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative
@@ -76,7 +78,6 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   summaries: false      # Set to true to show summaries of posts on homepage
-  divider: \a0          # Set to false to remove divider below posts on homepage
   schema: false         # Set to true to add Schema.org metadata
   opengraph: false      # Set to true to add Open Graph metadata
   twittercards: false   # Set to true to add Twitter Cards metadata
@@ -118,7 +119,7 @@ menu:
 
 ### Netlify Contact Form
 
-A contact form working with the Netlify form handling service may be inserted with the shortcode:
+A contact form that works with the Netlify form handling service can be inserted with the shortcode:
 
 ```
 {{< contact >}}
@@ -132,20 +133,22 @@ A custom success page URL may be given as a parameter:
 
 ### Soundcloud Player
 
-A Soundcloud Player may be inserted with the shortcode:
+A privacy-friendly Soundcloud player can be inserted with the shortcode:
 
 ```
 {{< soundcloud 123456789 >}}
 ```
 
-The parameter is a track ID that can be extracted from the "embed" sharing menu on the track page.
+The parameter is the track ID. It can be extracted from the "embed" sharing menu on the track's webpage.
 
 
 ## Custom CSS and JS
 
+This theme offers two ways to add custom CSS or JS assets, allowing minor modifications to be applied without needing to create a fork.
+
 ### Site-Wide
 
-Custom CSS and JS can be added to all the site pages at once. To do so, their filenames can be added to the site configuration:
+Custom CSS and JS files can be added to the base asset loaded by every page. To do so, their filenames can be added to the site configuration:
 
 ```yaml
 params:
@@ -158,20 +161,21 @@ params:
 ```
 
 The paths are relative to the project working directory.
-In this example, the file paths relative to the site root would be `assets/css/foo.css`,  `assets/bar.css`,  `assets/js/foo.js`,  `assets/bar.js`.
+In this example, the file paths relative to the site root would be `assets/css/foo.css`, `assets/bar.css`, `assets/js/foo.js`, and `assets/bar.js`.
 
 
 ### Dynamically Embedded
 
-CSS and JS resources may be embedded on specific pages of the site using [shortcodes](https://gohugo.io/content-management/shortcodes).
+Sometimes, custom CSS or JS are only needed on specific pages. This theme offers a mechanism to load assets a single time on the pages where a shortcode is used, even if the shortcode is used more than once on the same page.
 
-To load a resource on each page where a shortcode is used, the template for this shortcode must add the resource to the `css` or `js` key of the `.Scratch` variable. For instance, a shortcode template `myshortcode.html` containing the line
+To load a resource on each page where a shortcode is used, the template for this shortcode must add the resource to the `css` or `js` key of the [Scratch variable](https://gohugo.io/functions/scratch/).
+For instance, a shortcode template `myshortcode.html` containing the line
 
 ```html
 {{ resources.Get "myscript.js" | fingerprint | .Page.Scratch.SetInMap "js" "myscript" }}
 ```
 
-will load `myscript.js` on every page where `myshortcode` is used.
+will load `myscript.js` once on every page where `myshortcode` is used.
 
 As an example, this is the template for the built-in Soundcloud shortcode:
 

@@ -54,7 +54,7 @@ echo 'theme: hugo-flex' >> hugo.yaml
 
 ## Updating
 
-Open a command prompt at the root of the site and update the theme:
+Open a command prompt at the site's root directory and update the theme:
 
 ```bash
 git submodule update --remote --rebase

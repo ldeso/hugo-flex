@@ -143,11 +143,11 @@ The parameter is the track ID. It can be extracted from the "embed" sharing menu
 
 ## Custom CSS and JS
 
-This theme offers two ways to add custom CSS or JS assets, allowing minor modifications to be applied without needing to create a fork.
+This theme offers two ways to add custom CSS or JS assets, allowing minor modifications to be applied without creating a fork.
 
 ### Site-Wide
 
-Custom CSS and JS files can be added to the base asset loaded by every page. To do so, their filenames can be added to the site configuration:
+Custom CSS and JS files can be loaded as part of the base asset linked by every page. To do so, their filenames can be added to the site configuration:
 
 ```yaml
 params:
@@ -160,14 +160,14 @@ params:
 ```
 
 The paths are relative to the project working directory.
-In this example, the file paths relative to the site root would be `assets/css/foo.css`, `assets/bar.css`, `assets/js/foo.js`, and `assets/bar.js`.
+In this example, the file paths relative to the site root would be: `assets/css/foo.css`, `assets/bar.css`, `assets/js/foo.js`, and `assets/bar.js`.
 
 
 ### Dynamically Embedded
 
-Sometimes, custom CSS or JS are only needed on specific pages. This theme offers a mechanism to load assets a single time on the pages where a shortcode is used, even if the shortcode is used more than once on the same page.
+Sometimes, custom CSS or JS is needed only on specific pages. This theme offers a mechanism to load assets using a shortcode. The assets are loaded only once, even if they are required by several shortcodes in the same page.
 
-To load a resource on each page where a shortcode is used, the template for this shortcode must add the resource to the `css` or `js` key of the [Scratch variable](https://gohugo.io/functions/scratch/).
+To load a CSS or JS resource on each page where a shortcode is used, the template for this shortcode must add the resource to the `css` or `js` key of the [Scratch variable](https://gohugo.io/functions/scratch/).
 For instance, a shortcode template `myshortcode.html` containing the line
 
 ```html

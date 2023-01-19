@@ -132,13 +132,14 @@ A custom URL for the success page may be given as a parameter:
 
 ### Soundcloud Player
 
-A [Soundcloud player](https://help.soundcloud.com/hc/articles/115003449627) can be inserted with the shortcode:
+A privacy-friendly [Soundcloud player](https://help.soundcloud.com/hc/articles/115003449627) can be inserted with the shortcode:
 
 ```
 {{< soundcloud 123456789 >}}
 ```
 
-The parameter is the track ID. It can be extracted from the [embed code](https://help.soundcloud.com/hc/articles/115003568008) in the track's webpage. This player is privacy friendly: it will only load on user input.
+The parameter is the track ID and can be extracted from the track's [embed code](https://help.soundcloud.com/hc/articles/115003568008).
+The player will only load after user input.
 
 
 ## Custom CSS and JS

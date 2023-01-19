@@ -1,14 +1,14 @@
 # Hugo Flex
 
-A lightweight Hugo theme leveraging CSS Flexbox.
+A lightweight Hugo theme leveraging [CSS Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout).
 
-This theme is verified to work with Hugo versions v0.105–v0.110.
+This theme is verified to work with [Hugo](https://gohugo.io) versions v0.105–v0.110.
 
 
 ## Features
 
-- Flexbox-based responsive layout
-- 100% speed score on PageSpeed Insight
+- [Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout)-based responsive layout
+- 100% speed score on [PageSpeed Insights](https://pagespeed.web.dev)
 - No framework
 - No javascript
 - Full posts in RSS feed
@@ -16,9 +16,9 @@ This theme is verified to work with Hugo versions v0.105–v0.110.
 
 Optional features:
 
-- Show summaries on homepage
-- Schema.org, Open Graph and Twitter Cards metadata
-- Utterances comments widget
+- Show [summaries](https://gohugo.io/content-management/summaries) on homepage
+- [Schema.org](https://schema.org), [Open Graph](https://ogp.me) and [Twitter Cards](https://developer.twitter.com/cards) metadata
+- [Utterances](https://utteranc.es) comments widget
 - Custom CSS and JS may be added [site-wide](#custom-css-and-js), or [dynamically](#dynamically-embedded) with shortcodes
 - Built-in shortcodes:
   - [Netlify contact form](#netlify-contact-form)

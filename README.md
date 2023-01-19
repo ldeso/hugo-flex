@@ -160,7 +160,7 @@ params:
     - bar.js
 ```
 
-The paths are relative to the project working directory.
+The paths are relative to the [asset directory](https://gohugo.io/getting-started/configuration/#assetdir).
 In this example, the file paths relative to the site root would be: `assets/css/foo.css`, `assets/bar.css`, `assets/js/foo.js`, and `assets/bar.js`.
 
 

@@ -63,7 +63,7 @@ git submodule update --remote --rebase
 
 ## Configuration
 
-Any part of the default theme configuration can be copied to the [site configuration](https://gohugo.io/getting-started/configuration/) to be modified:
+Any part of the default theme configuration can be copied to the [site configuration](https://gohugo.io/getting-started/configuration/) to be modified. The default theme configuration is:
 
 ```yaml
 params:

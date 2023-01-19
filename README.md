@@ -45,7 +45,7 @@ git init
 git submodule add https://github.com/de-souza/hugo-flex.git themes/hugo-flex
 ```
 
-4. Add the theme to the [site configuration](https://gohugo.io/getting-started/configuration/). If the configuration file is called `hugo.yaml`:
+4. Add the theme to the [site configuration](https://gohugo.io/getting-started/configuration/). If the site configuration is a file called `hugo.yaml`:
 
 ```bash
 echo 'theme: hugo-flex' >> hugo.yaml
@@ -63,7 +63,7 @@ git submodule update --remote --rebase
 
 ## Configuration
 
-Any part of the default theme configuration can be overwritten in the [site configuration](https://gohugo.io/getting-started/configuration/):
+Any part of the default theme configuration can be copied to the [site configuration](https://gohugo.io/getting-started/configuration/) to be modified:
 
 ```yaml
 params:
@@ -147,7 +147,7 @@ This theme offers two ways to add custom CSS or JS assets, allowing minor modifi
 
 ### Site-Wide
 
-Custom CSS and JS files can be loaded as part of the base asset linked by every page. To do so, their filenames can be added to the site configuration:
+Custom CSS and JS files can be loaded as part of the base asset linked by every page. To do so, their filenames have to be added to the [site configuration](#configuration):
 
 ```yaml
 params:
@@ -165,18 +165,19 @@ In this example, the file paths relative to the site root would be: `assets/css/
 
 ### Dynamically Embedded
 
-Sometimes, custom CSS or JS is needed only on specific pages. This theme offers a mechanism to load assets using a shortcode. The assets are loaded only once, even if they are required by several shortcodes in the same page.
+Sometimes, custom CSS or JS is needed only on specific pages. This theme offers a mechanism to load CSS or JS assets through [shortcodes](https://gohugo.io/content-management/shortcodes/).
+The assets are loaded only once per page, even if they are required by several shortcodes in the same page.
 
-To load a CSS or JS resource on each page where a shortcode is used, the template for this shortcode must add the resource to the `css` or `js` key of the [Scratch variable](https://gohugo.io/functions/scratch/).
+To load a CSS or a JS resource on each page where a shortcode is used, the [shortcode template](https://gohugo.io/templates/shortcode-templates/) has to add the resource to the `css` or the `js` key of the [Scratch variable](https://gohugo.io/functions/scratch/).
 For instance, a shortcode template `myshortcode.html` containing the line
 
 ```html
 {{ resources.Get "myscript.js" | fingerprint | .Page.Scratch.SetInMap "js" "myscript" }}
 ```
 
-will load `myscript.js` once on every page where `myshortcode` is used.
+will cause `myscript.js` to be loaded on every page where `myshortcode` is used.
 
-As an example, this is the template for the built-in Soundcloud shortcode:
+As an real-life example, this is the template for the built-in Soundcloud shortcode:
 
 ```html
 {{ resources.Get "css/soundcloud.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "soundcloud" }}

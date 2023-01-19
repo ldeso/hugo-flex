@@ -118,13 +118,13 @@ menu:
 
 ### Netlify Contact Form
 
-A contact form that works with the Netlify form handling service can be inserted with the shortcode:
+A contact form that works with the [Netlify Forms](https://docs.netlify.com/forms/setup/) service can be inserted with the shortcode:
 
 ```
 {{< contact >}}
 ```
 
-A custom success page URL may be given as a parameter:
+A custom URL for the success page may be given as a parameter:
 
 ```
 {{< contact "/success" >}}
@@ -132,13 +132,13 @@ A custom success page URL may be given as a parameter:
 
 ### Soundcloud Player
 
-A privacy-friendly Soundcloud player can be inserted with the shortcode:
+A [Soundcloud player](https://help.soundcloud.com/hc/articles/115003449627) can be inserted with the shortcode:
 
 ```
 {{< soundcloud 123456789 >}}
 ```
 
-The parameter is the track ID. It can be extracted from the "embed" sharing menu on the track's webpage.
+The parameter is the track ID. It can be extracted from the [embed code](https://help.soundcloud.com/hc/articles/115003568008) in the track's webpage. This player is privacy friendly: it will only load on user input.
 
 
 ## Custom CSS and JS

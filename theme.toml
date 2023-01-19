@@ -9,5 +9,5 @@ features = ["posts"]
 min_version = "0.105"
 
 [author]
-  name = "Léo De Souza"
+  name = "Léo de Souza"
   homepage = "https://github.com/de-souza/"

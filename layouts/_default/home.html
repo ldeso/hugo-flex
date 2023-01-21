@@ -24,10 +24,6 @@
 
 {{ define "main" }}
 
-  {{ with .Site.GetPage "introduction" }}
-    {{ .Content }}
-  {{ end }}
-
   {{ $paginator := .Scratch.Get "paginator" }}
 
   {{ range $paginator.Pages }}

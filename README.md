@@ -11,9 +11,10 @@ This theme is verified to work with [Hugo](https://gohugo.io) versions v0.105–
 - 100% speed score on [PageSpeed Insights](https://pagespeed.web.dev)
 - No framework
 - No javascript
+- [Multilingual support](https://gohugo.io/content-management/multilingual/)
+- Automatic dark theme
 - Full posts in RSS feed
 - RSS page looks like a normal page
-- Automatic dark theme
 
 Optional features:
 

@@ -5,6 +5,7 @@
     <html lang="{{ site.LanguageCode }}">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="color-scheme" content="light dark" />
         {{ hugo.Generator }}</meta>
         <title><xsl:value-of select="title" /></title>
         {{ $site_css := (.Scratch.Get "css").base }}

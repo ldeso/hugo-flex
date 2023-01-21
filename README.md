@@ -13,6 +13,7 @@ This theme is verified to work with [Hugo](https://gohugo.io) versions v0.105–
 - No javascript
 - Full posts in RSS feed
 - RSS page looks like a normal page
+- Automatic dark theme
 
 Optional features:
 

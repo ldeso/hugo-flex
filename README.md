@@ -11,16 +11,16 @@ This theme is verified to work with [Hugo](https://gohugo.io) versions v0.105–
 - 100% speed score on [PageSpeed Insights](https://pagespeed.web.dev)
 - No framework
 - No javascript
-- [Multilingual support](https://gohugo.io/content-management/multilingual/)
-- Automatic dark theme
 - Full posts in RSS feed
 - RSS page looks like a normal page
+- [Multilingual support](https://gohugo.io/content-management/multilingual/)
+- Automatic [dark theme](https://mzl.la/3PVbdQX)
 
 Optional features:
 
-- Show [summaries](https://gohugo.io/content-management/summaries) on homepage
-- [Schema.org](https://schema.org), [Open Graph](https://ogp.me) and [Twitter Cards](https://developer.twitter.com/cards) metadata
-- [Utterances](https://utteranc.es) comments widget
+- Show [summaries](https://gohugo.io/content-management/summaries/) on homepage
+- [Schema.org](https://schema.org/), [Open Graph](https://ogp.me/) and [Twitter Cards](https://developer.twitter.com/cards/) metadata
+- [Utterances](https://utteranc.es/) comments widget
 - Custom CSS and JS may be added [site-wide](#custom-css-and-js), or [dynamically](#dynamically-embedded) with shortcodes
 - Built-in shortcodes:
   - [Netlify contact form](#netlify-contact-form)
@@ -29,9 +29,9 @@ Optional features:
 
 ## Example
 
-The [demo site](https://de-souza.github.io/hugo-flex/) is built from the [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample) repository.
+The [demo site](https://de-souza.github.io/hugo-flex/) is built from the [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample/) repository.
 
-A complete starter template specifically made for this theme is also available at [scivision/hugo-flex-example](https://github.com/scivision/hugo-flex-example).
+A complete starter template specifically made for this theme is also available at [scivision/hugo-flex-example](https://github.com/scivision/hugo-flex-example/).
 
 
 ## Installation

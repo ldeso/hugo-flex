@@ -2,6 +2,7 @@
 <html lang="{{ site.LanguageCode }}">
 
 <head>
+  {{ block "load_paginator" . }}{{ end }}
   {{ partial "meta.html" . }}
   {{ partial "title.html" . }}
   {{ partial "link.html" . }}

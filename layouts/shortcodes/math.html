@@ -1,0 +1,14 @@
+{{ range slice "AMS-Regular" "Caligraphic-Bold" "Caligraphic-Regular" "Fraktur-Bold" "Fraktur-Regular" "Main-Bold" "Main-BoldItalic" "Main-Italic" "Main-Regular" "Math-BoldItalic" "Math-Italic" "SansSerif-Bold" "SansSerif-Italic" "SansSerif-Regular" "Script-Regular" "Size1-Regular" "Size2-Regular" "Size3-Regular" "Size4-Regular" "Typewriter-Regular" }}
+  {{ $url := printf "https://cdn.jsdelivr.net/npm/katex/dist/fonts/KaTeX_%s.woff2" . }}
+  {{ $path := printf "css/fonts/KaTeX_%s.woff2" . }}
+  {{ $resource := resources.GetRemote $url | resources.Copy $path }}
+  {{ $resource.Publish }}
+{{ end }}
+{{ resources.GetRemote "https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" | minify | fingerprint | resources.Copy "css/katex.css" | .Page.Scratch.SetInMap "css" "math" }}
+{{ resources.GetRemote "https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js" | minify | fingerprint | resources.Copy "js/katex.js" | .Page.Scratch.SetInMap "js" "math-1" }}
+{{ resources.GetRemote "https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js" | minify | fingerprint | resources.Copy "js/auto-render.js" | .Page.Scratch.SetInMap "js" "math-2" }}
+{{ resources.Get "js/math.js" | minify | fingerprint | .Page.Scratch.SetInMap "js" "math-3" }}
+
+<div class="Math">
+  {{ .Inner }}
+</div>

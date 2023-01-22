@@ -22,8 +22,8 @@ Optional features:
 - [Schema.org](https://schema.org/), [Open Graph](https://ogp.me/) and [Twitter Cards](https://developer.twitter.com/cards/) metadata
 - [Utterances](https://utteranc.es/) comments widget
 - Custom CSS and JS may be added [site-wide](#custom-css-and-js), or [dynamically](#dynamically-embedded) with shortcodes
-- Math display with Katex
 - Built-in shortcodes:
+  - [Math rendering](#math-rendering) with [KaTeX](https://katex.org/)
   - [Netlify contact form](#netlify-contact-form)
   - Privacy-friendly [Soundcloud player](#soundcloud-player)
 
@@ -114,10 +114,30 @@ menu:
   - name: RSS
     url: index.xml
     weight: 5
+
+mediaTypes:
+  font/woff2:
+    suffixes:
+      - woff2
 ```
 
 
 ## Built-In Shortcodes
+
+### Math Rendering
+
+Any mathematical formula written in LaTeX notation can be rendered to HTML by surrounding it with the shortcode:
+
+```
+{{< math >}}
+Inline formulas such as $y=ax+b$ are supported, displayed formulas as well:
+
+$$e^{i\pi}+1=0$$
+{{< math />}}
+```
+
+Using this shortcode will bundle the [KaTeX](https://katex.org/) library with the website, rendering math on the client side.
+As of 2023, it is [not yet possible](https://github.com/gohugoio/hugo/issues/10044) to render math on the server side with Hugo.
 
 ### Netlify Contact Form
 
@@ -188,23 +208,6 @@ As an real-life example, this is the template for the built-in Soundcloud shortc
 {{ resources.Get "js/soundcloud.js" | minify | fingerprint  | .Page.Scratch.SetInMap "js" "soundcloud" }}
 <div class="Soundcloud" data-id="{{ .Get 0 }}"></div>
 ```
-
-### Math Display
-
-To enable math display in a certain post, add 
-
-```yaml
----
-katex: true
-markup: "mmark"
----
-```
-
-to your markdown file front matter lines.
-
-It will enable both inline math and math block display only in one post, using `$$...$$` as math delimiter.
-
-**Note:** Although mmark is described as depricated in the Hugo docs, it is the only markdown library that has fully math support, other library like Goldmark only supports math block typesetting.
 
 ## License
 

@@ -26,7 +26,6 @@ params:
   #   - js/foo.js
   #   - bar.js
 
-
 menu:
   nav:
   - name: About
@@ -44,3 +43,8 @@ menu:
   - name: RSS
     url: index.xml
     weight: 5
+
+mediaTypes:
+  font/woff2:
+    suffixes:
+      - woff2

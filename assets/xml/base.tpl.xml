@@ -5,7 +5,8 @@
     <html lang="{{ site.LanguageCode }}">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {{ hugo.Generator }}
+        <meta name="color-scheme" content="light dark" />
+        {{ hugo.Generator }}</meta>
         <title><xsl:value-of select="title" /></title>
         {{ $site_css := (.Scratch.Get "css").base }}
         <link rel="stylesheet" href="{{ $site_css.Permalink }}" integrity="{{ $site_css.Data.Integrity }}" />
@@ -15,11 +16,11 @@
           <div class="u-wrapper">
             <ul class="Banner">
               <li class="Banner-item Banner-item--title">
-                <a class="Banner-link u-clickable" href="{{ absURL nil }}">{{ site.Title }}</a>
+                <a class="Banner-link u-clickable" href="{{ absLangURL nil }}">{{ site.Title }}</a>
               </li>
               {{ range site.Menus.nav }}
                 <li class="Banner-item">
-                  <a class="Banner-link u-clickable" href="{{ absURL .URL }}">{{ .Name }}</a>
+                  <a class="Banner-link u-clickable" href="{{ absLangURL .URL }}">{{ .Name }}</a>
                 </li>
               {{ end }}
             </ul>

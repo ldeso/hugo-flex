@@ -1,5 +1,11 @@
 <meta charset="utf-8">
 
+{{ if and .IsHome .Paginator.HasPrev }}
+  <meta name="robots" content="noindex, nofollow, noarchive">
+{{ else if .Params.noindex }}
+  <meta name="robots" content="noindex, noarchive">
+{{ end }}
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {{ with .Description }}
@@ -13,6 +19,8 @@
     {{ end }}
   {{ end }}
 {{ end }}
+
+<meta name="color-scheme" content="light dark">
 
 {{ if site.Params.schema }}
   {{ template "_internal/schema.html" . }}

@@ -25,7 +25,7 @@ Optional features:
 - Built-in shortcodes:
   - [Math rendering](#math-rendering) with [KaTeX](https://katex.org/)
   - [Netlify contact form](#netlify-contact-form)
-  - Privacy-friendly [Soundcloud player](#soundcloud-player)
+  - Privacy-friendly [SoundCloud player](#soundcloud-player)
 
 
 ## Example
@@ -153,9 +153,9 @@ A custom URL for the success page may be given as a parameter:
 {{< contact "/success" >}}
 ```
 
-### Soundcloud Player
+### SoundCloud Player
 
-A privacy-friendly [Soundcloud player](https://help.soundcloud.com/hc/articles/115003449627) can be inserted with the shortcode:
+A privacy-friendly [SoundCloud player](https://help.soundcloud.com/hc/articles/115003449627) can be inserted with the shortcode:
 
 ```
 {{< soundcloud 123456789 >}}
@@ -201,7 +201,7 @@ For instance, a shortcode template `myshortcode.html` containing the line
 
 will cause `myscript.js` to be loaded on every page where `myshortcode` is used.
 
-As an real-life example, this is the template for the built-in Soundcloud shortcode:
+As a real-life example, this is the template for the built-in SoundCloud shortcode:
 
 ```html
 {{ resources.Get "css/soundcloud.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "soundcloud" }}

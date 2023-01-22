@@ -126,7 +126,7 @@ mediaTypes:
 
 ### Math Rendering
 
-Any mathematical formula written in LaTeX notation can be rendered to HTML by surrounding it with the shortcode:
+Mathematical formulas written in LaTeX notation can be rendered to HTML by surrounding them with the `math` shortcode:
 
 ```
 {{< math >}}
@@ -136,7 +136,7 @@ $$e^{i\pi}+1=0$$
 {{< math />}}
 ```
 
-Using this shortcode will bundle the [KaTeX](https://katex.org/) library with the website, rendering math on the client side.
+Using this shortcode bundles the [KaTeX](https://katex.org/) library with the website, to render math on the client side.
 As of 2023, it is [not yet possible](https://github.com/gohugoio/hugo/issues/10044) to render math on the server side with Hugo.
 
 ### Netlify Contact Form

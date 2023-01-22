@@ -4,6 +4,10 @@
 <meta name="robots" content="noindex,noarchive" />
 {{ end }}
 
+{{ if and (eq .RelPermalink "/") (ne .Paginator.PageNumber 1) }}
+<meta name="robots" content="noindex,noarchive,nofollow" />
+{{ end }}
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {{ with .Description }}

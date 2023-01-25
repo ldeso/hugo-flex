@@ -1,8 +1,8 @@
 {{- $base_xml := resources.Get "xml/base.tpl.xml" | resources.ExecuteAsTemplate "xml/base.xml" . | minify }}
 {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $limit := .Site.Config.Services.RSS.Limit }}
+{{- $limit := site.Config.Services.RSS.Limit }}
 {{- if ge $limit 1 }}
-  {{- $pages = $pages | first $limit }}
+  {{- $pages = first $limit $pages }}
 {{- end }}
 {{- safeHTML `<?xml version="1.0" encoding="utf-8" ?>` }}
 {{ printf `<?xml-stylesheet type="text/xsl" href=%q ?>` $base_xml.Permalink | safeHTML }}

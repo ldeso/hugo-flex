@@ -40,7 +40,7 @@
       {{ end }}
       {{ partial "tags.html" . }}
     </article>
-    {{ with site.Params.divider }}
+    {{ if site.Params.divider | and .PrevInSection }}
       <div class="Divider"></div>
     {{ end }}
   {{ end }}

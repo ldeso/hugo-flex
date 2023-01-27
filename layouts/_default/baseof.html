@@ -3,6 +3,9 @@
 
 <head>
   {{ block "load_paginator" . }}{{ end }}
+  {{ if and (not .Site.IsServer) .Site.GoogleAnalytics }}
+    {{ template "_internal/google_analytics.html" . }}
+  {{ end }}
   {{ partial "meta.html" . }}
   {{ partial "title.html" . }}
   {{ partial "link.html" . }}

@@ -178,7 +178,7 @@ To use an external style sheet instead of inline styles, switch the options [mar
 This external style sheet is only included on the pages where syntax highlighting is used.
 
 The default syntax highlighting style is called [monokai](https://xyproto.github.io/splash/docs/monokai.html).
-To use a different style, generate a style sheet with the [hugo gen chromastyles command](https://gohugo.io/commands/hugo_gen_chromastyles/) and place it into the site directory as `assets/css/syntax.css`.
+To use a different style, generate a style sheet with the [hugo gen chromastyles command](https://gohugo.io/commands/hugo_gen_chromastyles/) and place it into the site directory at `assets/css/syntax.css`.
 
 
 ## Custom CSS and JS

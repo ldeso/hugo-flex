@@ -1,5 +1,7 @@
 {{ with site.Params.utterances }}
   {{ if $.Type | in site.Params.mainSections | and .repo }}
-    <script src="https://utteranc.es/client.js" repo="{{ .repo }}" issue-term="{{ .issueterm }}" theme="{{ .theme }}" crossorigin="anonymous" async></script>
+    {{ $issueterm := .issueterm | default "pathname" }}
+    {{ $theme := .theme | default "preferred-color-scheme" }}
+    <script src="https://utteranc.es/client.js" data-repo="{{ .repo }}" data-issue-term="{{ $issueterm }}" data-theme="{{ $theme }}" crossorigin="anonymous" async></script>
   {{end}}
 {{end}}

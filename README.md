@@ -14,7 +14,7 @@ This theme is verified to work with [Hugo](https://gohugo.io) versions v0.100–
 - Full posts in RSS feed
 - RSS page looks like a normal page
 - [Multilingual support](https://gohugo.io/content-management/multilingual/)
-- Automatic [dark theme](https://mzl.la/3PVbdQX)
+- [Dark theme](https://mzl.la/3PVbdQX)
 
 Optional features:
 
@@ -89,8 +89,8 @@ params:
   twittercards: false   # Set to true to add Twitter Cards metadata
   utterances:
     repo:               # Set to Utterances repo URL to add Utterances comments
-    issueterm: pathname
-    theme: github-light
+    issueterm:          # Leave empty for the default blog post to issue mapping
+    theme:              # Leave empty to use the adaptive Utterances dark theme
   netlify:
     honeypot: false     # Set to true to add honeypot field in contact form
     recaptcha: false    # Set to true to add recaptcha challenge in contact form

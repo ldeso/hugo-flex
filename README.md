@@ -79,6 +79,7 @@ params:
     Commons Attribution 4.0 International License</a>.
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
+  linkicons: false      # Set to hover or true to add a link icon to headings
   summaries: false      # Set to true to show summaries of posts on homepage
   schema: false         # Set to true to add Schema.org metadata
   opengraph: false      # Set to true to add Open Graph metadata
@@ -99,21 +100,21 @@ params:
 
 menu:
   nav:
-  - name: About
-    url: about/
-    weight: 1
-  - name: Posts
-    url: post/
-    weight: 2
-  - name: Tags
-    url: tags/
-    weight: 3
-  - name: Categories
-    url: categories/
-    weight: 4
-  - name: RSS
-    url: index.xml
-    weight: 5
+    - name: About
+      url: about/
+      weight: 1
+    - name: Posts
+      url: post/
+      weight: 2
+    - name: Tags
+      url: tags/
+      weight: 3
+    - name: Categories
+      url: categories/
+      weight: 4
+    - name: RSS
+      url: index.xml
+      weight: 5
 
 mediaTypes:
   font/woff2:

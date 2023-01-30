@@ -74,6 +74,17 @@ code {
   color: inherit;
 }
 
+{{ with site.Params.linkicons }}
+
+  .Heading-link{{ if eq . "hover" }}:hover{{ end }}::after {
+    content: "\1f517";
+    font-size: 0.7rem;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+  }
+
+{{ end }}
+
 .Tags {
   list-style: none;
   display: flex;

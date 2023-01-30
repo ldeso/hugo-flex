@@ -9,7 +9,7 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   headingoffset: 0      # Change heading levels when rendering markdown
-  linkicons: true       # Set to hover or true to add a link icon to headings
+  linkicons: false      # Set to hover or true to add a link icon to headings
   summaries: false      # Set to true to show summaries of posts on homepage
   schema: false         # Set to true to add Schema.org metadata
   opengraph: false      # Set to true to add Open Graph metadata

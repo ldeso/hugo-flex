@@ -1,3 +1,3 @@
-<h{{ .Level }} id="{{ safeURL .Anchor }}">
-  <a class="Heading-link u-clickable" href="#{{ safeURL .Anchor }}">{{ safeHTML .Text }}</a>
-</h{{ .Level }}>
+<h{{ add .Level site.Params.headingoffset }} id="{{ safeURL .Anchor }}">
+  <a class="Heading-link u-clickable" href="{{ .Page.RelPermalink }}#{{ safeURL .Anchor }}">{{ safeHTML .Text }}</a>
+</h{{ add .Level site.Params.headingoffset }}>

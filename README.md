@@ -79,6 +79,7 @@ params:
     Commons Attribution 4.0 International License</a>.
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
+  headingoffset: 0      # Change heading levels when rendering markdown
   linkicons: false      # Set to hover or true to add a link icon to headings
   summaries: false      # Set to true to show summaries of posts on homepage
   schema: false         # Set to true to add Schema.org metadata

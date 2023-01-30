@@ -8,6 +8,7 @@ params:
     Commons Attribution 4.0 International License</a>.
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
+  noClasses: true       # Set to the same value as markup.highlight.noClasses
   headingoffset: 0      # Change heading levels when rendering markdown
   linkicons: false      # Set to hover or true to add a link icon to headings
   summaries: false      # Set to true to show summaries of posts on homepage
@@ -45,10 +46,6 @@ menu:
     - name: RSS
       url: index.xml
       weight: 5
-
-markup:
-  highlight:
-    noClasses: false
 
 mediaTypes:
   font/woff2:

@@ -1,2 +1,4 @@
-{{ resources.Get "css/syntax.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "syntax" }}
+{{ if eq site.Params.noClasses false }}
+  {{ resources.Get "css/syntax.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "syntax" }}
+{{ end }}
 {{ highlight .Inner .Type .Options }}

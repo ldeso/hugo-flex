@@ -1,0 +1,2 @@
+{{ resources.Get "css/syntax.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "syntax" }}
+{{ highlight .Inner .Type .Options }}

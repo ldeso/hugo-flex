@@ -46,6 +46,10 @@ menu:
       url: index.xml
       weight: 5
 
+markup:
+  highlight:
+    noClasses: false
+
 mediaTypes:
   font/woff2:
     suffixes:

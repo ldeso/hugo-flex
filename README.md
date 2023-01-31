@@ -175,7 +175,7 @@ This theme makes it possible to automatically use an external stylesheet for syn
 This can be problematic if the site has a strict [Content Security Policy](https://developer.mozilla.org/docs/Web/HTTP/CSP).
 
 To use an external style sheet instead of inline styles, switch the options [markup.highlight.noClasses](https://gohugo.io/getting-started/configuration-markup/#highlight) and params.noClasses to false in the [site configuration](https://gohugo.io/getting-started/configuration/).
-This external style sheet is only included on the pages where syntax highlighting is used.
+The external style sheet is only included on the pages where syntax highlighting is used.
 
 The default syntax highlighting style is called [monokai](https://xyproto.github.io/splash/docs/monokai.html).
 To use a different style, generate a style sheet with the [hugo gen chromastyles command](https://gohugo.io/commands/hugo_gen_chromastyles/) and place it into the site directory at `assets/css/syntax.css`.
@@ -183,7 +183,7 @@ To use a different style, generate a style sheet with the [hugo gen chromastyles
 
 ## Custom CSS and JS
 
-This theme offers two ways to add custom CSS or JS assets, allowing minor modifications to be applied without creating a fork.
+This theme offers two ways to add custom CSS or JS assets, allowing minor modifications to be applied without needing to create a fork.
 
 ### Site-Wide
 

@@ -1,13 +1,13 @@
 name = "Hugo Flex"
 license = "Apache-2.0"
-licenselink = "https://github.com/de-souza/hugo-flex/blob/master/LICENSE"
+licenselink = "https://github.com/ldeso/hugo-flex/blob/master/LICENSE"
 description = "A lightweight Hugo theme leveraging CSS Flexbox."
-homepage = "https://github.com/de-souza/hugo-flex/"
-demosite = "https://de-souza.github.io/hugo-flex/"
+homepage = "https://github.com/ldeso/hugo-flex/"
+demosite = "https://ldeso.github.io/hugo-flex/"
 tags = ["blog", "dark mode", "flexbox", "minimal", "multilingual", "no-javascript", "responsive"]
 features = ["blog", "contact form", "dark mode", "multilingual", "posts"]
 min_version = "0.100"
 
 [author]
   name = "Léo de Souza"
-  homepage = "https://github.com/de-souza/"
+  homepage = "https://github.com/ldeso/"

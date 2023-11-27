@@ -31,7 +31,7 @@ Optional features:
 
 ## Example
 
-The [demo site](https://de-souza.github.io/hugo-flex/) is built from the [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample/) repository.
+The [demo site](https://ldeso.github.io/hugo-flex/) is built from the [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample/) repository.
 
 A complete starter template specifically made for this theme is also available at [scivision/hugo-flex-example](https://github.com/scivision/hugo-flex-example/).
 
@@ -46,7 +46,7 @@ A complete starter template specifically made for this theme is also available a
 
 ```bash
 git init
-git submodule add https://github.com/de-souza/hugo-flex.git themes/hugo-flex
+git submodule add https://github.com/ldeso/hugo-flex.git themes/hugo-flex
 ```
 
 4. Add the theme to the [site configuration](https://gohugo.io/getting-started/configuration/). If the site configuration is a file called `hugo.yaml`:
@@ -227,4 +227,4 @@ As a real-life example, this is the template for the built-in SoundCloud shortco
 
 ## License
 
-This theme is licensed under the [Apache License 2.0](https://github.com/de-souza/hugo-flex/blob/master/LICENSE).
+This theme is licensed under the [Apache License 2.0](https://github.com/ldeso/hugo-flex/blob/master/LICENSE).

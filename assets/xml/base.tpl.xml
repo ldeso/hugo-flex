@@ -7,6 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="color-scheme" content="light dark" />
         <title><xsl:value-of select="title" /></title>
+        {{ if site.Params.favicon }}
+          <link rel="icon" href="{{ absLangURL "favicon.ico" }}" type="image/x-icon" />
+        {{ end }}
         {{ $site_css := (.Scratch.Get "css").base }}
         <link rel="stylesheet" href="{{ $site_css.Permalink }}" integrity="{{ $site_css.Data.Integrity }}" />
       </head>

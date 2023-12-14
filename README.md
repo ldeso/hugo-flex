@@ -2,7 +2,7 @@
 
 A lightweight Hugo theme leveraging [CSS Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout).
 
-This theme is verified to work with [Hugo](https://gohugo.io) versions v0.100–v0.110.
+This theme is verified to work with [Hugo](https://gohugo.io) versions v0.100–v0.121.
 
 
 ## Features
@@ -80,6 +80,7 @@ params:
     Commons Attribution 4.0 International License</a>.
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
+  favicon: false        # Set to true to add a link to the favicon.ico
   noClasses: true       # Set to the same value as markup.highlight.noClasses
   headingoffset: 0      # Change heading levels when rendering markdown
   linkicons: false      # Set to hover or true to add a link icon to headings

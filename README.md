@@ -31,7 +31,7 @@ Optional features:
 
 ## Example
 
-The [demo site](https://ldeso.github.io/hugo-flex/) is built from the [hugoBasicExample](https://github.com/gohugoio/hugoBasicExample/) repository.
+The [demo site](https://ldeso.github.io/hugo-flex-demo/) is built from the [hugo-flex-demo](https://github.com/ldeso/hugo-flex-demo/) repository.
 
 A complete starter template specifically made for this theme is also available at [scivision/hugo-flex-example](https://github.com/scivision/hugo-flex-example/).
 

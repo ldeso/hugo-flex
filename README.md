@@ -138,7 +138,7 @@ Mathematical formulas written in LaTeX notation can be rendered to HTML by surro
 Inline formulas such as $y=ax+b$ are supported, displayed formulas as well:
 
 $$e^{i\pi}+1=0$$
-{{< math />}}
+{{</ math >}}
 ```
 
 Using this shortcode bundles the [KaTeX](https://katex.org/) library with the website, to render math on the client side.

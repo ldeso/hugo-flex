@@ -17,6 +17,16 @@ img {
   border-radius: 0.2rem;
 }
 
+table {
+  border-collapse: collapse;
+  margin: auto;
+}
+
+td, th {
+  border: 0.1rem solid black;
+  padding: 0.3rem 0.5rem;
+}
+
 pre {
   overflow-x: auto;
   border: 0.1rem solid lightgray;

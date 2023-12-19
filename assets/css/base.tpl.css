@@ -37,6 +37,17 @@ code {
   font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
+kbd {
+  border: 0.1rem solid gray;
+  border-radius: 0.2rem;
+  margin: 0.1rem;
+  padding: 0.2rem;
+}
+
+kbd:has(kbd) {
+  padding: 0.4rem 0.1rem;
+}
+
 .Banner {
   list-style: none;
   display: flex;

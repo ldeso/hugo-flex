@@ -10,6 +10,7 @@ params:
     favorite feed reader.
   favicon: false        # Set to true to add a link to the favicon.ico
   noClasses: true       # Set to the same value as markup.highlight.noClasses
+  katex: 0.16.9         # KaTeX version / leave empty to download latest version
   headingoffset: 0      # Change heading levels when rendering markdown
   linkicons: false      # Set to hover or true to add a link icon to headings
   summaries: false      # Set to true to show summaries of posts on homepage

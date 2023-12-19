@@ -97,12 +97,21 @@ kbd:has(kbd) {
 
 {{ with site.Params.linkicons }}
 
-  .Heading-link{{ if eq . "hover" }}:hover{{ end }}::after {
+  .Heading-link::after {
     content: "\1f517";
     font-size: 0.7rem;
     vertical-align: middle;
     margin-left: 0.5rem;
+    {{ if eq . "hover" }}visibility: hidden;{{ end }}
   }
+
+  {{ if eq . "hover" }}
+
+    .Heading-link:hover::after {
+      visibility: visible;
+    }
+
+  {{ end }}
 
 {{ end }}
 

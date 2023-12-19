@@ -23,7 +23,7 @@ table {
 }
 
 td, th {
-  border: 0.1rem solid black;
+  border: 0.1rem solid gray;
   padding: 0.3rem 0.5rem;
 }
 

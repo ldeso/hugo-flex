@@ -38,14 +38,14 @@ code {
 }
 
 kbd {
-  border: 0.1rem solid gray;
+  border: 0.1rem solid darkgray;
   border-radius: 0.2rem;
   margin: 0.1rem;
   padding: 0.2rem;
 }
 
 kbd:has(kbd) {
-  padding: 0.4rem 0.1rem;
+  padding: 0.4rem 0;
 }
 
 .Banner {

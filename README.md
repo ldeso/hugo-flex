@@ -164,11 +164,10 @@ A custom URL for the success page may be given as a parameter:
 A privacy-friendly [SoundCloud player](https://help.soundcloud.com/hc/articles/115003449627) can be inserted with the shortcode:
 
 ```
-{{< soundcloud 123456789 >}}
+{{< soundcloud https://soundcloud.com/artist/track >}}
 ```
 
-The parameter is the track ID and can be extracted from the track's [embed code](https://help.soundcloud.com/hc/articles/115003568008).
-The player will only load after user input.
+The embed player will only load after user input, and will be replaced by a simple link if JavaScript is disabled.
 
 
 ## Syntax Highlighting
@@ -229,8 +228,12 @@ As a real-life example, this is the template for the built-in SoundCloud shortco
 
 ```html
 {{ resources.Get "css/soundcloud.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "soundcloud" }}
-{{ resources.Get "js/soundcloud.js" | minify | fingerprint  | .Page.Scratch.SetInMap "js" "soundcloud" }}
-<div class="Soundcloud" data-id="{{ .Get 0 }}"></div>
+{{ resources.Get "js/soundcloud.js" | minify | fingerprint | .Page.Scratch.SetInMap "js" "soundcloud" }}
+
+<div class="Soundcloud">
+  <a href="{{ .Get 0 }}" target="_blank" class="Soundcloud-player">Open SoundCloud</a>
+  <a href="https://soundcloud.com/pages/cookies" target="_blank" class="Soundcloud-policy">(cookie policy)</a>
+</div>
 ```
 
 ## License

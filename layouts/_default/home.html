@@ -25,7 +25,8 @@
 
 {{ define "main" }}
 
-  {{ range .Paginator.Pages }}
+  {{ $length := len .Paginator.Pages }}
+  {{ range $index, $page := .Paginator.Pages }}
     <article>
       {{ partial "heading.html" . }}
       {{ if site.Params.summaries }}
@@ -40,7 +41,7 @@
       {{ end }}
       {{ partial "tags.html" . }}
     </article>
-    {{ if site.Params.divider | and .PrevInSection }}
+    {{ if add $index 1 | ne $length | and site.Params.divider }}
       <div class="Divider"></div>
     {{ end }}
   {{ end }}

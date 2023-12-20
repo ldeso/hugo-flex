@@ -8,6 +8,6 @@ for (const wrapper of document.getElementsByClassName("Soundcloud")) {
   player.setAttribute("tabindex", "0");
   player.textContent = 'Load SoundCloud player';
   player.onclick = () => wrapper.replaceChildren(iframe);
-  player.onkeydown = e => { if (e.code == "Enter") wrapper.replaceChild(iframe, player) };
+  player.onkeydown = e => { if (e.code == "Enter") wrapper.replaceChildren(iframe) };
   wrapper.replaceChild(player, link);
 };

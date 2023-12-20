@@ -11,7 +11,7 @@
 }
 
 .Soundcloud-player {
-  color: black;
+  color: inherit;
   text-decoration: none;
   grid-area: 1/1;
   display: flex;
@@ -20,7 +20,6 @@
   border: 0.1rem solid lightgray;
   border-radius: 0.2rem;
   padding-bottom: 1lh;
-  background: whitesmoke;
   cursor: pointer;
 }
 

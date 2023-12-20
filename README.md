@@ -8,7 +8,7 @@ This theme is verified to work with [Hugo](https://gohugo.io) versions v0.100–
 ## Features
 
 - [Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout)-based responsive layout
-- [100% performance and accessibility scores](https://pagespeed.web.dev/analysis/https-ldeso-github-io-hugo-flex-demo/qffcl2ukg4) on PageSpeed Insights
+- [100% performance and accessibility scores](https://pagespeed.web.dev/analysis/https-ldeso-github-io-hugo-flex-demo/2dyhwiweee) on PageSpeed Insights
 - No framework
 - No javascript
 - Full posts in RSS feed

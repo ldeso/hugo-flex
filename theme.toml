@@ -6,7 +6,7 @@ homepage = "https://github.com/ldeso/hugo-flex/"
 demosite = "https://ldeso.github.io/hugo-flex-demo/"
 tags = ["blog", "dark mode", "flexbox", "minimal", "multilingual", "no-javascript", "responsive"]
 features = ["blog", "contact form", "dark mode", "multilingual", "posts"]
-min_version = "0.100"
+min_version = "0.112.4"
 
 [author]
   name = "Léo de Souza"

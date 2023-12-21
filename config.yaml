@@ -32,7 +32,7 @@ params:
   #   - bar.js
 
 menu:
-  nav:
+  main:
     - name: About
       pageRef: /about
       weight: 1

@@ -22,7 +22,7 @@
                   <a class="Banner-link u-clickable" href="{{ absLangURL nil }}">{{ site.Title }}</a>
                 </h1>
               </li>
-              {{ range site.Menus.nav }}
+              {{ range site.Menus.main }}
                 <li class="Banner-item">
                   <a class="Banner-link u-clickable" href="{{ absLangURL .URL }}">{{ .Name }}</a>
                 </li>

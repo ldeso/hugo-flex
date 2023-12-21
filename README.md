@@ -104,21 +104,21 @@ params:
   #   - bar.js
 
 menu:
-  nav:
+  main:
     - name: About
-      url: about/
+      pageRef: /about
       weight: 1
     - name: Posts
-      url: post/
+      pageRef: /post
       weight: 2
     - name: Tags
-      url: tags/
+      pageRef: /tags
       weight: 3
     - name: Categories
-      url: categories/
+      pageRef: /categories
       weight: 4
     - name: RSS
-      url: index.xml
+      url: /index.xml
       weight: 5
 
 mediaTypes:

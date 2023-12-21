@@ -57,7 +57,7 @@ kbd:has(kbd) {
   padding: 0;
 }
 
-{{ $len := len site.Menus.nav }}
+{{ $len := len site.Menus.main }}
 {{ range seq $len }}
 
   .Banner-item:nth-child({{ . }}) {

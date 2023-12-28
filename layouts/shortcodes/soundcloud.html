@@ -2,6 +2,5 @@
 {{ resources.Get "js/soundcloud.js" | minify | fingerprint | .Page.Scratch.SetInMap "js" "soundcloud" }}
 
 <div class="Soundcloud">
-  <a href="{{ .Get 0 }}" target="_blank" class="Soundcloud-player">Open SoundCloud</a>
-  <a href="https://soundcloud.com/pages/cookies" target="_blank" class="Soundcloud-policy">(cookie policy)</a>
+  <a href="{{ .Get 0 }}" target="_blank" class="Soundcloud-box Soundcloud-box--link"><span class="Soundcloud-ellipsis">{{ .Get 0 }}</span></a>
 </div>

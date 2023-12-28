@@ -47,7 +47,7 @@
         {{ with site.Params.footer }}
           <footer class="Footer">
             <div class="u-wrapper">
-              <div class="u-padding">
+              <div class="u-padding u-noboosting">
                 {{ safeHTML . }}
               </div>
             </div>

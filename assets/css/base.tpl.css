@@ -179,3 +179,7 @@ kbd:has(kbd) {
   text-decoration: none;
   display: inline-block;
 }
+
+.u-noboosting {
+  max-height: 1000000px;
+}

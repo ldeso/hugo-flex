@@ -7,8 +7,12 @@
         </h1>
       </li>
       {{ range site.Menus.main }}
+        {{ $url := relLangURL .URL }}
+        {{ if isset .Params "format" | and .Page }}
+          {{ $url = (.Page.OutputFormats.Get .Params.format).RelPermalink }}
+        {{ end }}
         <li class="Banner-item">
-          <a class="Banner-link u-clickable" href="{{ relLangURL .URL }}">{{ .Name }}</a>
+          <a class="Banner-link u-clickable" href="{{ $url }}">{{ .Name }}</a>
         </li>
       {{ end }}
     </ul>

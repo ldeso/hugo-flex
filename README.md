@@ -118,8 +118,10 @@ menu:
       pageRef: /categories
       weight: 4
     - name: RSS
-      url: /index.xml
+      pageRef: /
       weight: 5
+      params:
+        - format: rss
 
 mediaTypes:
   font/woff2:

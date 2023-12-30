@@ -23,8 +23,12 @@
                 </h1>
               </li>
               {{ range site.Menus.main }}
+                {{ $url := absLangURL .URL }}
+                {{ if isset .Params "format" | and .Page }}
+                  {{ $url = (.Page.OutputFormats.Get .Params.format).Permalink }}
+                {{ end }}
                 <li class="Banner-item">
-                  <a class="Banner-link u-clickable" href="{{ absLangURL .URL }}">{{ .Name }}</a>
+                  <a class="Banner-link u-clickable" href="{{ $url }}">{{ .Name }}</a>
                 </li>
               {{ end }}
             </ul>

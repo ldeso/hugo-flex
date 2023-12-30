@@ -5,5 +5,5 @@
 {{ end }}
 
 {{ range .AlternativeOutputFormats }}
-  {{ printf "<link rel=%q type=%q href=%q title=%q>" .Rel .MediaType .RelPermalink site.Title | safeHTML }}
+  {{ printf "<link rel=%q href=%q type=%q>" .Rel .RelPermalink .MediaType.Type | safeHTML }}
 {{ end }}

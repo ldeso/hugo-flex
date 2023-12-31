@@ -196,7 +196,7 @@ This theme offers two ways to add custom CSS or JS assets, allowing minor modifi
 
 ### Site-Wide
 
-Custom CSS and JS files can be loaded as part of the base asset linked by every page. To do so, their filenames have to be added to the [site configuration](#configuration):
+Custom CSS and JS files can be loaded as part of the base assets linked by every page. To do so, their filenames have to be added to the [site configuration](#configuration):
 
 ```yaml
 params:
@@ -233,8 +233,7 @@ As a real-life example, this is the template for the built-in SoundCloud shortco
 {{ resources.Get "js/soundcloud.js" | minify | fingerprint | .Page.Scratch.SetInMap "js" "soundcloud" }}
 
 <div class="Soundcloud">
-  <a href="{{ .Get 0 }}" target="_blank" class="Soundcloud-player">Open SoundCloud</a>
-  <a href="https://soundcloud.com/pages/cookies" target="_blank" class="Soundcloud-policy">(cookie policy)</a>
+  <a href="{{ .Get 0 }}" target="_blank" class="Soundcloud-box Soundcloud-box--link"><span class="Soundcloud-ellipsis">{{ .Get 0 }}</span></a>
 </div>
 ```
 

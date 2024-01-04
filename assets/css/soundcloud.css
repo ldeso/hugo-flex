@@ -22,6 +22,8 @@
 }
 
 .Soundcloud-box--button {
+  cursor: pointer;
+  background: inherit;
   padding-bottom: 1lh;
 }
 

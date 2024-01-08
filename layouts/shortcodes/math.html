@@ -15,6 +15,6 @@
 {{ printf "%s/dist/contrib/auto-render.min.js" $katex | resources.GetRemote | minify | fingerprint | resources.Copy "js/auto-render.js" | .Page.Scratch.SetInMap "js" "math-2" }}
 {{ resources.Get "js/math.js" | minify | fingerprint | .Page.Scratch.SetInMap "js" "math-3" }}
 
-<div class="Math">
+ {{ `<div class="Math">` | htmlUnescape | safeHTML }}
   {{ .Inner }}
-</div>
+ {{ "</div>" | htmlUnescape | safeHTML }}

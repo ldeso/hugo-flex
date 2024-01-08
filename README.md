@@ -2,7 +2,7 @@
 
 A lightweight Hugo theme leveraging [CSS Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout).
 
-This theme is verified to work with [Hugo](https://gohugo.io) versions v0.112.7–v0.121.1.
+This theme is verified to work with [Hugo](https://gohugo.io) versions v0.112.7–v0.121.2.
 
 
 ## Features
@@ -137,14 +137,14 @@ mediaTypes:
 Mathematical formulas written in LaTeX notation can be rendered to HTML by surrounding them with the `math` shortcode:
 
 ```
-{{< math >}}
+{{% math %}}
 Inline formulas such as $y=ax+b$ are supported, displayed formulas as well:
 
 $$e^{i\pi}+1=0$$
-{{</ math >}}
+{{%/ math %}}
 ```
 
-Using this shortcode bundles the [KaTeX](https://katex.org/) library with the website, to render math on the client side.
+Using this shortcode bundles the [KaTeX](https://katex.org/) library with the website and renders math on the client side.
 As of 2023, it is [not yet possible](https://github.com/gohugoio/hugo/issues/10044) to render math on the server side with Hugo.
 
 ### Netlify Contact Form
@@ -196,7 +196,8 @@ This theme offers two ways to add custom CSS or JS assets, allowing minor modifi
 
 ### Site-Wide
 
-Custom CSS and JS files can be loaded as part of the base assets linked by every page. To do so, their filenames have to be added to the [site configuration](#configuration):
+Custom CSS and JS files can be loaded as part of the base assets linked by every page.
+To do so, their filenames have to be added to the [site configuration](#configuration):
 
 ```yaml
 params:

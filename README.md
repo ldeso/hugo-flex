@@ -73,7 +73,7 @@ Any part of the default theme configuration can be copied to the [site configura
 params:
   color: teal           # Any color in CSS syntax
   width: 42rem          # Any length in CSS syntax / leave empty to span page
-  divider: \a0          # Any string in CSS syntax / leave empty for no divider
+  divider: \2500\2500   # Any string in CSS syntax / leave empty for no divider
   footer: >-            # HTML spaces (&#32;) are needed before HTML elements
     Except where otherwise noted, content on this site is licensed under a &#32;
     <a href="http://creativecommons.org/licenses/by/4.0/" rel="license">Creative

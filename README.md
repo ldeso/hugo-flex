@@ -230,8 +230,8 @@ will cause `myscript.js` to be loaded on every page where `myshortcode` is used.
 As a real-life example, this is the template for the built-in SoundCloud shortcode:
 
 ```html
-{{ resources.Get "css/soundcloud.css" | minify | fingerprint | .Page.Scratch.SetInMap "css" "soundcloud" }}
-{{ resources.Get "js/soundcloud.js" | minify | fingerprint | .Page.Scratch.SetInMap "js" "soundcloud" }}
+{{ resources.Get "css/soundcloud.css" | .Page.Scratch.SetInMap "css" "soundcloud" }}
+{{ resources.Get "js/soundcloud.js" | .Page.Scratch.SetInMap "js" "soundcloud" }}
 
 <div class="Soundcloud">
   <a href="{{ .Get 0 }}" target="_blank" class="Soundcloud-box Soundcloud-box--link"><span class="Soundcloud-ellipsis">{{ .Get 0 }}</span></a>

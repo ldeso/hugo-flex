@@ -70,6 +70,11 @@ git submodule update --remote --rebase
 Any part of the default theme configuration can be copied to the [site configuration](https://gohugo.io/getting-started/configuration/) to be modified. The default theme configuration is:
 
 ```yaml
+baseURL: https://example.org/
+title: My New Hugo Site
+languageCode: en-us
+theme: hugo-flex
+
 params:
   color: teal           # Any color in CSS syntax
   width: 42rem          # Any length in CSS syntax / leave empty to span page
@@ -123,10 +128,10 @@ menu:
       params:
         - format: rss
 
-mediaTypes:
-  font/woff2:
-    suffixes:
-      - woff2
+outputFormats:
+  RSS:
+    mediatype: application/rss+xml
+    baseName: feed      # Rename RSS feed URL from rss.xml to feed.xml
 ```
 
 

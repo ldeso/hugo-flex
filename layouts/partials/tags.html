@@ -1,17 +1,16 @@
-{{ $taxonomy_list := slice }}
-
-{{ range $taxonomy, $_ := site.Taxonomies }}
-  {{ $taxonomy_list = $taxonomy_list | append $taxonomy }}
+{{ $term_list := slice }}
+{{ range $term, $_ := site.Taxonomies }}
+  {{ $term_list = $term_list | append $term }}
 {{ end }}
 
-{{ $taxonomy_is_used_list := apply $taxonomy_list "isset" .Params "." }}
+{{ $term_is_used_list := apply $term_list "isset" .Params "." }}
 
-{{ if true | in $taxonomy_is_used_list }}
+{{ if true | in $term_is_used_list }}
   <footer>
-    {{ range $taxonomy := $taxonomy_list }}
-      {{ if isset $.Params $taxonomy }}
+    {{ range $term := $term_list }}
+      {{ if isset $.Params $term }}
         <ul class="Tags">
-          {{ range $.GetTerms $taxonomy }}
+          {{ range $.GetTerms $term }}
             <li class="Tags-item u-background">
               <a class="Tags-link u-clickable" href="{{ .RelPermalink }}" rel="tag">{{ .LinkTitle }}</a>
             </li>

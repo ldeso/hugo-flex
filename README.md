@@ -245,4 +245,4 @@ As a real-life example, this is the template for the built-in SoundCloud shortco
 
 ## License
 
-This theme is licensed under the [Apache License 2.0](https://github.com/ldeso/hugo-flex/blob/master/LICENSE).
+This theme is licensed under the [Apache License 2.0](https://github.com/ldeso/hugo-flex/raw/master/LICENSE).

@@ -2,9 +2,7 @@
   <div class="u-wrapper">
     <ul class="Banner">
       <li class="Banner-item Banner-item--title">
-        <h1 class="Banner-heading">
-          <a class="Banner-link u-clickable" href="{{ relLangURL nil }}">{{ site.Title }}</a>
-        </h1>
+        <a class="Banner-link u-clickable" href="{{ relLangURL nil }}">{{ site.Title }}</a>
       </li>
       {{ range site.Menus.main }}
         {{ $url := relLangURL .URL }}

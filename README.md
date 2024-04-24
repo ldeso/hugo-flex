@@ -86,7 +86,7 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   favicon: false        # Set to true to add a link to the favicon.ico
-  noClasses: true       # Set to the same value as markup.highlight.noClasses
+  noClasses: &nc false  # Set to true to use inline CSS for syntax highlighting
   katex: 0.16.10        # KaTeX version / leave empty to use the latest version
   headingoffset: 0      # Change heading levels when rendering markdown
   linkicons: false      # Set to hover or true to add a link icon to headings
@@ -101,12 +101,28 @@ params:
   netlify:
     honeypot: false     # Set to true to add honeypot field in contact form
     recaptcha: false    # Set to true to add recaptcha challenge in contact form
+  math: &math false     # Set to true to render LaTeX without using shortcodes
+  mathdelim: &md
+    block:              # List of pairs of "display" math delimiters
+      - ['\[', '\]']
+      - ['$$', '$$']
+    inline:             # List of pairs of inline math delimiters
+      - ['\(', '\)']
   # css:                # Uncomment to add custom CSS from the assets directory
   #   - css/foo.css
   #   - bar.css
   # js:                 # Uncomment to add custom JS from the assets directory
   #   - js/foo.js
   #   - bar.js
+
+markup:
+  highlight:
+    noClasses: *nc      # Set to same value as params.noClasses
+  goldmark:
+    extensions:
+      passthrough:
+        enable: *math   # Set to the same value as params.math
+        delimiters: *md # Set to the same value as params.mathdelim
 
 menu:
   main:
@@ -129,7 +145,7 @@ menu:
         - format: rss
 
 outputFormats:
-  RSS:
+  rss:
     mediatype: application/rss+xml
     baseName: feed      # Rename RSS feed URL from rss.xml to feed.xml
 ```
@@ -139,18 +155,22 @@ outputFormats:
 
 ### Math Rendering
 
-Mathematical formulas written in LaTeX notation can be rendered to HTML by surrounding them with the `math` shortcode:
+Mathematical formulas written in LaTeX notation can be rendered to HTML on the client side by bundling the [KaTeX](https://katex.org/) library with the website.
+Rendering can take place either globally, or in specific locations using a built-in shortcode.
 
-```
-{{% math %}}
-Inline formulas such as $y=ax+b$ are supported, displayed formulas as well:
+1. Math can be rendered globally or on a per-page basis by setting the `math` parameter to `true` in the site configuration or on specific pages, and by [enabling the passthrough extension](https://gohugo.io/content-management/mathematics/) in the site configuration.
 
-$$e^{i\pi}+1=0$$
-{{%/ math %}}
-```
+2. If the `math` parameter is set to `false`, mathematical formulas can still by rendered by surrounding them with the `math` shortcode:
 
-Using this shortcode bundles the [KaTeX](https://katex.org/) library with the website and renders math on the client side.
-As of 2023, it is [not yet possible](https://github.com/gohugoio/hugo/issues/10044) to render math on the server side with Hugo.
+    ```
+    {{% math %}}
+    Inline formulas such as $y=ax+b$ are supported, displayed formulas as well:
+
+    $$e^{i\pi}+1=0$$
+    {{% /math %}}
+    ```
+
+As of 2024, it is [not yet possible](https://github.com/gohugoio/hugo/issues/10044) to render math on the server side with Hugo.
 
 ### Netlify Contact Form
 

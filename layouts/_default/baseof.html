@@ -8,6 +8,9 @@
   {{ partial "link.html" . }}
   {{ partial "load_site_assets.html" . }}
   {{ block "load_page_assets" . }}
+    {{ if .Params.math }}
+      {{ partial "math.html" . }}
+    {{ end }}
     {{ with .Content }}{{ end }}
   {{ end }}
   {{ partial "assets.html" . }}

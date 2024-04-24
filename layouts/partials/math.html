@@ -1,0 +1,17 @@
+{{ $url := "https://cdn.jsdelivr.net/npm/katex" }}
+{{ with site.Params.katex }}
+  {{ $url = printf "%s@%s" $url . }}
+{{ end }}
+
+{{ $fonts := slice "AMS-Regular" "Caligraphic-Bold" "Caligraphic-Regular" "Fraktur-Bold" "Fraktur-Regular" "Main-Bold" "Main-BoldItalic" "Main-Italic" "Main-Regular" "Math-BoldItalic" "Math-Italic" "SansSerif-Bold" "SansSerif-Italic" "SansSerif-Regular" "Script-Regular" "Size1-Regular" "Size2-Regular" "Size3-Regular" "Size4-Regular" "Typewriter-Regular" }}
+{{ range $fonts }}
+  {{ $font := printf "%s/dist/fonts/KaTeX_%s.woff2" $url . }}
+  {{ $path := printf "css/fonts/KaTeX_%s.woff2" . }}
+  {{ $resource := resources.GetRemote $font | resources.Copy $path }}
+  {{ $resource.Publish }}
+{{ end }}
+
+{{ printf "%s/dist/katex.min.css" $url | resources.GetRemote | resources.Copy "css/katex.css" | .Page.Scratch.SetInMap "css" "math" }}
+{{ printf "%s/dist/katex.min.js" $url | resources.GetRemote | resources.Copy "js/katex.js" | .Page.Scratch.SetInMap "js" "math-1" }}
+{{ printf "%s/dist/contrib/auto-render.min.js" $url | resources.GetRemote | resources.Copy "js/auto-render.js" | .Page.Scratch.SetInMap "js" "math-2" }}
+{{ resources.Get "js/math.tpl.js" | resources.ExecuteAsTemplate "js/math.js" . | .Page.Scratch.SetInMap "js" "math-3" }}

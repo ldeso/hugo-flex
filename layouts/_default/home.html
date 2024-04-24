@@ -8,16 +8,23 @@
 {{ define "load_page_assets" }}
 
   {{ range .Paginator.Pages }}
+    {{ if .Params.math }}
+      {{ partial "math.html" . }}
+      {{ break }}
+    {{ end }}
+  {{ end }}
+
+  {{ range .Paginator.Pages }}
     {{ with .Content }}{{ end }}
     {{ $page_css := .Scratch.Get "css" }}
     {{ with $page_css }}
       {{ $css_list := $.Scratch.Get "css" }}
-      {{ . | merge $css_list | $.Scratch.Set "css" }}
+      {{ merge $css_list . | $.Scratch.Set "css" }}
     {{ end }}
     {{ $page_js := .Scratch.Get "js" }}
     {{ with $page_js }}
       {{ $js_list := $.Scratch.Get "js" }}
-      {{ . | merge $js_list | $.Scratch.Set "js" }}
+      {{ merge $js_list . | $.Scratch.Set "js" }}
     {{ end }}
   {{ end }}
 

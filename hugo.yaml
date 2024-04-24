@@ -14,7 +14,7 @@ params:
   rss: To subscribe to this RSS feed, copy its address and paste it into your
     favorite feed reader.
   favicon: false        # Set to true to add a link to the favicon.ico
-  noClasses: true       # Set to the same value as markup.highlight.noClasses
+  noClasses: &nc false  # Set to true to use inline CSS for syntax highlighting
   katex: 0.16.10        # KaTeX version / leave empty to use the latest version
   headingoffset: 0      # Change heading levels when rendering markdown
   linkicons: false      # Set to hover or true to add a link icon to headings
@@ -29,12 +29,28 @@ params:
   netlify:
     honeypot: false     # Set to true to add honeypot field in contact form
     recaptcha: false    # Set to true to add recaptcha challenge in contact form
+  math: &math false     # Set to true to render LaTeX without using shortcodes
+  mathdelim: &md
+    block:              # List of pairs of "display" math delimiters
+      - ['\[', '\]']
+      - ['$$', '$$']
+    inline:             # List of pairs of inline math delimiters
+      - ['\(', '\)']
   # css:                # Uncomment to add custom CSS from the assets directory
   #   - css/foo.css
   #   - bar.css
   # js:                 # Uncomment to add custom JS from the assets directory
   #   - js/foo.js
   #   - bar.js
+
+markup:
+  highlight:
+    noClasses: *nc      # Set to same value as params.noClasses
+  goldmark:
+    extensions:
+      passthrough:
+        enable: *math   # Set to the same value as params.math
+        delimiters: *md # Set to the same value as params.mathdelim
 
 menu:
   main:
@@ -57,7 +73,7 @@ menu:
         - format: rss
 
 outputFormats:
-  RSS:
+  rss:
     mediatype: application/rss+xml
     baseName: feed      # Rename RSS feed URL from rss.xml to feed.xml
 
@@ -69,4 +85,4 @@ mediaTypes:
 module:
   hugoVersion:
     extended: false
-    min: 0.112.7
+    min: 0.122.0

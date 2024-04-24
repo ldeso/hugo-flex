@@ -5,7 +5,7 @@
   {{ .Content }}
 
   {{ range .Pages.GroupByPublishDate "2006" }}
-    <h3>{{ .Key }}</h3>
+    <h2>{{ .Key }}</h2>
     <ul>
       {{ range .Pages }}
         <li>

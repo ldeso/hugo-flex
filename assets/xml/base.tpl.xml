@@ -35,9 +35,9 @@
         <main>
           <div class="u-wrapper">
             <div class="u-padding">
-              <h2 class="Heading-title">
+              <h1 class="Heading-title">
                 <a class="Heading-link u-clickable" href="{link}" rel="bookmark"><xsl:value-of select="title" /></a>
-              </h2>
+              </h1>
               {{ with site.Params.rss }}
                 <p>
                   {{ safeHTML . }}

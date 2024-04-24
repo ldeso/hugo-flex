@@ -1,7 +1,7 @@
 <header class="Heading">
-  <h2 class="Heading-title">
+  <h1 class="Heading-title">
     <a class="Heading-link u-clickable" href="{{ .RelPermalink }}" rel="bookmark">{{ .Title }}</a>
-  </h2>
+  </h1>
   {{ with .PublishDate | default nil }}
     <time datetime="{{ time.Format "2006-01-02T15:04:05Z07:00" . }}">
       {{- time.Format ":date_long" . -}}

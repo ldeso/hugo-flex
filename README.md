@@ -2,13 +2,13 @@
 
 A lightweight Hugo theme leveraging [CSS Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout).
 
-This theme is verified to work with [Hugo](https://gohugo.io) versions v0.112.7–v0.121.2.
+This theme is verified to work with [Hugo](https://gohugo.io/) versions v0.122.0–v0.125.3.
 
 
 ## Features
 
 - [Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout)-based responsive layout
-- [100% performance and accessibility scores](https://pagespeed.web.dev/analysis/https-ldeso-github-io-hugo-flex-demo/2fffkrwjoi) on PageSpeed Insights
+- 100% performance and accessibility scores on [PageSpeed Insights](https://pagespeed.web.dev/)
 - No framework
 - No javascript
 - Full posts in RSS feed

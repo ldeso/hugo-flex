@@ -32,6 +32,12 @@
 
 {{ define "main" }}
 
+  {{ if .Title }}
+    {{ partial "heading.html" . }}
+  {{ end }}
+
+  {{ .Content }}
+
   {{ $length := len .Paginator.Pages }}
   {{ range $index, $page := .Paginator.Pages }}
     <article>

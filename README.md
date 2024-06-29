@@ -247,7 +247,7 @@ To load a CSS or a JS resource on each page where a shortcode is used, the [shor
 For instance, a shortcode template `myshortcode.html` containing the line
 
 ```html
-{{ resources.Get "myscript.js" | fingerprint | .Page.Scratch.SetInMap "js" "myscript" }}
+{{ resources.Get "myscript.js" | .Page.Scratch.SetInMap "js" "myscript" }}
 ```
 
 will cause `myscript.js` to be loaded on every page where `myshortcode` is used.

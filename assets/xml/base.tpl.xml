@@ -10,8 +10,15 @@
         {{ if site.Params.favicon }}
           <link rel="icon" href="{{ absLangURL "favicon.ico" }}" type="image/x-icon" />
         {{ end }}
-        {{ $site_css := (.Scratch.Get "css").base }}
-        <link rel="stylesheet" href="{{ $site_css.Permalink }}" integrity="{{ $site_css.Data.Integrity }}" />
+        {{ with (.Scratch.Get "css").base }}
+          {{ if eq hugo.Environment "development" }}
+            <link rel="stylesheet" href="{{ .Permalink }}" />
+          {{ else }}
+            {{ with . | minify | fingerprint }}
+              <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+            {{ end }}
+          {{ end }}
+        {{ end }}
       </head>
       <body>
         <nav class="u-background">

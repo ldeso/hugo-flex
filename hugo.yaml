@@ -85,4 +85,4 @@ mediaTypes:
 module:
   hugoVersion:
     extended: false
-    min: 0.122.0
+    min: 0.128.1

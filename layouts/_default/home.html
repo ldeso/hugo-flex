@@ -15,7 +15,7 @@
   {{ end }}
 
   {{ range .Paginator.Pages }}
-    {{ with .Content }}{{ end }}
+    {{ $noop := .Content }}
     {{ $page_css := .Scratch.Get "css" }}
     {{ with $page_css }}
       {{ $css_list := $.Scratch.Get "css" }}

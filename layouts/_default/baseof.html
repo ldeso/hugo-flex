@@ -11,7 +11,7 @@
     {{ if .Params.math }}
       {{ partial "math.html" . }}
     {{ end }}
-    {{ with .Content }}{{ end }}
+    {{ $noop := .Content }}
   {{ end }}
   {{ partial "assets.html" . }}
 </head>

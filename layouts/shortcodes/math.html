@@ -2,5 +2,5 @@
   {{ errorf "The %q shortcode requires named parameters. See https://gohugo.io/functions/transform/tomath/ for a list of options." .Name }}
 {{ else }}
   {{ $opts := .Params | default nil }}
-  {{- transform.ToMath .Inner $opts -}}
+  {{ transform.ToMath .Inner $opts }}
 {{ end }}

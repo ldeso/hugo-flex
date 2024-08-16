@@ -156,14 +156,22 @@ Rendering can take place either globally, or in specific locations using a built
 
 1. To render math globally, [enable the passthrough extension](https://gohugo.io/content-management/mathematics/) in the site configuration.
 
+    ```
+    Inline formulas such as $y=ax+b$ are supported, displayed formulas as well:
+
+    $$
+      e^{i\pi}+1=0
+    $$
+    ```
+
 2. To render mathematical expressions in specific locations, surround them with the `math` shortcode:
 
     ```
-    Inline formulas such as {{% math %}}y=ax+b{{% /math %}} are supported, displayed formulas as well:
+    Inline formulas such as {{< math >}}y=ax+b{{< /math >}} are supported, displayed formulas as well:
 
-    {{% math displayMode=true %}}
+    {{< math displayMode=true >}}
       e^{i\pi}+1=0
-    {{% /math %}}
+    {{< /math >}}
     ```
 
 

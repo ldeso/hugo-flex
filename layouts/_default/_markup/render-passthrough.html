@@ -1,2 +1,2 @@
 {{ $opts := eq .Type "block" | dict "displayMode" }}
-{{- transform.ToMath .Inner $opts -}}
+{{ transform.ToMath .Inner $opts }}

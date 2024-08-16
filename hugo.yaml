@@ -29,13 +29,6 @@ params:
   netlify:
     honeypot: false     # Set to true to add honeypot field in contact form
     recaptcha: false    # Set to true to add recaptcha challenge in contact form
-  math: &math false     # Set to true to render LaTeX without using shortcodes
-  mathdelim: &md
-    block:              # List of pairs of "display" math delimiters
-      - ['\[', '\]']
-      - ['$$', '$$']
-    inline:             # List of pairs of inline math delimiters
-      - ['\(', '\)']
   # css:                # Uncomment to add custom CSS from the assets directory
   #   - css/foo.css
   #   - bar.css
@@ -49,8 +42,13 @@ markup:
   goldmark:
     extensions:
       passthrough:
-        enable: *math   # Set to the same value as params.math
-        delimiters: *md # Set to the same value as params.mathdelim
+        enable: false   # Set to true to render math in LaTeX notation globally
+        delimiters:
+          block:
+            - ['\[', '\]']
+            - ['$$', '$$']
+          inline:
+            - ['\(', '\)']
 
 menu:
   main:
@@ -85,4 +83,4 @@ mediaTypes:
 module:
   hugoVersion:
     extended: false
-    min: 0.128.1
+    min: 0.132.0

@@ -1,9 +1,6 @@
-{{ if .Page.Params.math }}
-  {{ .Inner }}
+{{ if not .IsNamedParams | and .Params }}
+  {{ errorf "The %q shortcode requires named parameters. See https://gohugo.io/functions/transform/tomath/ for a list of options." .Name }}
 {{ else }}
-  {{ partial "math.html" . }}
-  {{ resources.Get "js/shortmath.tpl.js" | resources.ExecuteAsTemplate "js/shortmath.js" . | .Page.Scratch.SetInMap "js" "math-3" }}
-  {{ htmlUnescape `<div class="Math">` | safeHTML }}
-    {{ .Inner }}
-  {{ htmlUnescape "</div>" | safeHTML }}
+  {{ $opts := .Params | default nil }}
+  {{- transform.ToMath .Inner $opts -}}
 {{ end }}

@@ -72,7 +72,7 @@ Any part of the default theme configuration can be copied to the [site configura
 ```yaml
 baseURL: https://example.org/
 title: My New Hugo Site
-languageCode: en-us
+languageCode: en-US
 theme: hugo-flex
 
 params:

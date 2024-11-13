@@ -11,7 +11,7 @@
   {{ $site_css = $css_list | resources.Concat "css/base.css" }}
 {{ end }}
 
-{{ .Page.Scratch.SetInMap "css" "base" $site_css }}
+{{ .Page.Store.SetInMap "css" "base" $site_css }}
 
 {{ with site.Params.js }}
   {{ $js_list := slice }}
@@ -20,5 +20,5 @@
     {{ $js_list = $js_list | append $custom_js }}
   {{ end }}
   {{ $site_js := $js_list | resources.Concat "js/base.js" }}
-  {{ $.Page.Scratch.SetInMap "js" "base" $site_js }}
+  {{ $.Page.Store.SetInMap "js" "base" $site_js }}
 {{ end }}

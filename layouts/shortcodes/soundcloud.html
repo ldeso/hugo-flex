@@ -1,5 +1,5 @@
-{{ resources.Get "css/soundcloud.css" | .Page.Scratch.SetInMap "css" "soundcloud" }}
-{{ resources.Get "js/soundcloud.js" | .Page.Scratch.SetInMap "js" "soundcloud" }}
+{{ resources.Get "css/soundcloud.css" | .Page.Store.SetInMap "css" "soundcloud" }}
+{{ resources.Get "js/soundcloud.js" | .Page.Store.SetInMap "js" "soundcloud" }}
 
 <div class="Soundcloud">
   <a href="{{ .Get 0 }}" target="_blank" class="Soundcloud-box Soundcloud-box--link"><span class="Soundcloud-ellipsis">{{ .Get 0 }}</span></a>

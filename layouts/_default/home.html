@@ -9,15 +9,15 @@
 
   {{ range .Paginator.Pages }}
     {{ $noop := .Content }}
-    {{ $page_css := .Scratch.Get "css" }}
+    {{ $page_css := .Store.Get "css" }}
     {{ with $page_css }}
-      {{ $css_list := $.Scratch.Get "css" }}
-      {{ merge $css_list . | $.Scratch.Set "css" }}
+      {{ $css_list := $.Store.Get "css" }}
+      {{ merge $css_list . | $.Store.Set "css" }}
     {{ end }}
-    {{ $page_js := .Scratch.Get "js" }}
+    {{ $page_js := .Store.Get "js" }}
     {{ with $page_js }}
-      {{ $js_list := $.Scratch.Get "js" }}
-      {{ merge $js_list . | $.Scratch.Set "js" }}
+      {{ $js_list := $.Store.Get "js" }}
+      {{ merge $js_list . | $.Store.Set "js" }}
     {{ end }}
   {{ end }}
 

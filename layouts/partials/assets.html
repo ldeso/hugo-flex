@@ -1,4 +1,4 @@
-{{ range .Scratch.GetSortedMapValues "css" }}
+{{ range .Store.GetSortedMapValues "css" }}
   {{- if eq hugo.Environment "development" }}
     <link rel="stylesheet" href="{{ .RelPermalink }}">
   {{- else }}
@@ -8,7 +8,7 @@
   {{- end }}
 {{ end }}
 
-{{ range .Scratch.GetSortedMapValues "js" }}
+{{ range .Store.GetSortedMapValues "js" }}
   {{- if eq hugo.Environment "development" }}
     <script defer src="{{ .RelPermalink }}"></script>
   {{- else }}

@@ -10,7 +10,7 @@
         {{ if site.Params.favicon }}
           <link rel="icon" href="{{ absLangURL "favicon.ico" }}" type="image/x-icon" />
         {{ end }}
-        {{ with (.Scratch.Get "css").base }}
+        {{ with (.Store.Get "css").base }}
           {{ if eq hugo.Environment "development" }}
             <link rel="stylesheet" href="{{ .Permalink }}" />
           {{ else }}

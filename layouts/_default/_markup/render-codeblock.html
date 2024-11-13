@@ -1,4 +1,4 @@
 {{ if eq site.Params.noClasses false }}
-  {{ resources.Get "css/syntax.css" | .Page.Scratch.SetInMap "css" "syntax" }}
+  {{ resources.Get "css/syntax.css" | .Page.Store.SetInMap "css" "syntax" }}
 {{ end }}
 {{ highlight .Inner .Type .Options }}

@@ -247,11 +247,11 @@ In this example, the file paths relative to the site root would be: `assets/css/
 Sometimes, custom CSS or JS is needed only on specific pages. This theme offers a mechanism to load CSS or JS assets through [shortcodes](https://gohugo.io/content-management/shortcodes/).
 The assets are loaded only once per page, even if they are required by several shortcodes in the same page.
 
-To load a CSS or a JS resource on each page where a shortcode is used, the [shortcode template](https://gohugo.io/templates/shortcode-templates/) has to add the resource to the `css` or the `js` key of the [Scratch variable](https://gohugo.io/functions/scratch/).
+To load a CSS or a JS resource on each page where a shortcode is used, the [shortcode template](https://gohugo.io/templates/shortcode-templates/) has to add the resource to the `css` or the `js` key of the page's [scratch pad](https://gohugo.io/methods/page/store/).
 For instance, a shortcode template `myshortcode.html` containing the line
 
 ```html
-{{ resources.Get "myscript.js" | .Page.Scratch.SetInMap "js" "myscript" }}
+{{ resources.Get "myscript.js" | .Page.Store.SetInMap "js" "myscript" }}
 ```
 
 will cause `myscript.js` to be loaded on every page where `myshortcode` is used.
@@ -259,8 +259,8 @@ will cause `myscript.js` to be loaded on every page where `myshortcode` is used.
 As a real-life example, this is the template for the built-in SoundCloud shortcode:
 
 ```html
-{{ resources.Get "css/soundcloud.css" | .Page.Scratch.SetInMap "css" "soundcloud" }}
-{{ resources.Get "js/soundcloud.js" | .Page.Scratch.SetInMap "js" "soundcloud" }}
+{{ resources.Get "css/soundcloud.css" | .Page.Store.SetInMap "css" "soundcloud" }}
+{{ resources.Get "js/soundcloud.js" | .Page.Store.SetInMap "js" "soundcloud" }}
 
 <div class="Soundcloud">
   <a href="{{ .Get 0 }}" target="_blank" class="Soundcloud-box Soundcloud-box--link"><span class="Soundcloud-ellipsis">{{ .Get 0 }}</span></a>

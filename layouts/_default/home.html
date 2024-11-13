@@ -1,7 +1,7 @@
 {{ define "load_paginator" }}
 
   {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-  {{ with .Paginate $pages }}{{ end }}
+  {{ $noop := .Paginate $pages }}
 
 {{ end }}
 

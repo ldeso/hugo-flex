@@ -1,6 +1,7 @@
 {{ define "main" }}
 
-  {{ partial "heading.html" . }}
+  {{ $context := dict "page" . "level" 1 }}
+  {{ partial "heading.html" $context }}
 
   {{ .Content }}
 

@@ -71,6 +71,10 @@ kbd:has(kbd) {
   flex-grow: 1;
 }
 
+.Banner-heading {
+  margin: 0;
+}
+
 .Banner-link {
   font-size: 1.25rem;
   color: white;

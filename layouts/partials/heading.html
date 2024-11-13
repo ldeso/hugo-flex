@@ -1,10 +1,12 @@
 <header class="Heading">
-  <h1 class="Heading-title">
-    <a class="Heading-link u-clickable" href="{{ .RelPermalink }}" rel="bookmark">{{ .Title }}</a>
-  </h1>
-  {{ with .PublishDate | default nil }}
-    <time datetime="{{ time.Format "2006-01-02T15:04:05Z07:00" . }}">
-      {{- time.Format ":date_long" . -}}
-    </time>
+  <h{{ .level }} class="Heading-title">
+    <a class="Heading-link u-clickable" href="{{ .page.RelPermalink }}" rel="bookmark">{{ .page.Title }}</a>
+  </h{{ .level }}>
+  {{ if not .isdatehidden }}
+    {{ with .page.PublishDate }}
+      <time datetime="{{ time.Format "2006-01-02T15:04:05Z07:00" . }}">
+        {{- time.Format ":date_long" . -}}
+      </time>
+    {{ end }}
   {{ end }}
 </header>

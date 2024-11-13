@@ -1,4 +1,5 @@
-{{ $level := add .Level site.Params.headingoffset | math.Max 1 }}
+{{ $homeoffset := eq hugo.Context.MarkupScope "home" | int }}
+{{ $level := add .Level site.Params.headingoffset | math.Max 1 | add $homeoffset | math.Min 6 }}
 {{ $anchor := safeURL .Anchor }}
 
 <h{{ $level }} id="{{ $anchor }}">

@@ -26,7 +26,8 @@
 {{ define "main" }}
 
   {{ if .Title }}
-    {{ partial "heading.html" . }}
+    {{ $context := dict "page" . "level" 1 "isdatehidden" true }}
+    {{ partial "heading.html" $context }}
   {{ end }}
 
   {{ .Content }}
@@ -34,16 +35,21 @@
   {{ $length := len .Paginator.Pages }}
   {{ range $index, $page := .Paginator.Pages }}
     <article>
-      {{ partial "heading.html" . }}
-      {{ if site.Params.summaries }}
-        {{ .Summary }}
-        {{ if .Truncated }}
-          <p>
-            <a class="u-clickable" href="{{ .RelPermalink }}">Read More…</a>
-          </p>
+      {{ $context := dict "page" . "level" 2 }}
+      {{ partial "heading.html" $context }}
+      {{ with .Markup "home" }}
+        {{ with .Render }}
+          {{ if site.Params.summaries }}
+            {{ .Summary }}
+            {{ if $page.Truncated }}
+              <p>
+                <a class="u-clickable" href="{{ $page.RelPermalink }}">Read More…</a>
+              </p>
+            {{ end }}
+          {{ else }}
+            {{ .Content }}
+          {{ end }}
         {{ end }}
-      {{ else }}
-        {{ .Content }}
       {{ end }}
       {{ partial "tags.html" . }}
     </article>

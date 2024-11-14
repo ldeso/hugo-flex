@@ -26,7 +26,7 @@
 {{ define "main" }}
 
   {{ if .Title }}
-    {{ $context := dict "page" . "level" 1 "isdatehidden" true }}
+    {{ $context := dict "page" . "level" 1 "isdateshown" false }}
     {{ partial "heading.html" $context }}
   {{ end }}
 
@@ -35,7 +35,7 @@
   {{ $length := len .Paginator.Pages }}
   {{ range $index, $page := .Paginator.Pages }}
     <article>
-      {{ $context := dict "page" . "level" 2 }}
+      {{ $context := dict "page" . "level" 2 "isdateshown" true }}
       {{ partial "heading.html" $context }}
       {{ with .Markup "home" }}
         {{ with .Render }}

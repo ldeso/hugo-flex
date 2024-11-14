@@ -44,16 +44,16 @@ A complete starter template specifically made for this theme is also available a
 
 3. Open a command prompt at the root of the site and download the theme:
 
-```bash
-git init
-git submodule add https://github.com/ldeso/hugo-flex.git themes/hugo-flex
-```
+    ```bash
+    git init
+    git submodule add https://github.com/ldeso/hugo-flex.git themes/hugo-flex
+    ```
 
 4. Add the theme to the [site configuration](https://gohugo.io/getting-started/configuration/). If the site configuration is a file called `hugo.yaml`:
 
-```bash
-echo 'theme: hugo-flex' >> hugo.yaml
-```
+    ```bash
+    echo 'theme: hugo-flex' >> hugo.yaml
+    ```
 
 
 ## Updating
@@ -148,6 +148,16 @@ outputFormats:
     baseName: feed      # Rename RSS feed URL from rss.xml to feed.xml
 ```
 
+By default, the date is shown in the headings of all normal pages and hidden on special pages. This can be overriden on specific pages by setting the `showdate` parameter in their [front matter](https://gohugo.io/content-management/front-matter/). For example, the date can be hidden on an "About" page by setting its front matter as follows:
+
+```md
++++
+title = "About"
+date = 2006-01-02
+[params]
+  showdate = false
++++
+```
 
 ## Math Rendering
 
@@ -156,7 +166,7 @@ Rendering can take place either globally, or in specific locations using a built
 
 1. To render math globally, [enable the passthrough extension](https://gohugo.io/content-management/mathematics/) in the site configuration.
 
-    ```
+    ```latex
     Inline formulas such as $y=ax+b$ are supported, displayed formulas as well:
 
     $$
@@ -166,7 +176,7 @@ Rendering can take place either globally, or in specific locations using a built
 
 2. To render mathematical expressions in specific locations, surround them with the `math` shortcode:
 
-    ```
+    ```latex
     Inline formulas such as {{< math >}}y=ax+b{{< /math >}} are supported, displayed formulas as well:
 
     {{< math displayMode=true >}}

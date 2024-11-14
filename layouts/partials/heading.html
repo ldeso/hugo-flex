@@ -2,7 +2,7 @@
   <h{{ .level }} class="Heading-title">
     <a class="Heading-link u-clickable" href="{{ .page.RelPermalink }}" rel="bookmark">{{ .page.Title }}</a>
   </h{{ .level }}>
-  {{ if not .isdatehidden }}
+  {{ if .page.Params.showdate | default .isdateshown }}
     {{ with .page.PublishDate }}
       <time datetime="{{ time.Format "2006-01-02T15:04:05Z07:00" . }}">
         {{- time.Format ":date_long" . -}}

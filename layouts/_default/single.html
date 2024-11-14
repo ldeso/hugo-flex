@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-  {{ $context := dict "page" . "level" 1 }}
+  {{ $context := dict "page" . "level" 1 "isdateshown" true }}
   {{ partial "heading.html" $context }}
   {{ .Content }}
   {{ partial "tags.html" . }}

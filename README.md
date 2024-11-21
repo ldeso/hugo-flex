@@ -2,7 +2,7 @@
 
 A lightweight Hugo theme leveraging [CSS Flexbox](https://developer.mozilla.org/docs/Web/CSS/CSS_Flexible_Box_Layout).
 
-This theme is verified to work with [Hugo](https://gohugo.io/) versions v0.134.0–v0.138.0.
+This theme is verified to work with [Hugo](https://gohugo.io/) versions v0.134.0–v0.139.0.
 
 
 ## Features

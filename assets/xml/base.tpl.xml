@@ -8,14 +8,14 @@
         <meta name="color-scheme" content="light dark" />
         <title><xsl:value-of select="title" /></title>
         {{ if site.Params.favicon }}
-          <link rel="icon" href="{{ absLangURL "favicon.ico" }}" type="image/x-icon" />
+          <link href="{{ absLangURL "favicon.ico" }}" rel="icon" type="image/x-icon" />
         {{ end }}
         {{ with (.Store.Get "css").base }}
           {{ if eq hugo.Environment "development" }}
-            <link rel="stylesheet" href="{{ .Permalink }}" />
+            <link href="{{ .Permalink }}" rel="stylesheet" />
           {{ else }}
             {{ with . | minify | fingerprint }}
-              <link rel="stylesheet" href="{{ .Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+              <link href="{{ .Permalink }}" rel="stylesheet" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
             {{ end }}
           {{ end }}
         {{ end }}

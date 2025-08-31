@@ -15,7 +15,7 @@ params:
     favorite feed reader.
   favicon: false        # Set to true to add a link to the favicon.ico
   noClasses: &nc false  # Set to true to use inline CSS for syntax highlighting
-  katex: 0.16.11        # KaTeX version / leave empty to use the latest version
+  katex: 0.16.22        # KaTeX version / leave empty to use the latest version
   headingoffset: 0      # Change heading levels when rendering markdown
   linkicons: false      # Set to hover or true to add a link icon to headings
   summaries: false      # Set to true to show summaries of posts on homepage

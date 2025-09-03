@@ -23,15 +23,15 @@
 <meta name="color-scheme" content="light dark">
 
 {{ if site.Params.schema }}
-  {{ template "_internal/schema.html" . }}
+  {{ partial "schema.html" . }}
 {{ end }}
 
 {{ if site.Params.opengraph }}
-  {{ template "_internal/opengraph.html" . }}
+  {{ partial "opengraph.html" . }}
 {{ end }}
 
 {{ if site.Params.twittercards }}
-  {{ template "_internal/twitter_cards.html" . }}
+  {{ partial "twitter_cards.html" . }}
 {{ end }}
 
 {{ hugo.Generator }}

@@ -1,6 +1,6 @@
 baseURL: https://example.org/
 title: My New Hugo Site
-languageCode: en-US
+locale: en-US
 theme: hugo-flex
 
 params:
@@ -83,4 +83,4 @@ mediaTypes:
 module:
   hugoVersion:
     extended: false
-    min: 0.146.0
+    min: 0.158.0

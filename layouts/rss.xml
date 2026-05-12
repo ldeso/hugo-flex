@@ -12,7 +12,7 @@
     <link>{{ .Permalink }}</link>
     <description>Recent content {{ if ne .Title site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ site.Title }}</description>
     <generator>Hugo</generator>
-    <language>{{ site.Language.LanguageCode }}</language>{{ with site.Params.author.email }}
+    <language>{{ site.Language.Locale }}</language>{{ with site.Params.author.email }}
     <managingEditor>{{ . }}{{ with site.Params.author.name }} ({{ . }}){{ end }}</managingEditor>{{ end }}{{ with site.Params.author.email }}
     <webMaster>{{ . }}{{ with site.Params.author.name }} ({{ . }}){{ end }}</webMaster>{{ end }}{{ with site.Copyright }}
     <copyright>{{ . }}</copyright>{{ end }}
